@@ -1,11 +1,8 @@
+/* ALLE SEITEN */
+
 body {
     background: linear-gradient(to right, #90b323, #007c57);
     font-family: "sans-serif", helvetica, arial;
-}
-
-.biglogo {
-    text-align: center;
-    margin-top: 5%;
 }
 
 .smalllogo {
@@ -36,7 +33,38 @@ body {
     margin-left: 1%;
     height: calc(100% - 100px);
     width: 98%;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+
+/* HAUTPSEITE */
+
+.feature-button {
+    float: left;
+    background: rgba(255, 255, 255, 0);
+    border-style: outset;
+    border-color: rgba(255, 255, 255, 0.3);
+    width: 42%;
+    margin: 3%;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+}
+
+.feature-image {
+    text-align: center;
+    width: 90%;
+    margin: 2%;
+}
+
+/* FEATURES */
+
+
+/* LADESEITE */
+
+.biglogo {
+    text-align: center;
+    margin-top: 5%;
 }
 
 .central-loading {
@@ -65,20 +93,4 @@ body {
     width: 70%;
 }
 
-.feature-button {
-    float: left;
-    background: rgba(255, 255, 255, 0);
-    border-style:outset;
-    border-color: rgba(255, 255, 255, 0.3);
-    width: 42%;
-    margin: 3%;
-    font-weight: bold;
-    color: white;
-    text-align: center;
-}
 
-.feature-image {
-    text-align: center;
-    width: 90%;
-    margin: 2%;
-}
