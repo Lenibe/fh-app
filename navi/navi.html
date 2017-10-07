@@ -6,21 +6,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title>Navigation</title>
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="../css/body-css.css">
-    <!--<meta name="format-detection" content="telephone=no" />
-    <meta name="msapplication-tap-highlight" content="no" />
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
-    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-    
-    <link rel="stylesheet" type="text/css" href="../css/body-css.css">
-    <link rel="stylesheet" href="css/style.css">-->
-
+    <link rel="stylesheet" type="text/css" href="css/navi.css">
 </head>
 
 <body>
@@ -44,38 +34,39 @@
             function myFunction(x) {
                 x.classList.toggle("change");
             }
+
         </script>
 
         <a href="../index.html"><img src="../images/back.png" style="height: 45px; float:right; margin-top: 6px; margin-right: 15px;"></a>
-
     </header>
 
     <!-- IN DIE SECTION KOMMEN DIE EINZELNEN FEATURES -->
 
     <section class="featurescreen">
-        <h1>Navigation</h1>
-        <div>
-            <a href="../index.html" type="button" class="btn btn-lg btn-default">zurück</a>
-            <br><br>
-        </div>
-        <div>
-            <div class="content">
-                <h3>Raum-Suche</h3>
-                <input id="search" name="search" placeholder="Suche" type="text" data-list=".default_list" autocomplete="on">
-                <ul class="vertical default_list" id="raumliste">
-
-                </ul>
+        <div class="container">
+            <div>
+                <h2>Navigation</h2>
             </div>
-
+            <form></form>
+            <div class="form-group">
+                <label for="lbl-search-start">Start-Raum:</label>
+                <input id="search-start" name="search-start" placeholder="Startraum auswählen..." list="my-datalist">
+                <datalist id="my-datalist"></datalist>
+            </div>
+            <div class="form-group">
+                <lable for="lbl-search-end">Ziel-Raum: </lable>
+                <input id="search-end" name="search-end" placeholder="Zielraum auswählen..." list="my-datalist">
+                <datalist id="my-datalist"></datalist>
+            </div>
         </div>
-
-        <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="../js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="js/jquery.hideseek.min.js"></script>
-        <script type="text/javascript" src="js/main.js"></script>
-        <script type="text/javascript" src="js/rooms.js"></script>
     </section>
+    
+    <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery.hideseek.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/rooms.js"></script>
 </body>
 
 </html>

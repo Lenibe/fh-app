@@ -104,7 +104,7 @@ function initPath(st, x, y) {
     $("#og1Map").hide();
     $("#og2Map").hide();
     $("#tb3Map").hide();
-    //$("#grid4Map").hide();
+    $("#grid4Map").hide();
 
     var stockwerk = st;
 
@@ -172,7 +172,6 @@ function initPath(st, x, y) {
         $("#lift").append("Willkommen in Pinkafeld!").off("click touch").on("click touch", function () {
             $("#eg0Map").hide();
             $("#lift").hide();
-            $("#tb3Map").hide();
             $("grid4Map").show();
             drawPath(stockwerk, start4, end4);
         });
