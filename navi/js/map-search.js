@@ -105,7 +105,7 @@ function initPath(st, x, y) {
     $("#og2Map").hide();
     $("#tb3Map").hide();
     //$("#grid4Map").hide();
-    
+
     var stockwerk = st;
 
     // Start beim Eingang ACHTUNG: zuerst wird die Zeile angegeben, dann die Spalte!
@@ -121,7 +121,7 @@ function initPath(st, x, y) {
     var startTLX = 23;
     var startGrid4Y = 15;
     var startGrid4X = 4;
-    
+
     // ist Endpunkt im EG?
     if (stockwerk == "0") {
         var start = graph[0].grid[startY][startX];
@@ -180,13 +180,8 @@ function initPath(st, x, y) {
 
     function drawPath(st, start, end) {
         // astar anwenden
-        
-        if (st == "4"){
-            start = "15";
-            end = "4";
-            alert(st + " start: " + start + " end: " + end);
-        }
         var result = astar.search(graph[st], start, end);
+        
         // Ergebnisse anzeigen
         for (var i = 0; i < result.length; i++) {
             (function (ind) {
@@ -210,10 +205,9 @@ function initPath(st, x, y) {
             gridElems[0][startY][startX].classList.add('waypoint', 'start');
         } else if (st == "3") {
             gridElems[3][startTLY][startTLX].classList.add('waypoint', 'start');
-        } else if (st == "4"){
+        } else if (st == "4") {
             gridElems[4][startGrid4Y][startGrid4X].classList.add('waypoint', 'start');
-        }
-            else {
+        } else {
             gridElems[st][liftY][liftX].classList.add('waypoint', 'start');
         }
     }
