@@ -7,14 +7,15 @@ body {
 
 .smalllogo {
     float: left;
-    width: 40%;
-    max-width: 150px;
+    /*width: 30%;*/
+    max-width: 100px; /* --> Höhe = 52.75px*/
     position: absolute;
 }
 
 .burger {
     opacity: 0.95;
-    width: 80px;
+    /*width: 80px;*/
+    height: 52.75px;
     float: right;
     border-style: solid;
     border-width: thin;
@@ -31,7 +32,7 @@ body {
     margin-bottom: 1%;
     margin-right: 1%;
     margin-left: 1%;
-    height: calc(100% - 100px);
+    height: calc(100% - 75px);
     width: 98%;
     background-color: rgba(255, 255, 255, 0.6);
 }
@@ -41,10 +42,11 @@ body {
 
 .feature-button {
     float: left;
-    background: rgba(255, 255, 255, 0);
+    background: rgba(255, 255, 255, 0.5);
     border-style: outset;
     border-color: rgba(255, 255, 255, 0.3);
     width: 42%;
+    max-width: 200px;
     margin: 3%;
     font-weight: bold;
     color: white;
@@ -53,7 +55,6 @@ body {
 
 .feature-image {
     text-align: center;
-    width: 90%;
     margin: 2%;
 }
 
