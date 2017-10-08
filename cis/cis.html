@@ -8,7 +8,8 @@
     <meta name="msapplication-tap-highlight" content="no" />
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
     <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/cis.css">
     <link rel="stylesheet" type="text/css" href="../css/body-css.css">
     <title>CIS</title>
 </head>
@@ -40,15 +41,32 @@
 
     </header>
 
-    <!-- IN DIE SECTION KOMMEN DIE EINZELNEN FEATURES -->
 
     <section class="featurescreen">
 
+   <div class="container">
+  <div class="h1"><h1>Anmeldung mit CIS</h1></div>
+  <form action="/action_page.php">
+    <div class="form-group">
+      <label for="PKZ">Personenkennzahl:</label>
+      <input type="PKZ" class="form-control" id="PKZ" placeholder="PKZ eingeben" name="PKZ">
+    </div>
+    <div class="form-group">
+      <label for="pwd">Passwort:</label>
+      <input type="passwort" class="form-control" id="pwt" placeholder="Passwort eingeben" name="pwt">
+    </div>
+    <div class="checkbox">
+      <label><input type="checkbox" name="remember"> Eingeloggt bleiben</label>
+    </div>
+      <a href="index.html"><button type="anmelden" class="btn btn-default">Anmelden</button></a>
+  </form>
+</div>
+   
     </section>
 
 
     <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript">
         app.initialize();
 
