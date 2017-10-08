@@ -9,8 +9,8 @@
     <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="../css/body-css.css">
     <link rel="stylesheet" type="text/css" href="css/navi.css">
+    <link rel="stylesheet" type="text/css" href="../css/body-css.css">
 </head>
 
 <body>
@@ -44,19 +44,20 @@
 
     <section class="featurescreen">
         <div class="container">
-            <div>
+            <div class="h1">
                 <h2>Navigation</h2>
             </div>
             <form></form>
-            <div class="form-group">
-                <label for="lbl-search-start">Start-Raum:</label>
-                <input id="search-start" name="search-start" placeholder="Startraum auswählen..." list="my-datalist">
+            <div class="form-group" id="fg-search-start">
+                <input id="search-start" class="form-control" name="search-start" placeholder="Startraum auswählen..." list="my-datalist">
+                <datalist id="my-datalist"></datalist>
+            </div>
+            <div class="form-group" id="fg-search-end">
+                <input id="search-end" class="form-control" name="search-end" placeholder="Zielraum auswählen..." list="my-datalist">
                 <datalist id="my-datalist"></datalist>
             </div>
             <div class="form-group">
-                <lable for="lbl-search-end">Ziel-Raum: </lable>
-                <input id="search-end" name="search-end" placeholder="Zielraum auswählen..." list="my-datalist">
-                <datalist id="my-datalist"></datalist>
+                <a href="indoornavi-map.html" class="btn btn-default" role="button">Weg finden</a>
             </div>
         </div>
     </section>

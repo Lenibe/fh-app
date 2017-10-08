@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html>
 
 <head>
@@ -15,62 +14,48 @@
 </head>
 
 <body>
-
     <header>
         <a href="../index.html"><img class="smalllogo" src="../images/fhapp-icon-weiss-transparent_klein.png" alt="FH Burgenland-Logo klein" style="width: 100%"></a>
-
         <!-- ALTER BURGER-BUTTON
          <button class="burger" style="background-color: rgba(255, 255, 255, 0);">
         <img src="images/burger-menu.png" alt="burger menu" style="height: 100%">
         </button> -->
-
         <div class="burger" onclick="myFunction(this)">
             <div class="bar1"></div>
             <div class="bar2"></div>
             <div class="bar3"></div>
         </div>
-
         <script>
             function myFunction(x) {
                 x.classList.toggle("change");
             }
-
         </script>
-
         <a href="../index.html"><img src="../images/back.png" style="height: 45px; float:right; margin-top: 6px; margin-right: 15px;"></a>
-
     </header>
-
-
     <section class="featurescreen">
-
-   <div class="container">
-  <div class="h1"><h1>Anmeldung mit CIS</h1></div>
-  <form action="/action_page.php">
-    <div class="form-group">
-      <label for="PKZ">Personenkennzahl:</label>
-      <input type="PKZ" class="form-control" id="PKZ" placeholder="PKZ eingeben" name="PKZ">
-    </div>
-    <div class="form-group">
-      <label for="pwd">Passwort:</label>
-      <input type="passwort" class="form-control" id="pwt" placeholder="Passwort eingeben" name="pwt">
-    </div>
-    <div class="checkbox">
-      <label><input type="checkbox" name="remember"> Eingeloggt bleiben</label>
-    </div>
-      <a href="index.html"><button type="anmelden" class="btn btn-default">Anmelden</button></a>
-  </form>
-</div>
-   
+        <div class="container">
+            <div class="h1">
+                <h1>Anmeldung mit CIS</h1>
+            </div>
+            <form action="/action_page.php">
+                <div class="form-group">
+                    <!-- Label über dem Eingabefeld
+      <label for="PKZ">Personenkennzahl:</label> -->
+                    <input type="PKZ" class="form-control" id="PKZ" placeholder="PKZ eingeben" name="PKZ"> </div>
+                <div class="form-group">
+                    <!-- Label über dem Eingabefeld
+      <label for="pwd">Passwort:</label> -->
+                    <input type="passwort" class="form-control" id="pwt" placeholder="Passwort eingeben" name="pwt"> </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="remember"> Eingeloggt bleiben</label>
+                </div>
+                <!-- Hier kommt die Verlinkung zum CIS-Login-Bereich, sobald die Skripten vorhanden sind -->
+                <a href="../index.html" class="btn btn-default" role="button">Anmelden</a> </form>
+        </div>
     </section>
-
-
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript">
-        app.initialize();
-
-    </script>
 </body>
 
 </html>
