@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title>Navigation</title>
-    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/navi.css">
@@ -49,17 +49,19 @@
             </div>
             <form>
                 <div class="form-group" id="fg-search-start">
-                    <input id="search-start" class="form-control" name="search-start" placeholder="Startraum auswählen..." list="my-datalist">
-                    <datalist id="my-datalist"></datalist>
-                </div>
-                <div class="form-group" id="fg-search-end">
-                    <input id="search-end" class="form-control" name="search-end" placeholder="Zielraum auswählen..." list="my-datalist">
-                    <datalist id="my-datalist"></datalist>
-                </div>
-                <div class="form-group">
-                    <a href="indoornavi-map.html" class="btn btn-default" role="button">Weg finden</a>
+                    <label for="search-start">Startraum:</label>
+                    <input id="search-start" class="form-control" name="search-start" placeholder="Bitte auswählen" list="room-list">
+                    <datalist id="room-list"></datalist>
                 </div>
             </form>
+            <form>
+                <div class="form-group" id="fg-search-end">
+                    <label for="search-end">Zielraum:</label>
+                    <input id="search-end" class="form-control" name="search-end" placeholder="Bitte auswählen" list="room-list">
+                    <datalist id="room-list"></datalist>
+                </div>
+            </form>
+            <a href="indoornavi-map.html" class="btn btn-default" role="button" type="search">Weg finden</a>
         </div>
     </section>
 
