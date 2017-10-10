@@ -24,11 +24,29 @@ function processData(data) {
         caption3 = "",
         caption4 = "";
 
+    //datalist.innerHTML += '<optgroup label="Erdgeschoß">';
     for (var singleRow = 0; singleRow < allRows.length; singleRow++) {
         var rowCells = allRows[singleRow].split(';');
         var datalist = document.getElementById('my-datalist');
+        var level;
+       
+        if (rowCells[1] == "0" && caption1 == "") {
+            level = 'Erdgeschoß';
+            caption1 = 'full';
+        } else if (rowCells[1] == "1" && caption2 == "") {
+            level = '1. Obergeschoß';
+            caption2 = 'full';
+        } else if (rowCells[1] == "2" && caption3 == "") {
+            level = '2. Obergeschoß';
+            caption3 = 'full';
+        } else if (rowCells[1] == "3" && caption4 == "") {
+            level = 'TechLab';
+            caption4 = 'full';
+        }
+        
+        datalist.innerHTML += '<option value=' + rowCells[0] + '>' + level + '</option>';
+        //datalist.innerHTML += '<option value=' + rowCells[0] + '>' + level + '</option>';
 
-        datalist.innerHTML += '<option value=' + rowCells[0] + '>';
         /*
         if (rowCells[1] == "0" && caption1 == "") {
             table += '<li class="list-caption">Erdgeschoß</li>';
