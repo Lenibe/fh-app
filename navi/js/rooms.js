@@ -62,6 +62,7 @@ function processData(data) {
         
         dataliststart.innerHTML += '<option value=' + rowCells[0] + '>' + rowCells[0] + '</option>';
         datalistend.innerHTML += '<option value=' + rowCells[0] + '>' + rowCells[0] + '</option>';
+        
         table += '<li class="list-caption">' + level + '</li>';
         table += '<li><a href="indoornavi-map.html?room=';
         table += rowCells[1];
@@ -110,4 +111,8 @@ function processData(data) {
     }
     
     $('#raumliste').append(table);
+}
+
+function MySearch(){
+    alert("Juhu du hast es geschafft!");
 }
