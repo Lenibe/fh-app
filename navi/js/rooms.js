@@ -60,8 +60,8 @@ function processData(data) {
             level = null;
         }
         
-        dataliststart.innerHTML += '<option value=' + rowCells[0] + '>' + rowCells[0] + '</option>';
-        datalistend.innerHTML += '<option value=' + rowCells[0] + '>' + rowCells[0] + '</option>';
+        dataliststart.innerHTML += '<option value=' + rowCells[1] + "," + rowCells[3] + "," + rowCells[2]  + '>' + rowCells[0] + '</option>';
+        datalistend.innerHTML += '<option value=' + rowCells[1] + "," + rowCells[3] + "," + rowCells[2]  + '>' + rowCells[0] + '</option>';
         
         table += '<li class="list-caption">' + level + '</li>';
         table += '<li><a href="indoornavi-map.html?room=';
@@ -114,5 +114,10 @@ function processData(data) {
 }
 
 function MySearch(){
-    alert("Juhu du hast es geschafft!");
+    var startpoint = document.getElementById("room-list-start").value;
+    var endpoint =  document.getElementById("room-list-end").value;
+    alert("Start: " + startpoint + "\n" +
+          "Ziel: " + endpoint);
+    
+    window.location.href = "indoornavi-map.html?start=" + startpoint + "&end=" + endpoint;
 }
