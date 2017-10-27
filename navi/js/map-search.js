@@ -104,15 +104,17 @@ function initPath(st, x, y) {
     $("#og1Map").hide();
     $("#og2Map").hide();
     $("#tb3Map").hide();
-    $("#grid4Map").hide();
+    //$("#grid4Map").hide();
 
     var stockwerk = st;
 
     // Start beim Eingang ACHTUNG: zuerst wird die Zeile angegeben, dann die Spalte!
     var startY = 15;
     var startX = 5;
-    var endY = x - 1; // -1 um Indexierung bei 0 zu beginnen
-    var endX = y - 1;
+    //var endY = x - 1; // -1 um Indexierung bei 0 zu beginnen
+    //var endX = y - 1;
+    var endX = x - 1;
+    var endY= y - 1;
     var liftY = 7;
     var liftX = 6;
     var HGzuTLY = 0;
@@ -120,7 +122,7 @@ function initPath(st, x, y) {
     var startTLY = 23;
     var startTLX = 23;
     var startGrid4Y = 15;
-    var startGrid4X = 4;
+    var startGrid4X = 3;
 
     // ist Endpunkt im EG?
     if (stockwerk == "0") {
@@ -150,6 +152,7 @@ function initPath(st, x, y) {
         // wenn Endpunkt im TL, dann geh nach draußen
         var start = graph[0].grid[startY][startX];
         var end = graph[0].grid[HGzuTLY][HGzuTLX];
+        //var end = graph[0].grid[15][4];
         drawPath(0, start, end);
 
         var start3 = graph[stockwerk].grid[startTLY][startTLX];
@@ -167,6 +170,7 @@ function initPath(st, x, y) {
         drawPath(0, start, end);
 
         var start4 = graph[stockwerk].grid[startGrid4Y][startGrid4X];
+        endY += 1;
         var end4 = graph[stockwerk].grid[endY][endX];
 
         $("#lift").append("Willkommen in Pinkafeld!").off("click touch").on("click touch", function () {

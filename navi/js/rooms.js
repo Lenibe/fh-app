@@ -22,20 +22,23 @@ function processData(data) {
         caption1 = "",
         caption2 = "",
         caption3 = "",
-        caption4 = "";
-
+        caption4 = "",
+        first = true;
+    
     //datalist.innerHTML += '<optgroup label="Erdgeschoß">';
+    //datalist.innerHTML += '<select name="rooms">';
     for (var singleRow = 0; singleRow < allRows.length; singleRow++) {
         var rowCells = allRows[singleRow].split(';');
-        var datalist = document.getElementById('room-list');
+        var dataliststart = document.getElementById('room-list-start');
+        var datalistend = document.getElementById('room-list-end');
         var level;
-       
+        
         if (rowCells[1] == "0" && caption1 == "") {
             level = 'Erdgeschoß';
             caption1 = 'full';
         } else if (rowCells[1] == "1" && caption2 == "") {
             level = '1. Obergeschoß';
-            caption2 = 'full';        
+            caption2 = 'full';
         } else if (rowCells[1] == "2" && caption3 == "") {
             level = '2. Obergeschoß';
             caption3 = 'full';
@@ -44,7 +47,21 @@ function processData(data) {
             caption4 = 'full';
         }
         
-        datalist.innerHTML += '<option value=' + rowCells[0] + '>' + level + '</option>';
+        if (level != null){
+            if(first){
+                first = false;
+            }else{
+                dataliststart.innerHTML += '</optgroup>';
+                datalistend.innerHTML += '</optgroup>';
+            }
+                
+            dataliststart.innerHTML += '<optgroup label="' + level + '">';
+            datalistend.innerHTML += '<optgroup label="' + level + '">';
+            level = null;
+        }
+        
+        dataliststart.innerHTML += '<option value=' + rowCells[0] + '>' + rowCells[0] + '</option>';
+        datalistend.innerHTML += '<option value=' + rowCells[0] + '>' + rowCells[0] + '</option>';
         table += '<li class="list-caption">' + level + '</li>';
         table += '<li><a href="indoornavi-map.html?room=';
         table += rowCells[1];
