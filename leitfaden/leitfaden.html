@@ -10,6 +10,7 @@
     <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <link rel="stylesheet" type="text/css" href="../css/body-css.css">
+    <link rel="stylesheet" type="text/css" href="css/leitfaden.css">
     <title>Leitfaden</title>
 </head>
 
@@ -33,7 +34,6 @@
             function myFunction(x) {
                 x.classList.toggle("change");
             }
-
         </script>
 
         <a href="../index.html"><img src="../images/back.png" style="height: 45px; float:right; margin-top: 6px; margin-right: 15px"></a>
@@ -43,19 +43,27 @@
     <!-- IN DIE SECTION KOMMEN DIE EINZELNEN FEATURES -->
 
     <section class="featurescreen">
-    
-    
-    <img src="img/uebersicht.jpg" id="map-image" style="width: 800px; max-width: 100%; height: auto;" alt="Leitfaden" usemap="#map" />
+
+    <!-- <map> macht das Bild klickbar. Mit <area> werden die einzelnen klickbaren Quadrate definiert. --> 
+        <img src="img/uebersicht.jpg" id="map-image" style="width: 100%; max-width: 100%; height: auto;" alt="Leitfaden" usemap="#map">
         <map name="map">
-            <area shape="rect" coords="82, 371, 359, 454" alt="Tag 1" href="tag-1.html"/>
+            <area shape="rect" coords="87, 367, 363, 482" alt="Tag 1" href="tag-1.html"/>
             <area shape="rect" coords="456, 598, 726, 690" alt="LV-Ablauf" href="ablauf-lv.html"/>
             <area shape="rect" coords="91, 818, 359, 917" alt="Benotung" href="benotung.html"/>
             <area shape="rect" coords="427, 1046, 784, 1139" alt="LV-Anrechnung" href="lv-anrechnung.html"/>
             <area shape="rect" coords="68, 1266, 371, 1353" alt="Studienabschluss" href="studienabschluss.html"/>
             <area shape="rect" coords="440, 1494, 779, 1590" alt="Alumni-Botschaft" href="alumni-botschaft.html"/>
         </map>
-    
-    
+        
+<!-- imageMapResizer.min.js macht das Bild responsive --> 
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="js/imageMapResizer.min.js"></script>
+        <script>
+            $(document).ready(function(e) {
+                $("map").imageMapResize();
+            });
+        </script>
+        
     </section>
 
 
@@ -64,8 +72,10 @@
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript">
         app.initialize();
-
     </script>
+    
+        
+        
 </body>
 
 </html>
