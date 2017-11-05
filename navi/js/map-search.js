@@ -107,6 +107,12 @@ function tfMap() {
     return '#tb3Map';
 }
 
+function showStairs() {
+    'use strict';
+
+    return '#stairs';
+}
+
 function elementDiv() {
     'use strict';
 
@@ -148,6 +154,55 @@ function regExp2() {
 
     return '=([^&#]*)';
 }
+
+function getFour() {
+    'use strict';
+
+    return 4;
+}
+
+function getEight() {
+    'use strict';
+
+    return 8;
+}
+
+function getNineTeen() {
+    'use strict';
+
+    return 19;
+}
+
+function getTwentyOne() {
+    'use strict';
+
+    return 21;
+}
+
+function getHGtoTLX() {
+    'use strict';
+
+    return 1;
+}
+
+function getHGtoTLY() {
+    'use strict';
+
+    return 0;
+}
+
+function getThirdFloorX() {
+    'use strict';
+
+    return 23;
+}
+
+function getThirdFloorY() {
+    'use strict';
+
+    return 23;
+}
+
 /* Konstanten - Ende */
 
 /* Funktionen - Start */
@@ -196,6 +251,7 @@ for (g = 0; g < mainMapLength; g += 1) {
 
 function initMaps(start_st) {
     'use strict';
+    $(showStairs()).hide();
 
     if (start_st === groundFloor()) {
         $(gfMap()).show();
@@ -220,7 +276,7 @@ function initMaps(start_st) {
     }
 }
 
-function drawPath(st, start, end) {
+function drawPath(st, start, end, stairs) {
     'use strict';
 
     // astar anwenden
@@ -239,6 +295,10 @@ function drawPath(st, start, end) {
                     punkt = pointPath();
                 } else {
                     punkt = pointEnd();
+
+                    if (stairs) {
+                        $(showStairs()).show();
+                    }
                 }
 
                 gridElems[st][result[ind].x][result[ind].y].classList.add(wayPoint(), punkt);
@@ -248,41 +308,223 @@ function drawPath(st, start, end) {
     }
 }
 
+function getStaircaseX(startX) {
+    'use strict';
+
+    var diffFour = 0,
+        diffNineteen = 0,
+        stX = Number(startX);
+
+    if (stX > getFour()) {
+        diffFour = stX - getFour();
+    } else {
+        diffFour = getFour() - stX;
+    }
+
+    if (stX > getNineTeen()) {
+        diffNineteen = stX - getNineTeen();
+    } else {
+        diffNineteen = getNineTeen() - stX;
+    }
+
+    if (diffFour < diffNineteen) {
+        return getFour();
+    } else if (diffNineteen < diffFour) {
+        return getNineTeen();
+    }
+}
+
+function getStaircaseY(startY) {
+    'use strict';
+
+    var diffEight = 0,
+        diffTwentyOne = 0,
+        stY = Number(startY);
+
+    if (stY > getEight()) {
+        diffEight = stY - getEight();
+    } else {
+        diffEight = getEight() - stY;
+    }
+
+    if (stY > getTwentyOne()) {
+        diffTwentyOne = stY - getTwentyOne();
+    } else {
+        diffTwentyOne = getTwentyOne() - stY;
+    }
+
+    if (diffEight < diffTwentyOne) {
+        return getEight();
+    } else if (diffTwentyOne < diffEight) {
+        return getTwentyOne();
+    }
+}
+
+function goToFloor(start_st, start_x, start_y, end_st, end_x, end_y) {
+    'use strict';
+    var stairX = 0,
+        stairY = 0,
+        start = 0,
+        end = 0,
+        startX = start_x,
+        startY = start_y,
+        endY = end_y,
+        endX = end_x,
+        stockwerk = end_st,
+        strMessage = '';
+
+    //X- & Y-Koordinaten der nähesten Stiegen finden
+    stairY = getStaircaseX(startY);
+    stairX = getStaircaseY(startX);
+
+    start = graph[start_st].grid[startY][startX];
+    end = graph[start_st].grid[stairY][stairX];
+    drawPath(start_st, start, end, true);
+
+    if (stockwerk === groundFloor()) {
+        strMessage = 'Gehe ins Erdgeschoß!';
+    } else {
+        strMessage = 'Gehe in den ' + stockwerk + '. Stock!';
+    }
+
+    // Klicke auf den Button, um in das andere Stockwerk zu gelangen
+    $("#stairs").append(strMessage).off("click touch").on("click touch", function () {
+        initMaps(end_st);
+        
+        //von Stiege bis zum Endpunkt
+        start = graph[end_st].grid[stairY][stairX];
+        end = graph[end_st].grid[endY][endX];
+        drawPath(end_st, start, end, false);
+    });
+}
+
+function goToTL(start_st, start_x, start_y, end_st, end_x, end_y) {
+    'use strict';
+
+    var stairX = 0,
+        stairY = 0,
+        start = 0,
+        end = 0,
+        startX = start_x,
+        startY = start_y,
+        endY = end_y,
+        endX = end_x,
+        strMessage = '',
+        gfTrue = false;
+
+    stairY = getStaircaseX(startY);
+    stairX = getStaircaseY(startX);
+
+    start = graph[start_st].grid[startY][startX];
+    end = graph[start_st].grid[stairY][stairX];
+    drawPath(start_st, start, end, true);
+
+    strMessage = 'Gehe ins Erdgeschoß!';
+
+    // Klicke auf den Button, um in das andere Stockwerk zu gelangen
+    $("#stairs").append(strMessage).off("click touch").on("click touch", function () {
+        initMaps(groundFloor());
+
+        start = graph[groundFloor()].grid[stairY][stairX];
+        end = graph[groundFloor()].grid[getHGtoTLY()][getHGtoTLX()];
+        drawPath(groundFloor(), start, end, false);
+        
+        strMessage = 'Gehe zum Techlab!';
+
+        $("#stairs").append(strMessage).off("click touch2").on("click touch2", function () {
+            initMaps(end_st);
+            
+            start = graph[groundFloor()].grid[getHGtoTLY()][getHGtoTLX()];
+            end = graph[end_st].grid[endY][endX];
+            drawPath(end_st, start, end);   
+        });
+        
+        
+    });
+
+    if (gfTrue) {
+        
+    }
+/*
+$(document).ready(function() {
+    var enabled = false;
+    $('#first').click(function() {
+        enabled = true;
+        setTimeout(function(){ enabled = false; }, 10000);
+    });
+    $('#second').click(function() {
+        if(enabled) {
+            alert('test');
+        };
+    });
+});
+
+https://stackoverflow.com/questions/5693042/how-does-jquery-handle-nested-functions-and-timing-of-events
+*/
+    //von Stiege bis zum Endpunkt
+    /*initMaps(thirdFloor());*/
+
+
+    /*  strMessage = 'Gehe zum Techlab!';
+
+      $("#stairs").append(strMessage).off("click touch").on("click touch", function () {
+          //        initMaps(end_st);
+
+          start = graph[groundFloor()].grid[getHGtoTLY()][getHGtoTLX()];
+          end = graph[end_st].grid[endY][endX];
+          drawPath(end_st, start, end);
+      });*/
+
+}
+
 function initPathStartEnd(start_st, start_x, start_y, end_st, end_x, end_y) {
     'use strict';
 
     // Entferne zuvor erstellen Path
     //$(".grid-box").removeClass("start end waypoint path");
 
+    $(".grid-box").removeClass("start end waypoint path");
+    $("#stairs").hide().html('<span class="glyphicon glyphicon-circle-arrow-up" aria-hidden="true"></span>');
+
     initMaps(start_st);
 
-    var stockwerk = end_st,
-        startY = start_y,
+    var startY = start_y,
         startX = start_x,
         endX = end_x,
         endY = end_y,
         start = 0,
-        end = 0;
-    
+        end = 0,
+        HGtoTLX = getHGtoTLX(),
+        HGtoTLY = getHGtoTLY(),
+        thirdFloorX = getThirdFloorX(),
+        thirdFloorY = getThirdFloorY();
+
+    start = graph[start_st].grid[startY][startX];
+
     //ist der Start-Stock = End-Stock -> Navigation durch das gleiche Stockwerk
     if (start_st === end_st) {
-        start = graph[stockwerk].grid[startY][startX];
-        end = graph[stockwerk].grid[endY][endX];
-        drawPath(stockwerk, start, end);
-    }
-
-    // ist Endpunkt im EG?
-    /*if (stockwerk === groundFloor()) {
-        start = graph[0].grid[startY][startX];
         end = graph[end_st].grid[endY][endX];
-        drawPath(0, start, end);
-    }
+        drawPath(end_st, start, end, false);
+    } else if ((start_st !== thirdFloor()) && (end_st !== thirdFloor())) {
+        goToFloor(start_st, start_x, start_y, end_st, end_x, end_y);
+    } else if (end_st === thirdFloor()) {
+        if (start_st !== groundFloor()) {
+            goToTL(start_st, start_x, start_y, end_st, end_x, end_y);
+        } else {
+            start = graph[start_st].grid[startY][startX];
+            end = graph[start_st].grid[HGtoTLY][HGtoTLX];
 
-    if (stockwerk === firstFloor()) {
-        start = graph[1].grid[startY][startX];
-        end = graph[end_st].grid[endY][endX];
-        drawPath(1, start, end);
-    }*/
+            drawPath(start_st, start, end, true);
+        }
+        /*
+                $("#stairs").append("Gehe zum TechLab!").off("click touch").on("click touch", function () {
+                    initMaps(end_st);
+
+                    start = graph[end_st].grid[thirdFloorY][thirdFloorX];
+                    end = graph[end_st].grid[endY][endX];
+                    drawPath(end_st, start, end);
+                });*/
+    }
 }
 
 function searchEndpoint() {
