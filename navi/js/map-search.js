@@ -34,6 +34,123 @@ var grid = [grid0, grid1, grid2, grid3];
 var gridElems = [],
     g = 0;
 
+/* Konstanten - Start */
+function pointStart() {
+    'use strict';
+
+    return 'start';
+}
+
+function pointPath() {
+    'use strict';
+
+    return 'path';
+}
+
+function pointEnd() {
+    'use strict';
+
+    return 'end';
+}
+
+function wayPoint() {
+    'use strict';
+
+    return 'waypoint';
+}
+
+function groundFloor() {
+    'use strict';
+
+    return '0';
+}
+
+function firstFloor() {
+    'use strict';
+
+    return '1';
+}
+
+function secondFloor() {
+    'use strict';
+
+    return '2';
+}
+
+function thirdFloor() {
+    'use strict';
+
+    return '3';
+}
+
+function gfMap() {
+    'use strict';
+
+    return '#eg0Map';
+}
+
+function ffMap() {
+    'use strict';
+
+    return '#og1Map';
+}
+
+function sfMap() {
+    'use strict';
+
+    return '#og2Map';
+}
+
+function tfMap() {
+    'use strict';
+
+    return '#tb3Map';
+}
+
+function elementDiv() {
+    'use strict';
+
+    return 'div';
+}
+
+function cnGridBox() {
+    'use strict';
+
+    return 'grid-box';
+}
+
+function strPercent() {
+    'use strict';
+
+    return '%';
+}
+
+function strCommaSpace() {
+    'use strict';
+
+    return ', ';
+}
+
+function delimiterComma() {
+    'use strict';
+
+    return ',';
+}
+
+function regExp1() {
+    'use strict';
+
+    return '[\\?&]';
+}
+
+function regExp2() {
+    'use strict';
+
+    return '=([^&#]*)';
+}
+/* Konstanten - Ende */
+
+/* Funktionen - Start */
 function initGrids(g) {
     'use strict';
 
@@ -52,11 +169,11 @@ function initGrids(g) {
             // ignoriere nicht begehbare Bereiche
             if (grid[g][i][j] !== 0) {
                 // Element erzeugen und Attribute setzen
-                elem = document.createElement('div');
-                elem.className = 'grid-box';
-                elem.style.left = 100 / cols[g] * j + '%';
-                elem.style.top = 100 / rows[g] * i + '%';
-                elem.title = i + ', ' + j;
+                elem = document.createElement(elementDiv());
+                elem.className = cnGridBox();
+                elem.style.left = 100 / cols[g] * j + strPercent();
+                elem.style.top = 100 / rows[g] * i + strPercent();
+                elem.title = i + strCommaSpace() + j;
                 //
                 docFrag.appendChild(elem);
                 row[j] = elem;
@@ -68,36 +185,38 @@ function initGrids(g) {
     mainMap[g].appendChild(docFrag);
 }
 
+/* Main - Start */
 var mainMapLength = mainMap.length;
 
 for (g = 0; g < mainMapLength; g += 1) {
     gridElems[g] = [];
     initGrids(g);
 }
+/* Main - Ende */
 
 function initMaps(start_st) {
     'use strict';
 
-    if (start_st === "0") {
-        $("#eg0Map").show();
-        $("#og1Map").hide();
-        $("#og2Map").hide();
-        $("#tb3Map").hide();
-    } else if (start_st === "1") {
-        $("#eg0Map").hide();
-        $("#og1Map").show();
-        $("#og2Map").hide();
-        $("#tb3Map").hide();
-    } else if (start_st === "2") {
-        $("#eg0Map").hide();
-        $("#og1Map").hide();
-        $("#og2Map").show();
-        $("#tb3Map").hide();
-    } else if (start_st === "3") {
-        $("#eg0Map").hide();
-        $("#og1Map").hide();
-        $("#og2Map").hide();
-        $("#tb3Map").show();
+    if (start_st === groundFloor()) {
+        $(gfMap()).show();
+        $(ffMap()).hide();
+        $(sfMap()).hide();
+        $(tfMap()).hide();
+    } else if (start_st === firstFloor()) {
+        $(gfMap()).hide();
+        $(ffMap()).show();
+        $(sfMap()).hide();
+        $(tfMap()).hide();
+    } else if (start_st === secondFloor()) {
+        $(gfMap()).hide();
+        $(ffMap()).hide();
+        $(sfMap()).show();
+        $(tfMap()).hide();
+    } else if (start_st === thirdFloor()) {
+        $(gfMap()).hide();
+        $(ffMap()).hide();
+        $(sfMap()).hide();
+        $(tfMap()).show();
     }
 }
 
@@ -108,35 +227,28 @@ function drawPath(st, start, end) {
     var result = astar.search(graph[st], start, end),
         resultLength = result.length,
         punkt = '',
-        //start_x = result[0].parent.x,
-        //start_y = result[0].parent.y,
         i = 0;
 
     // Ergebnisse anzeigen
     for (i = 0; i < resultLength; i += 1) {
         (function (ind) {
             setTimeout(function () {
-                if (ind === 0){
-                    punkt = 'start';
-                    //gridElems[st][result[ind].x][result[ind].y].classList.add('waypoint', 'start');
-                }
-                else if (ind < (resultLength - 1)) {
-                    punkt = 'path';
-                    //gridElems[st][result[ind].x][result[ind].y].classList.add('waypoint', 'path');
+                if (ind === 0) {
+                    punkt = pointStart();
+                } else if (ind < (resultLength - 1)) {
+                    punkt = pointPath();
                 } else {
-                    punkt = 'end';
-                    //gridElems[st][result[ind].x][result[ind].y].classList.add('waypoint', 'end');
+                    punkt = pointEnd();
                 }
-                
-                gridElems[st][result[ind].x][result[ind].y].classList.add('waypoint', punkt);
-                
+
+                gridElems[st][result[ind].x][result[ind].y].classList.add(wayPoint(), punkt);
+
             }, 100 * ind);
         }(i));
     }
 }
 
 function initPathStartEnd(start_st, start_x, start_y, end_st, end_x, end_y) {
-    //todo
     'use strict';
 
     // Entferne zuvor erstellen Path
@@ -151,26 +263,33 @@ function initPathStartEnd(start_st, start_x, start_y, end_st, end_x, end_y) {
         endY = end_y,
         start = 0,
         end = 0;
+    
+    //ist der Start-Stock = End-Stock -> Navigation durch das gleiche Stockwerk
+    if (start_st === end_st) {
+        start = graph[stockwerk].grid[startY][startX];
+        end = graph[stockwerk].grid[endY][endX];
+        drawPath(stockwerk, start, end);
+    }
 
     // ist Endpunkt im EG?
-    if (stockwerk === "0") {
+    /*if (stockwerk === groundFloor()) {
         start = graph[0].grid[startY][startX];
         end = graph[end_st].grid[endY][endX];
         drawPath(0, start, end);
     }
-    
-    if (stockwerk === "1") {
+
+    if (stockwerk === firstFloor()) {
         start = graph[1].grid[startY][startX];
         end = graph[end_st].grid[endY][endX];
         drawPath(1, start, end);
-    }
+    }*/
 }
 
 function searchEndpoint() {
     'use strict';
 
-    var start_res = $.urlParam('start').split(","),
-        end_res = $.urlParam('end').split(",");
+    var start_res = $.urlParam(pointStart()).split(delimiterComma()),
+        end_res = $.urlParam(pointEnd()).split(delimiterComma());
 
     initPathStartEnd(start_res[0], start_res[1], start_res[2], end_res[0], end_res[1], end_res[2]);
 }
@@ -185,7 +304,7 @@ $(document).ready(function () {
 $.urlParam = function (name) {
     'use strict';
 
-    var results = new RegExp('[\\?&]' + name + '=([^&#]*)').exec(window.location.href);
+    var results = new RegExp(regExp1() + name + regExp2()).exec(window.location.href);
 
     if (results === null) {
         return null;
@@ -204,7 +323,7 @@ $(document).ready(function () {
 $.urlParam = function (name) {
     'use strict';
 
-    var results = new RegExp('[\\?&]' + name + '=([^&#]*)').exec(window.location.href);
+    var results = new RegExp(regExp1() + name + regExp2()).exec(window.location.href);
 
     if (results === null) {
         return null;
