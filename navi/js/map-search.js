@@ -53,6 +53,12 @@ function pointEnd() {
     return 'end';
 }
 
+function ani() {
+    'use strict';
+
+    return 'ani';
+}
+
 function wayPoint() {
     'use strict';
 
@@ -283,7 +289,40 @@ function initMaps(start_st) {
     }
 }
 
-function drawPath(st, start, end, stairs, building) {
+function checkStairsBuilding(stairs, building) {
+    'use strict';
+    
+    if ((stairs) && (!building)) {
+        $(showStairs()).show();
+        $(showBuilding()).hide();
+    } else if ((building) && (!stairs)) {
+        $(showStairs()).hide();
+        $(showBuilding()).show();
+    } else if ((!building) && (!stairs)) {
+        $(showStairs()).hide();
+        $(showBuilding()).hide();
+    }
+}
+
+function getPoint(i, length, stairs, building) {
+    'use strict';
+    
+    var point = '';
+
+    if (i === 0) {
+        point = pointStart();
+    } else if (i < (length - 1)) {
+        point = pointPath();
+    } else {
+        point = pointEnd();
+
+        checkStairsBuilding(stairs, building);
+    }
+    
+    return point;
+}
+
+function drawPath(st, start, end, stairs, building, ani) {
     'use strict';
 
     // astar anwenden
@@ -294,31 +333,17 @@ function drawPath(st, start, end, stairs, building) {
 
     // Ergebnisse anzeigen
     for (i = 0; i < resultLength; i += 1) {
-        (function (ind) {
-            setTimeout(function () {
-                if (ind === 0) {
-                    punkt = pointStart();
-                } else if (ind < (resultLength - 1)) {
-                    punkt = pointPath();
-                } else {
-                    punkt = pointEnd();
-
-                    if ((stairs) && (!building)) {
-                        $(showStairs()).show();
-                        $(showBuilding()).hide();
-                    } else if ((building) && (!stairs)) {
-                        $(showStairs()).hide();
-                        $(showBuilding()).show();
-                    } else if ((!building) && (!stairs)) {
-                        $(showStairs()).hide();
-                        $(showBuilding()).hide();
-                    }
-                }
-
-                gridElems[st][result[ind].x][result[ind].y].classList.add(wayPoint(), punkt);
-
-            }, 100 * ind);
-        }(i));
+        if (ani) {
+            (function (ind) {
+                setTimeout(function () {
+                    punkt = getPoint(ind, resultLength, stairs, building);
+                    gridElems[st][result[ind].x][result[ind].y].classList.add(wayPoint(), punkt);
+                }, 100 * ind);
+            }(i));
+        } else {
+            punkt = getPoint(i, resultLength, stairs, building);
+            gridElems[st][result[i].x][result[i].y].classList.add(wayPoint(), punkt);
+        }
     }
 }
 
@@ -374,7 +399,7 @@ function getStaircaseY(startY) {
     }
 }
 
-function goToFloor(start_st, start_x, start_y, end_st, end_x, end_y) {
+function goToFloor(start_st, start_x, start_y, end_st, end_x, end_y, ani) {
     'use strict';
     var stairX = 0,
         stairY = 0,
@@ -393,7 +418,7 @@ function goToFloor(start_st, start_x, start_y, end_st, end_x, end_y) {
 
     start = graph[start_st].grid[startY][startX];
     end = graph[start_st].grid[stairY][stairX];
-    drawPath(start_st, start, end, true, false);
+    drawPath(start_st, start, end, true, false, ani);
 
     if (stockwerk === groundFloor()) {
         strMessage = 'Gehe ins Erdgeschoß!';
@@ -408,11 +433,11 @@ function goToFloor(start_st, start_x, start_y, end_st, end_x, end_y) {
         //von Stiege bis zum Endpunkt
         start = graph[end_st].grid[stairY][stairX];
         end = graph[end_st].grid[endY][endX];
-        drawPath(end_st, start, end, false, false);
+        drawPath(end_st, start, end, false, false, ani);
     });
 }
 
-function goToTL(start_st, start_x, start_y, end_st, end_x, end_y) {
+function goToTL(start_st, start_x, start_y, end_st, end_x, end_y, ani) {
     'use strict';
 
     var stairX = 0,
@@ -430,7 +455,7 @@ function goToTL(start_st, start_x, start_y, end_st, end_x, end_y) {
         stairX = getStaircaseY(start_x);
 
         end = graph[start_st].grid[stairY][stairX];
-        drawPath(start_st, start, end, true, false);
+        drawPath(start_st, start, end, true, false, ani);
 
         // Klicke auf den Button, um in das andere Stockwerk zu gelangen
         $(showStairs()).append(strMessageEG).off("click touch").on("click touch", function () {
@@ -438,7 +463,7 @@ function goToTL(start_st, start_x, start_y, end_st, end_x, end_y) {
 
             start = graph[groundFloor()].grid[stairY][stairX];
             end = graph[groundFloor()].grid[getHGtoTLY()][getHGtoTLX()];
-            drawPath(groundFloor(), start, end, false, true);
+            drawPath(groundFloor(), start, end, false, true, ani);
 
             setTimeout(function () {
                 gfTrue = true;
@@ -451,24 +476,24 @@ function goToTL(start_st, start_x, start_y, end_st, end_x, end_y) {
                 initMaps(end_st);
                 start = graph[thirdFloor()].grid[getThirdFloorY()][getThirdFloorX()];
                 end = graph[end_st].grid[end_y][end_x];
-                drawPath(end_st, start, end, false, false);
+                drawPath(end_st, start, end, false, false, ani);
             }
         });
     } else if (start_st === groundFloor()) {
         end = graph[start_st].grid[getHGtoTLY()][getHGtoTLX()];
-        drawPath(start_st, start, end, false, true);
+        drawPath(start_st, start, end, false, true, ani);
 
         $(showBuilding()).append(strMessageTL).off("click touch").on("click touch", function () {
             initMaps(end_st);
 
             start = graph[thirdFloor()].grid[getThirdFloorY()][getThirdFloorX()];
             end = graph[end_st].grid[end_y][end_x];
-            drawPath(end_st, start, end, false, false);
+            drawPath(end_st, start, end, false, false, ani);
         });
     }
 }
 
-function goToHG(start_st, start_x, start_y, end_st, end_x, end_y) {
+function goToHG(start_st, start_x, start_y, end_st, end_x, end_y, ani) {
     'use strict';
 
     var start = 0,
@@ -477,7 +502,7 @@ function goToHG(start_st, start_x, start_y, end_st, end_x, end_y) {
 
     start = graph[start_st].grid[start_y][start_x];
     end = graph[thirdFloor()].grid[getThirdFloorY()][getThirdFloorX()];
-    drawPath(start_st, start, end, false, true);
+    drawPath(start_st, start, end, false, true, ani);
 
     $(showBuilding()).append(strMessageHG).off("click touch").on("click touch", function () {
         initMaps(groundFloor());
@@ -485,14 +510,14 @@ function goToHG(start_st, start_x, start_y, end_st, end_x, end_y) {
         if (end_st === groundFloor()) {
             start = graph[groundFloor()].grid[getHGtoTLY()][getHGtoTLX()];
             end = graph[end_st].grid[end_y][end_x];
-            drawPath(groundFloor(), start, end, false, false);
+            drawPath(groundFloor(), start, end, false, false, ani);
         } else {
-            goToFloor(groundFloor(), getHGtoTLX(), getHGtoTLY(), end_st, end_x, end_y);
+            goToFloor(groundFloor(), getHGtoTLX(), getHGtoTLY(), end_st, end_x, end_y, ani);
         }
     });
 }
 
-function initPathStartEnd(start_st, start_x, start_y, end_st, end_x, end_y) {
+function initPathStartEnd(start_st, start_x, start_y, end_st, end_x, end_y, ani) {
     'use strict';
 
     // Entferne zuvor erstellen Path
@@ -515,16 +540,16 @@ function initPathStartEnd(start_st, start_x, start_y, end_st, end_x, end_y) {
     if (start_st === end_st) {
         //ist der Start-Stock = End-Stock -> Navigation durch das gleiche Stockwerk
         end = graph[end_st].grid[endY][endX];
-        drawPath(end_st, start, end, false, false);
+        drawPath(end_st, start, end, false, false, ani);
     } else if ((start_st !== thirdFloor()) && (end_st !== thirdFloor())) {
         //wenn die Navigation im selben Gebäude ist, aber in unterschiedlichen Stockwerken!
-        goToFloor(start_st, start_x, start_y, end_st, end_x, end_y);
+        goToFloor(start_st, start_x, start_y, end_st, end_x, end_y, ani);
     } else if ((start_st !== thirdFloor()) && (end_st === thirdFloor())) {
         //wenn die Navigation von Hauptgebäude zu TechLab geht!
-        goToTL(start_st, start_x, start_y, end_st, end_x, end_y);
+        goToTL(start_st, start_x, start_y, end_st, end_x, end_y, ani);
     } else if ((start_st === thirdFloor()) && ((end_st === groundFloor()) || (end_st === firstFloor()) || (end_st === secondFloor()))) {
         //wenn die Navigation von Techlab zu Hauptgebäude geht!
-        goToHG(start_st, start_x, start_y, end_st, end_x, end_y);
+        goToHG(start_st, start_x, start_y, end_st, end_x, end_y, ani);
     }
 }
 
@@ -532,9 +557,17 @@ function searchEndpoint() {
     'use strict';
 
     var start_res = $.urlParam(pointStart()).split(delimiterComma()),
-        end_res = $.urlParam(pointEnd()).split(delimiterComma());
+        end_res = $.urlParam(pointEnd()).split(delimiterComma()),
+        animation = $.urlParam(ani()),
+        aniBool = false;
 
-    initPathStartEnd(start_res[0], start_res[1], start_res[2], end_res[0], end_res[1], end_res[2]);
+    if (animation === "true") {
+        aniBool = true;
+    } else {
+        aniBool = false;
+    }
+
+    initPathStartEnd(start_res[0], start_res[1], start_res[2], end_res[0], end_res[1], end_res[2], aniBool);
 }
 
 $(document).ready(function () {
