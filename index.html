@@ -8,28 +8,34 @@
     <title>Hauptmenue</title>
     <!-- <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"> -->
     <link rel="stylesheet" type="text/css" href="css/body-css.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/sidebar-menu.css"> -->
 </head>
 
 <body>
     <header>
         <img class="smalllogo" src="images/fhapp-icon-weiss-transparent_klein.png" alt="FH Burgenland-Logo klein" style="width: 100%">
 
-        <button id="myBtn" class="burgerbutton"><div class="burger" onclick="myFunction(this)">
+        <!-- Button für Loading-Screen-Test
+        <a href="loading/loading.html" style="margin-left: 50%">Loading</a>
+        -->
+
+        <button id="myBtn" class="burgerbutton"><div class="burger" onclick="w3_open()" onclick="myFunction(this)">
             <div class="bar1"></div>
             <div class="bar2"></div>
             <div class="bar3"></div>
             </div></button>
 
-        <!-- Dieses Skript ist die Animation für das Burger-Menü 
-           
-           <script>
+        <!-- Dieses Skript ist die Animation für das Burger-Menü -->
+
+        <script>
             function myFunction(x) {
                 x.classList.toggle("change");
             }
+        </script>
 
-        </script> -->
-
-        <div id="myModal" class="modal">
+        <!-- Dieses Script ist ein Pop-Up-Menü
+            
+            div id="myModal" class="modal">
 
             <div class="modal-content">
                 <span class="close">&times;</span>
@@ -65,8 +71,35 @@
                 }
             }
 
+        </script> -->
+
+
+        <!-- Hier folgt das Sidebar-Menü -->
+
+        <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
+            <button onclick="w3_close()" class="w3-bar-item w3-large" style="background-color: rgba(3, 82, 138, 1);color: white; width: 100%">close</button>
+            <a href="#" class="w3-bar-item w3-button">SUCHE</a>
+            <a href="navi/._navi.html" class="w3-bar-item w3-button">INDOOR NAVIGATION</a>
+            <a href="cal/cal.html" class="w3-bar-item w3-button">KALENDER</a>
+            <a href="cis/cis.html" class="w3-bar-item w3-button">CIS</a>
+            <a href="#" class="w3-bar-item w3-button">INFOS & NEWS</a>
+            <a href="info/info.html" class="w3-bar-item w3-button">UMGEBUNGSPLAN</a>
+            <a href="#" class="w3-bar-item w3-button">MENSA</a>
+            <a href="#" class="w3-bar-item w3-button">ALUMNI</a>
+            <a href="#" class="w3-bar-item w3-button">EINSTELLUNGEN</a>
+        </div>
+
+        <script>
+            function w3_open() {
+                document.getElementById("mySidebar").style.display = "block";
+            }
+
+            function w3_close() {
+                document.getElementById("mySidebar").style.display = "none";
+            }
         </script>
 
+        <!-- HIER ENDET DIE SIDEBAR-->
 
     </header>
 
