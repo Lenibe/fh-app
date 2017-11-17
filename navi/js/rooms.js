@@ -101,8 +101,9 @@ function checkStartAndEnd() {
 
     var startPoint = document.getElementById("room-list-start").value,
         endPoint = document.getElementById("room-list-end").value,
-        strUndefined = "undefined,undefined,undefined";
-
+        strUndefined = "undefined,undefined,undefined",
+        animation = document.getElementById("animation");
+    
     if (startPoint === strUndefined && endPoint === strUndefined) {
         alert("ACHTUNG! Du hast weder den Startraum noch den Zielraum ausgewählt!");
     } else if (startPoint === strUndefined) {
@@ -112,6 +113,6 @@ function checkStartAndEnd() {
     } else if (startPoint === endPoint) {
         alert("Der Start- und Zielraum sind ident! Bitte zwei unterschiedliche Räume wählen!");
     } else {
-        window.location.href = "indoornavi-map.html?start=" + startPoint + "&end=" + endPoint;
+        window.location.href = "indoornavi-map.html?start=" + startPoint + "&end=" + endPoint + "&ani=" + animation.checked;
     }
 }
