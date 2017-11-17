@@ -1,62 +1,61 @@
 <!DOCTYPE html>
-
 <html>
 
 <head>
     <meta charset="utf-8" />
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="msapplication-tap-highlight" content="no" />
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
-    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="../css/body-css.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-tabs.min.css">
+    <!-- Hier wird eine andere Bootstrap-Version verwendet, weil es so in der w3-school vorgegeben wird, wenn nav pills gebaut werden -->
+    <link rel="stylesheet" href="css/cal.css">
     <title>Kalender</title>
 </head>
 
 <body>
-
     <header>
         <a href="../index.html"><img class="smalllogo" src="../images/fhapp-icon-weiss-transparent_klein.png" alt="FH Burgenland-Logo klein" style="width: 100%"></a>
-
         <!-- ALTER BURGER-BUTTON
          <button class="burger" style="background-color: rgba(255, 255, 255, 0);">
         <img src="images/burger-menu.png" alt="burger menu" style="height: 100%">
         </button> -->
-
         <div class="burger" onclick="myFunction(this)">
             <div class="bar1"></div>
             <div class="bar2"></div>
             <div class="bar3"></div>
         </div>
-
         <script>
             function myFunction(x) {
                 x.classList.toggle("change");
             }
-
         </script>
-
         <a href="../index.html"><img src="../images/back.png" style="height: 45px; float:right; margin-top: 6px; margin-right: 15px"></a>
-
     </header>
-
     <!-- IN DIE SECTION KOMMEN DIE EINZELNEN FEATURES -->
-
     <section class="featurescreen">
-    
-    <iframe src="https://cis.fh-burgenland.at/cis/private/lvplan/stpl_kalender.php?type=student&pers_uid=1610725018&ort_kurzbz=&stg_kz=725&sem=3&ver=G&grp=2&gruppe_kurzbz=&lva=&begin=1502143200&ende=1518649200&format=ical&version=2&target=ical" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
-    
-    
+        <div class="container">
+            <ul class="nav nav-pills">
+                <li class="active"><a data-toggle="pill" href="#eisenstadt">Eisenstadt</a></li>
+                <li><a data-toggle="pill" href="#pinkafeld">Pinkafeld</a></li>
+            </ul>
+            <div class="tab-content">
+                <div id="eisenstadt" class="tab-pane fade in active">
+                    <h3>Willkommen in Eisenstadt</h3>
+                    <p>In diesem Plan sind umliegende Restaurants, Bankomaten und weitere nützliche Infos zur Umgebung der FH in Eisenstadt verzeichnet.</p>
+                </div>
+                <div id="pinkafeld" class="tab-pane fade">
+                    <h3>Willkommen in Pinkafeld</h3>
+                    <p>In diesem Plan sind umliegende Restaurants, Bankomaten und weitere nützliche Infos zur Umgebung der FH in Pinkafeld verzeichnet.</p>
+                </div>
+            </div>
+        </div>
+        <!-- <iframe src="https://cis.fh-burgenland.at/cis/private/lvplan/stpl_kalender.php?type=student&pers_uid=1610725018&ort_kurzbz=&stg_kz=725&sem=3&ver=G&grp=2&gruppe_kurzbz=&lva=&begin=1502143200&ende=1518649200&format=ical&version=2&target=ical" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe> -->
     </section>
-
-
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--<script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>-->
     <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
-    <script type="text/javascript">
-        app.initialize();
-
-    </script>
 </body>
 
 </html>
