@@ -56,6 +56,7 @@ function processData(data) {
 
         table += '<li class="list-caption">' + level + '</li>';
         table += '<li><a href="indoornavi-map.html?room=';
+        table += '<li><a href="navi.html?room=';
         table += rowCells[1];
         table += ',';
         table += rowCells[2];
@@ -113,6 +114,7 @@ function checkStartAndEnd() {
     } else if (startPoint === endPoint) {
         alert("Der Start- und Zielraum sind ident! Bitte zwei unterschiedliche Räume wählen!");
     } else {
-        window.location.href = "indoornavi-map.html?start=" + startPoint + "&end=" + endPoint + "&ani=" + animation.checked;
+        //window.location.href = "indoornavi-map.html?start=" + startPoint + "&end=" + endPoint + "&ani=" + animation.checked;
+        window.location.href = "navi.html?start=" + startPoint + "&end=" + endPoint + "&ani=" + animation.checked;
     }
 }
