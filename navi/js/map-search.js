@@ -291,7 +291,7 @@ function initMaps(start_st) {
 
 function checkStairsBuilding(stairs, building) {
     'use strict';
-    
+
     if ((stairs) && (!building)) {
         $(showStairs()).show();
         $(showBuilding()).hide();
@@ -306,7 +306,7 @@ function checkStairsBuilding(stairs, building) {
 
 function getPoint(i, length, stairs, building) {
     'use strict';
-    
+
     var point = '';
 
     if (i === 0) {
@@ -318,7 +318,7 @@ function getPoint(i, length, stairs, building) {
 
         checkStairsBuilding(stairs, building);
     }
-    
+
     return point;
 }
 
@@ -572,8 +572,13 @@ function searchEndpoint() {
 
 $(document).ready(function () {
     'use strict';
-
-    searchEndpoint();
+    var url = window.location.href;
+    
+    if (url.indexOf('?') != -1)
+        searchEndpoint();
+    else {
+        alert("funzt");
+    }
 });
 
 // Übermittelter Wert aus URL wird an die function initPath übergeben
