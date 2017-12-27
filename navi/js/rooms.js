@@ -82,7 +82,7 @@ $(document).ready(function () {
     // Lädt Räume aus der CSV
     $.ajax({
         type: "GET",
-        url: "raumliste.csv",
+        url: "raumliste-eisenstadt.csv",
         dataType: "text",
         success: function (data) {
             processData(data);
@@ -97,14 +97,19 @@ $(document).ready(function () {
     });
 });
 
-function checkStartAndEnd() {
+function checkStartAndEnd(bool_eisenstadt) {
     'use strict';
+    var startPoint, endPoint, animation, strUndefined = "undefined,undefined,undefined";
 
-    var startPoint = document.getElementById("room-list-start").value,
+    if (bool_eisenstadt === true) {
+        startPoint = document.getElementById("room-list-start").value,
         endPoint = document.getElementById("room-list-end").value,
-        strUndefined = "undefined,undefined,undefined",
         animation = document.getElementById("animation");
-    
+    } else {
+        startPoint = document.getElementById("room-list-start-p").value,
+        endPoint = document.getElementById("room-list-end-p").value,
+        animation = document.getElementById("animation-p");
+    }
     if (startPoint === strUndefined && endPoint === strUndefined) {
         alert("ACHTUNG! Du hast weder den Startraum noch den Zielraum ausgewählt!");
     } else if (startPoint === strUndefined) {
