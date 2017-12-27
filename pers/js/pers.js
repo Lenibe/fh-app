@@ -4,15 +4,13 @@
 function searchPerson() {
     'use strict';
 
-    var input, filter, ul, li, strong, i, str;
+    var input, filter, ul, li, strong, i;
 
     input = document.getElementById("searchPerson");
     filter = input.value.toUpperCase();
     ul = document.getElementById("personList");
     li = ul.getElementsByTagName("li");
-    //ToDo
-    str = ul.getElementsByTagName("strong");
-
+        
     for (i = 0; i < li.length; i += 1) {
         strong = li[i].getElementsByTagName("strong").item(0);
 
@@ -39,49 +37,137 @@ function processPersonData(data) {
     var allRows = data.split(/\r?\n|\r/),
         singleRow = 0,
         rowCells,
-        persList;
+        persList,
+        pListIconsNode, 
+        pListRowsNode, 
+        pDivImageNode, 
+        pImageNode, 
+        pDivContentNode, 
+        pDivPersonNameNode, 
+        pStrongNode, 
+        pStrongTextNode,
+        pDivPersonFunctionNode,
+        pSpanPersonFunctionNode,
+        pSpanPersonFunctionTextNode,
+        pDivPersonInstituteNode,
+        pSpanPersonInstituteNode,
+        pSpanPersonInstituteTextNode,
+        pDivPersonLocationNode,
+        pSpanPersonLocationNode,
+        pSpanPersonLocationTextNode,
+        pDivPersonMailNode,
+        pSpanPersonMailNode,
+        pAPersonMailNode,
+        pAPersonMailTextNode,
+        pDivPersonPhoneNode,
+        pSpanPersonPhoneNode,
+        pAPersonPhoneNode,
+        pAPersonPhoneTextNode,
+        strMail,
+        resMail,
+        pHR;
 
-    persList = document.getElementById('pList');
-    
-    persList.innerHTML += '<ul id="personList">';
+    persList = document.getElementById('personList');
     
     for (singleRow = 0; singleRow < allRows.length; singleRow += 1) {
         rowCells = allRows[singleRow].split(';');
-        persList.innerHTML += '<li id="pListIcons">';
-        persList.innerHTML += '<div id="pListRows">';
+        
+        pListIconsNode = document.createElement('li');
+        pListIconsNode.setAttribute('id', 'pListIcons');
+        persList.appendChild(pListIconsNode);
+        
+        pListRowsNode = document.createElement('div');
+        pListRowsNode.setAttribute('id', 'pListRows');
+        pListRowsNode.setAttribute('class', 'pListRows');
+        pListIconsNode.appendChild(pListRowsNode);
 
         //Person-Image
-        persList.innerHTML += '<div id="person-image">';
-        persList.innerHTML += '<img src="img/person/' + rowCells[0] + '" width="130" height="130">';
-        persList.innerHTML += '</div>';
-
-        persList.innerHTML += '<div id="person-content">';
-
+        pDivImageNode = document.createElement('div');
+        pDivImageNode.setAttribute('id', 'person-image');
+        pListRowsNode.appendChild(pDivImageNode);
+        
+        pImageNode = document.createElement('img');
+        pImageNode.setAttribute('src', 'img/person/' +  rowCells[0]);
+        pImageNode.setAttribute('width', '130');
+        pImageNode.setAttribute('height', '130');
+        pDivImageNode.appendChild(pImageNode);
+        
+        pDivContentNode = document.createElement('div');
+        pDivContentNode.setAttribute('id', 'person-content');
+        pDivContentNode.setAttribute('class', 'person-content');
+        pListRowsNode.appendChild(pDivContentNode);
+        
         //Person-Name
-        persList.innerHTML += '<div id="person-name"><strong>' + rowCells[1] + '</strong></div>';
+        pDivPersonNameNode = document.createElement('div');
+        pDivPersonNameNode.setAttribute('id', 'person-name');
+        pDivContentNode.appendChild(pDivPersonNameNode);
+        pStrongNode = document.createElement('strong');
+        pStrongTextNode = document.createTextNode(rowCells[1]);
+        pStrongNode.appendChild(pStrongTextNode);
+        pDivPersonNameNode.appendChild(pStrongNode);
 
         //Person-Function
-        persList.innerHTML += '<div id="person-function"><span>' + rowCells[2] + '</span></div>';
+        pDivPersonFunctionNode = document.createElement('div');
+        pDivPersonFunctionNode.setAttribute('id', 'person-function');
+        pDivContentNode.appendChild(pDivPersonFunctionNode);
+        pSpanPersonFunctionNode = document.createElement('span');
+        pSpanPersonFunctionTextNode = document.createTextNode(rowCells[2]);
+        pSpanPersonFunctionNode.appendChild(pSpanPersonFunctionTextNode);
+        pDivPersonFunctionNode.appendChild(pSpanPersonFunctionNode);
 
         //Person-Institute
-        persList.innerHTML += '<div id="person-institute"><span>' + rowCells[3] + '</span></div>';
-
+        pDivPersonInstituteNode = document.createElement('div');
+        pDivPersonInstituteNode.setAttribute('id', 'person-institute');
+        pDivContentNode.appendChild(pDivPersonInstituteNode);
+        pSpanPersonInstituteNode = document.createElement('span');
+        pSpanPersonInstituteTextNode = document.createTextNode(rowCells[3]);
+        pSpanPersonInstituteNode.appendChild(pSpanPersonInstituteTextNode);
+        pDivPersonInstituteNode.appendChild(pSpanPersonInstituteNode);
+        
         //Person-Location -> Navigate?
-        persList.innerHTML += '<div id="person-location"><span>' + rowCells[4] + '</span></div>';
+        pDivPersonLocationNode = document.createElement('div');
+        pDivPersonLocationNode.setAttribute('id', 'person-location');
+        pDivContentNode.appendChild(pDivPersonLocationNode);
+        pSpanPersonLocationNode = document.createElement('span');
+        pSpanPersonLocationTextNode = document.createTextNode(rowCells[4]);
+        pSpanPersonLocationNode.appendChild(pSpanPersonLocationTextNode);
+        pDivPersonLocationNode.appendChild(pSpanPersonLocationNode);
 
         //Person-Email
-        persList.innerHTML += '<div id="person-mail">';
-        persList.innerHTML += '<span><a href="javascript:linkTo_UnCryptMailto(&#39;ocknvq,ugbgp0cmiwgnBhj/dwtigpncpf0cv&#39;);">' + rowCells[5] + '</a></span>';
-        persList.innerHTML += '</div>';
+        pDivPersonMailNode = document.createElement('div');
+        pDivPersonMailNode.setAttribute('id', 'person-mail');
+        pDivContentNode.appendChild(pDivPersonMailNode);
+        
+        strMail = rowCells[5];
+        resMail = strMail.replace("[at]", "@");
+        
+        pSpanPersonMailNode = document.createElement('span');
+        pAPersonMailNode = document.createElement('a');
+        
+        pAPersonMailNode.setAttribute('href', 'mailto:' + resMail);
+        pAPersonMailTextNode = document.createTextNode(rowCells[5]);
+        
+        pAPersonMailNode.appendChild(pAPersonMailTextNode);
+        pSpanPersonMailNode.appendChild(pAPersonMailNode);
+        pDivPersonMailNode.appendChild(pSpanPersonMailNode);
 
         //Person-Phone
-        persList.innerHTML += '<div id="person-phone"><span><a href="tel:' + rowCells[6] + '">' + rowCells[6] + '</a></span></div>';
-
-        persList.innerHTML += '</div></div><hr/></li>';
+        pDivPersonPhoneNode = document.createElement('div');
+        pDivPersonPhoneNode.setAttribute('id', 'person-phone');
+        pDivContentNode.appendChild(pDivPersonPhoneNode);
+        pSpanPersonPhoneNode = document.createElement('span');
+        pAPersonPhoneNode = document.createElement('a');
+        pAPersonPhoneNode.setAttribute('href', 'tel:' + rowCells[6]);
+        pAPersonPhoneTextNode = document.createTextNode(rowCells[6]);
+        pAPersonPhoneNode.appendChild(pAPersonPhoneTextNode);
+        pSpanPersonPhoneNode.appendChild(pAPersonPhoneNode);
+        pDivPersonPhoneNode.appendChild(pSpanPersonPhoneNode);
+        
+        pHR = document.createElement('hr');
+        pListIconsNode.appendChild(pHR);
     }
-    persList.innerHTML += '</ul>';
     
-    setStyles();
+    //setStyles();
 }
 
 $(document).ready(function () {
