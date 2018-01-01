@@ -89,28 +89,100 @@ function thirdFloor() {
     return '3';
 }
 
-function gfMap() {
+function fourthFloor() {
+    'use strict';
+
+    return '4';
+}
+
+function fifthFloor() {
+    'use strict';
+
+    return '5';
+}
+
+function sixthFloor() {
+    'use strict';
+
+    return '6';
+}
+
+function seventhFloor() {
+    'use strict';
+
+    return '7';
+}
+
+function eighthFloor() {
+    'use strict';
+
+    return '8';
+}
+
+function ninthFloor() {
+    'use strict';
+
+    return '9';
+}
+
+function eGFMap() {
     'use strict';
 
     return '#eg0Map';
 }
 
-function ffMap() {
+function eFFMap() {
     'use strict';
 
     return '#og1Map';
 }
 
-function sfMap() {
+function eSFMap() {
     'use strict';
 
     return '#og2Map';
 }
 
-function tfMap() {
+function eTFMap() {
     'use strict';
 
     return '#tb3Map';
+}
+
+function pHGEGMap() {
+    'use strict';
+
+    return '#heg0Map';
+}
+
+function pHGDGMap() {
+    'use strict';
+
+    return '#hog1Map';
+}
+
+function pLTEGMap() {
+    'use strict';
+
+    return '#leg0Map';
+}
+
+function pLTOGMap() {
+    'use strict';
+
+    return '#log1Map';
+}
+
+function pSTEGMap() {
+    'use strict';
+
+    return '#seg0Map';
+}
+
+function pSTOGMap() {
+    'use strict';
+
+    return '#sog1Map';
 }
 
 function showStairs() {
@@ -261,31 +333,81 @@ for (g = 0; g < mainMapLength; g += 1) {
 }
 /* Main - Ende */
 
-function initMaps(start_st) {
+function initEisenstadtMaps(start_st) {
     'use strict';
     $(showStairs()).hide();
     $(showBuilding()).hide();
 
     if (start_st === groundFloor()) {
-        $(gfMap()).show();
-        $(ffMap()).hide();
-        $(sfMap()).hide();
-        $(tfMap()).hide();
+        $(eGFMap()).show();
+        $(eFFMap()).hide();
+        $(eSFMap()).hide();
+        $(eTFMap()).hide();
     } else if (start_st === firstFloor()) {
-        $(gfMap()).hide();
-        $(ffMap()).show();
-        $(sfMap()).hide();
-        $(tfMap()).hide();
+        $(eGFMap()).hide();
+        $(eFFMap()).show();
+        $(eSFMap()).hide();
+        $(eTFMap()).hide();
     } else if (start_st === secondFloor()) {
-        $(gfMap()).hide();
-        $(ffMap()).hide();
-        $(sfMap()).show();
-        $(tfMap()).hide();
+        $(eGFMap()).hide();
+        $(eFFMap()).hide();
+        $(eSFMap()).show();
+        $(eTFMap()).hide();
     } else if (start_st === thirdFloor()) {
-        $(gfMap()).hide();
-        $(ffMap()).hide();
-        $(sfMap()).hide();
-        $(tfMap()).show();
+        $(eGFMap()).hide();
+        $(eFFMap()).hide();
+        $(eFFMap()).hide();
+        $(eTFMap()).show();
+    }
+}
+
+function initPinkafeldMaps(start_st) {
+    'use strict';
+    $(showStairs()).hide();
+    $(showBuilding()).hide();
+
+    if (start_st === fourthFloor()) {
+        $(pHGEGMap()).show();
+        $(pHGDGMap()).hide();
+        $(pLTEGMap()).hide();
+        $(pLTOGMap()).hide();
+        $(pSTEGMap()).hide();
+        $(pSTOGMap()).hide();
+    } else if (start_st === fifthFloor()) {
+        $(pHGEGMap()).hide();
+        $(pHGDGMap()).show();
+        $(pLTEGMap()).hide();
+        $(pLTOGMap()).hide();
+        $(pSTEGMap()).hide();
+        $(pSTOGMap()).hide();
+    } else if (start_st === sixthFloor()) {
+        $(pHGEGMap()).hide();
+        $(pHGDGMap()).hide();
+        $(pLTEGMap()).show();
+        $(pLTOGMap()).hide();
+        $(pSTEGMap()).hide();
+        $(pSTOGMap()).hide();
+    } else if (start_st === seventhFloor()) {
+        $(pHGEGMap()).hide();
+        $(pHGDGMap()).hide();
+        $(pLTEGMap()).hide();
+        $(pLTOGMap()).show();
+        $(pSTEGMap()).hide();
+        $(pSTOGMap()).hide();
+    } else if (start_st === eighthFloor()) {
+        $(pHGEGMap()).hide();
+        $(pHGDGMap()).hide();
+        $(pLTEGMap()).hide();
+        $(pLTOGMap()).hide();
+        $(pSTEGMap()).show();
+        $(pSTOGMap()).hide();
+    } else if (start_st === ninthFloor()) {
+        $(pHGEGMap()).hide();
+        $(pHGDGMap()).hide();
+        $(pLTEGMap()).hide();
+        $(pLTOGMap()).hide();
+        $(pSTEGMap()).hide();
+        $(pSTOGMap()).show();
     }
 }
 
@@ -428,7 +550,7 @@ function goToFloor(start_st, start_x, start_y, end_st, end_x, end_y, ani) {
 
     // Klicke auf den Button, um in das andere Stockwerk zu gelangen
     $("#stairs").append(strMessage).off("click touch").on("click touch", function () {
-        initMaps(end_st);
+        initEisenstadtMaps(end_st);
 
         //von Stiege bis zum Endpunkt
         start = graph[end_st].grid[stairY][stairX];
@@ -459,7 +581,7 @@ function goToTL(start_st, start_x, start_y, end_st, end_x, end_y, ani) {
 
         // Klicke auf den Button, um in das andere Stockwerk zu gelangen
         $(showStairs()).append(strMessageEG).off("click touch").on("click touch", function () {
-            initMaps(groundFloor());
+            initEisenstadtMaps(groundFloor());
 
             start = graph[groundFloor()].grid[stairY][stairX];
             end = graph[groundFloor()].grid[getHGtoTLY()][getHGtoTLX()];
@@ -473,7 +595,7 @@ function goToTL(start_st, start_x, start_y, end_st, end_x, end_y, ani) {
 
         $(showBuilding()).append(strMessageTL).off("click touch").on("click touch", function () {
             if (gfTrue) {
-                initMaps(end_st);
+                initEisenstadtMaps(end_st);
                 start = graph[thirdFloor()].grid[getThirdFloorY()][getThirdFloorX()];
                 end = graph[end_st].grid[end_y][end_x];
                 drawPath(end_st, start, end, false, false, ani);
@@ -484,7 +606,7 @@ function goToTL(start_st, start_x, start_y, end_st, end_x, end_y, ani) {
         drawPath(start_st, start, end, false, true, ani);
 
         $(showBuilding()).append(strMessageTL).off("click touch").on("click touch", function () {
-            initMaps(end_st);
+            initEisenstadtMaps(end_st);
 
             start = graph[thirdFloor()].grid[getThirdFloorY()][getThirdFloorX()];
             end = graph[end_st].grid[end_y][end_x];
@@ -505,7 +627,7 @@ function goToHG(start_st, start_x, start_y, end_st, end_x, end_y, ani) {
     drawPath(start_st, start, end, false, true, ani);
 
     $(showBuilding()).append(strMessageHG).off("click touch").on("click touch", function () {
-        initMaps(groundFloor());
+        initEisenstadtMaps(groundFloor());
 
         if (end_st === groundFloor()) {
             start = graph[groundFloor()].grid[getHGtoTLY()][getHGtoTLX()];
@@ -525,7 +647,7 @@ function initPathStartEnd(start_st, start_x, start_y, end_st, end_x, end_y, ani)
     $("#stairs").hide().html('<span class="glyphicon glyphicon-circle-arrow-up" aria-hidden="true"></span>');
     $("#building").hide().html('<span class="glyphicon glyphicon-circle-arrow-up" aria-hidden="true"></span>');
 
-    initMaps(start_st);
+    initEisenstadtMaps(start_st);
 
     var startY = start_y,
         startX = start_x,
@@ -553,7 +675,7 @@ function initPathStartEnd(start_st, start_x, start_y, end_st, end_x, end_y, ani)
     }
 }
 
-function searchEndpoint() {
+function searchEndpoint(boolEisenstadt) {
     'use strict';
 
     var start_res = $.urlParam(pointStart()).split(delimiterComma()),
@@ -567,17 +689,32 @@ function searchEndpoint() {
         aniBool = false;
     }
 
-    initPathStartEnd(start_res[0], start_res[1], start_res[2], end_res[0], end_res[1], end_res[2], aniBool);
+    if (boolEisenstadt === true) {
+        initPathStartEnd(start_res[0], start_res[1], start_res[2], end_res[0], end_res[1], end_res[2], aniBool);
+    } else {
+        alert("weg zeichnen in Pinkafeld");
+
+    }
 }
 
 $(document).ready(function () {
     'use strict';
-    var url = window.location.href;
-    
-    if (url.indexOf('?') != -1)
-        searchEndpoint();
-    else {
-        alert("funzt");
+    var url = window.location.href,
+        tabEisenstadt = document.getElementById("tab-eisenstadt"),
+        tabPinkafeld = document.getElementById("tab-pinkafeld"),
+        boolEisenstadt;
+
+    if (tabEisenstadt.getAttribute("class") === "active") {
+        boolEisenstadt = true;
+    } else if (tabPinkafeld.getAttribute("class") === "active") {
+        boolEisenstadt = false;
+    }
+
+    if (url.indexOf('?') !== -1) {
+        searchEndpoint(boolEisenstadt);
+    } else {
+        initEisenstadtMaps(groundFloor());
+        initPinkafeldMaps(fourthFloor());
     }
 });
 
@@ -594,11 +731,11 @@ $.urlParam = function (name) {
     }
 };
 
-$(document).ready(function () {
+/*$(document).ready(function () {
     'use strict';
 
-    searchEndpoint();
-});
+    //searchEndpoint();
+});*/
 
 // Übermittelter Wert aus URL wird an die function initPath übergeben
 $.urlParam = function (name) {
