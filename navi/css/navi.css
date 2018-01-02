@@ -3,12 +3,17 @@
     padding-bottom: 40px;
 }
 
-.form-group {
-    padding-bottom: 20px;
+.btn-group-vertical {
+    margin-top: 50%;
+    width: 100%;
 }
 
+/*.form-group {
+    width: 50%;
+}*/
+
 .form-control {
-    width: 70%;
+    width: 70%; 
     margin: auto;
 }
 
