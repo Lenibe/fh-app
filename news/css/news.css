@@ -1,0 +1,30 @@
+.nav-pills {
+	width: 100%;
+}
+
+.h4-main {
+    color: #03528a; !important
+}
+
+th {
+    text-align: left;
+    height: 30px; !important
+}
+
+td {
+    text-align: left;
+    
+}
+
+tr {
+    height: 25px; !important
+}
+
+#table-day {
+    width: 50px;
+}
+
+#p {
+    text-align: left;
+}
+
