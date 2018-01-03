@@ -118,13 +118,6 @@ $(document).ready(function () {
             processData(data);
         }
     });
-
-    // Suchfunktion
-    /*$('#search').hideseek({
-        highlight: true,
-        navigation: true,
-        headers: '.list-caption'
-    });*/
 });
 
 function checkStartAndEnd() {

@@ -207,54 +207,71 @@ function regExp2() {
     return '=([^&#]*)';
 }
 
-function getFour() {
+function getThirTeen() {
     'use strict';
 
-    return 4;
+    return 13;
 }
 
-function getEight() {
-    'use strict';
-
-    return 8;
-}
-
-function getNineTeen() {
-    'use strict';
-
-    return 19;
-}
-
-function getTwentyOne() {
-    'use strict';
-
-    return 21;
-}
-
-function getHGtoTLX() {
-    'use strict';
-
-    return 1;
-}
-
-function getHGtoTLY() {
+function getZero() {
     'use strict';
 
     return 0;
 }
 
-function getThirdFloorX() {
+function getTwelve() {
     'use strict';
 
-    return 23;
+    return 12;
 }
 
-function getThirdFloorY() {
+function getFive() {
     'use strict';
 
-    return 23;
+    return 5;
 }
 
+function getThree() {
+    'use strict';
+
+    return 3;
+}
+
+function getTwo() {
+    'use strict';
+
+    return 2;
+}
+
+function getTen() {
+    'use strict';
+
+    return 10;
+}
+
+function getTwenty() {
+    'use strict';
+
+    return 20;
+}
+
+function getSeven() {
+    'use strict';
+
+    return 7;
+}
+
+function getNine() {
+    'use strict';
+
+    return 9;
+}
+
+function getFourTeen() {
+    'use strict';
+
+    return 14;
+}
 /* Konstanten - Ende */
 
 /* Funktionen - Start */
@@ -300,34 +317,6 @@ for (g = 0; g < mainMapLength; g += 1) {
     initGrids(g);
 }
 /* Main - Ende */
-
-function initEisenstadtMaps() { /*start_st*/
-    'use strict';
-    /*$(showStairs()).hide();
-    $(showBuilding()).hide();
-
-    if (start_st === groundFloor()) {
-        $(eGFMap()).show();
-        $(eFFMap()).hide();
-        $(eSFMap()).hide();
-        $(eTFMap()).hide();
-    } else if (start_st === firstFloor()) {
-        $(eGFMap()).hide();
-        $(eFFMap()).show();
-        $(eSFMap()).hide();
-        $(eTFMap()).hide();
-    } else if (start_st === secondFloor()) {
-        $(eGFMap()).hide();
-        $(eFFMap()).hide();
-        $(eSFMap()).show();
-        $(eTFMap()).hide();
-    } else if (start_st === thirdFloor()) {
-        $(eGFMap()).hide();
-        $(eFFMap()).hide();
-        $(eFFMap()).hide();
-        $(eTFMap()).show();
-    }*/
-}
 
 function initMaps(start_st) {
     'use strict';
@@ -437,62 +426,106 @@ function drawPath(st, start, end, stairs, building, ani) {
     }
 }
 
-function getStaircaseX(startX) {
+function getStairCaseX(level) {
     'use strict';
 
-    var diffFour = 0,
-        diffNineteen = 0,
-        stX = Number(startX);
-
-    if (stX > getFour()) {
-        diffFour = stX - getFour();
-    } else {
-        diffFour = getFour() - stX;
-    }
-
-    if (stX > getNineTeen()) {
-        diffNineteen = stX - getNineTeen();
-    } else {
-        diffNineteen = getNineTeen() - stX;
-    }
-
-    if (diffFour < diffNineteen) {
-        return getFour();
-    } else if (diffNineteen < diffFour) {
-        return getNineTeen();
+    if (level === getHEG()) {
+        return getThirTeen();
+    } else if (level === getHOG()) {
+        return getTwelve();
+    } else if ((level === getSEG()) || (level === getLEG())) {
+        return getFive();
+    } else if (level === getSOG()) {
+        return getTen();
+    } else if (level === getLOG()) {
+        return getSeven();
     }
 }
 
-function getStaircaseY(startY) {
+function getStairCaseY(level) {
     'use strict';
 
-    var diffEight = 0,
-        diffTwentyOne = 0,
-        stY = Number(startY);
-
-    if (stY > getEight()) {
-        diffEight = stY - getEight();
-    } else {
-        diffEight = getEight() - stY;
-    }
-
-    if (stY > getTwentyOne()) {
-        diffTwentyOne = stY - getTwentyOne();
-    } else {
-        diffTwentyOne = getTwentyOne() - stY;
-    }
-
-    if (diffEight < diffTwentyOne) {
-        return getEight();
-    } else if (diffTwentyOne < diffEight) {
-        return getTwentyOne();
+    if ((level === getHEG()) || (level === getHOG())) {
+        return getZero();
+    } else if (level === getSEG()) {
+        return getThree();
+    } else if (level === getSOG()) {
+        return getTwo();
+    } else if (level === getLEG()) {
+        return getTwenty();
+    } else if (level === getLOG()) {
+        return getNine();
     }
 }
 
-function goToFloor(start_st, start_x, start_y, end_st, end_x, end_y, ani) {//ToDo1
+function getDoorX(level) {
     'use strict';
-    var stairX = 0,
-        stairY = 0,
+
+    if (level === getHEG()) {
+        return getSeven();
+    } else if (level === getSEG()) {
+        return getTwo();
+    } else if (level === getLEG()) {
+        return getThirTeen();
+    }
+}
+
+function getDoorY(level) {
+    'use strict';
+
+    if (level === getHEG()) {
+        return getNine();
+    } else if (level === getSEG()) {
+        return getFourTeen();
+    } else if (level === getLEG()) {
+        return getFive();
+    }
+}
+
+
+function getGroundFloor(level) {
+    'use strict';
+
+    if (level === getHOG()) {
+        return getHEG();
+    } else if (level === getSOG()) {
+        return getSEG();
+    } else if (level === getLOG()) {
+        return getLEG();
+    }
+}
+
+function getBuildingName(level) {
+    'use strict';
+    var name = 'Gehe zum ';
+
+    if ((level === getHOG()) || (level === getHEG())) {
+        name = name + 'Hauptgebäude!';
+    } else if ((level === getSOG()) || (level === getSEG())) {
+        name = name + 'Seminartrakt!';
+    } else if ((level === getLOG()) || (level === getLEG())) {
+        name = name + 'Labortrakt!';
+    }
+
+    return name;
+}
+
+function checkGroundFloor(level) {
+    'use strict';
+
+    if ((level === getHEG()) || (level === getSEG()) || (level === getLEG())) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function goToFloor(start_st, start_x, start_y, end_st, end_x, end_y, ani) { //ToDo1
+    'use strict';
+    var startStairX = 0,
+        startStairY = 0,
+        endStairX = 0,
+        endStairY = 0,
         start = 0,
         end = 0,
         startX = start_x,
@@ -503,114 +536,126 @@ function goToFloor(start_st, start_x, start_y, end_st, end_x, end_y, ani) {//ToD
         strMessage = '';
 
     //X- & Y-Koordinaten der nähesten Stiegen finden
-    stairY = getStaircaseX(startY);
-    stairX = getStaircaseY(startX);
+    startStairY = getStairCaseX(start_st.toString());
+    startStairX = getStairCaseY(start_st.toString());
+    endStairY = getStairCaseX(end_st.toString());
+    endStairX = getStairCaseY(end_st.toString());
 
     start = graph[start_st].grid[startY][startX];
-    end = graph[start_st].grid[stairY][stairX];
+    end = graph[start_st].grid[startStairY][startStairX];
     drawPath(start_st, start, end, true, false, ani);
 
-    if (stockwerk === groundFloor()) {
+    if ((stockwerk === getHEG()) || (stockwerk === getSEG()) || (stockwerk === getLEG())) {
         strMessage = 'Gehe ins Erdgeschoß!';
     } else {
-        strMessage = 'Gehe in den ' + stockwerk + '. Stock!';
+        strMessage = 'Gehe ins Obergeschoß!';
     }
 
     // Klicke auf den Button, um in das andere Stockwerk zu gelangen
     $("#stairs").append(strMessage).off("click touch").on("click touch", function () {
-        initEisenstadtMaps(end_st);
+        initMaps(end_st);
 
         //von Stiege bis zum Endpunkt
-        start = graph[end_st].grid[stairY][stairX];
+        start = graph[end_st].grid[endStairY][endStairX];
         end = graph[end_st].grid[endY][endX];
         drawPath(end_st, start, end, false, false, ani);
     });
 }
 
-function goToTL(start_st, start_x, start_y, end_st, end_x, end_y, ani) {
+function goToBuilding(start_st, start_x, start_y, end_st, end_x, end_y, ani) {
     'use strict';
 
-    var stairX = 0,
-        stairY = 0,
+    var startStairX = 0,
+        startStairY = 0,
         start = 0,
         end = 0,
         strMessageEG = 'Gehe ins Erdgeschoß!',
-        strMessageTL = 'Gehe zum Techlab!',
-        gfTrue = false;
+        strMessage = '',
+        gfTrue = false,
+        groundFloor = 0,
+        startDoorX = 0,
+        startDoorY = 0,
+        endDoorX = 0,
+        endDoorY = 0,
+        startLevel = 0;
 
     start = graph[start_st].grid[start_y][start_x];
+    startStairX = getStairCaseY(start_st);
+    startStairY = getStairCaseX(start_st);
 
-    if (start_st !== groundFloor()) {
-        stairY = getStaircaseX(start_y);
-        stairX = getStaircaseY(start_x);
+    strMessage = getBuildingName(end_st);
 
-        end = graph[start_st].grid[stairY][stairX];
+    if ((start_st !== getHEG()) && (start_st !== getSEG()) && (start_st !== getLEG())) {
+        end = graph[start_st].grid[startStairY][startStairX];
         drawPath(start_st, start, end, true, false, ani);
 
-        // Klicke auf den Button, um in das andere Stockwerk zu gelangen
         $(showStairs()).append(strMessageEG).off("click touch").on("click touch", function () {
-            initEisenstadtMaps(groundFloor());
+            groundFloor = getGroundFloor(start_st);
+            initMaps(groundFloor);
+            startStairX = getStairCaseY(groundFloor);
+            startStairY = getStairCaseX(groundFloor);
+            startDoorX = getDoorX(groundFloor);
+            startDoorY = getDoorY(groundFloor);
 
-            start = graph[groundFloor()].grid[stairY][stairX];
-            end = graph[groundFloor()].grid[getHGtoTLY()][getHGtoTLX()];
-            drawPath(groundFloor(), start, end, false, true, ani);
+            start = graph[groundFloor].grid[startStairY][startStairX];
+            end = graph[groundFloor].grid[startDoorY][startDoorX];
+            drawPath(groundFloor, start, end, false, true, ani);
 
             setTimeout(function () {
                 gfTrue = true;
             }, 500);
-
         });
 
-        $(showBuilding()).append(strMessageTL).off("click touch").on("click touch", function () {
+        $(showBuilding()).append(strMessage).off("click touch").on("click touch", function () {
             if (gfTrue) {
-                initEisenstadtMaps(end_st);
-                start = graph[thirdFloor()].grid[getThirdFloorY()][getThirdFloorX()];
-                end = graph[end_st].grid[end_y][end_x];
-                drawPath(end_st, start, end, false, false, ani);
+                if (checkGroundFloor(end_st)) {
+                    initMaps(end_st);
+                    endDoorX = getDoorX(end_st);
+                    endDoorY = getDoorY(end_st);
+                    start = graph[end_st].grid[endDoorY][endDoorX];
+                    end = graph[end_st].grid[end_y][end_x];
+                    drawPath(end_st, start, end, false, false, ani);
+                } else {
+                    startLevel = end_st - 1;
+                    startDoorX = getDoorX(startLevel.toString());
+                    startDoorY = getDoorY(startLevel.toString());
+                    initMaps(startLevel.toString());
+                    strMessage = '';
+                    $("#stairs").hide().html('<span class="glyphicon glyphicon-circle-arrow-up" aria-hidden="true"></span>');
+                    goToFloor(startLevel, startDoorX, startDoorY, end_st, end_x, end_y, ani);
+                }
             }
         });
-    } else if (start_st === groundFloor()) {
-        end = graph[start_st].grid[getHGtoTLY()][getHGtoTLX()];
+    } else if (checkGroundFloor(start_st)) {
+        endDoorX = getDoorX(start_st.toString());
+        endDoorY = getDoorY(start_st.toString());
+        end = graph[start_st].grid[endDoorY][endDoorX];
         drawPath(start_st, start, end, false, true, ani);
-
-        $(showBuilding()).append(strMessageTL).off("click touch").on("click touch", function () {
-            initEisenstadtMaps(end_st);
-
-            start = graph[thirdFloor()].grid[getThirdFloorY()][getThirdFloorX()];
-            end = graph[end_st].grid[end_y][end_x];
-            drawPath(end_st, start, end, false, false, ani);
+        $(showBuilding()).append(strMessage).off("click touch").on("click touch", function () {
+            if (checkGroundFloor(end_st)) {
+                initMaps(end_st);
+                endDoorX = getDoorX(end_st);
+                endDoorY = getDoorY(end_st);
+                start = graph[end_st].grid[endDoorY][endDoorX];
+                end = graph[end_st].grid[end_y][end_x];
+                drawPath(end_st, start, end, false, false, ani);
+            } else {
+                startLevel = end_st - 1;
+                startDoorX = getDoorX(startLevel.toString());
+                startDoorY = getDoorY(startLevel.toString());
+                initMaps(startLevel.toString());
+                strMessage = '';
+                $("#stairs").hide().html('<span class="glyphicon glyphicon-circle-arrow-up" aria-hidden="true"></span>');
+                goToFloor(startLevel, startDoorX, startDoorY, end_st, end_x, end_y, ani);
+            }
         });
     }
-}
-
-function goToHG(start_st, start_x, start_y, end_st, end_x, end_y, ani) {
-    'use strict';
-
-    var start = 0,
-        end = 0,
-        strMessageHG = 'Gehe zum Hauptgebäude!';
-
-    start = graph[start_st].grid[start_y][start_x];
-    end = graph[thirdFloor()].grid[getThirdFloorY()][getThirdFloorX()];
-    drawPath(start_st, start, end, false, true, ani);
-
-    $(showBuilding()).append(strMessageHG).off("click touch").on("click touch", function () {
-        initEisenstadtMaps(groundFloor());
-
-        if (end_st === groundFloor()) {
-            start = graph[groundFloor()].grid[getHGtoTLY()][getHGtoTLX()];
-            end = graph[end_st].grid[end_y][end_x];
-            drawPath(groundFloor(), start, end, false, false, ani);
-        } else {
-            goToFloor(groundFloor(), getHGtoTLX(), getHGtoTLY(), end_st, end_x, end_y, ani);
-        }
-    });
 }
 
 function initPathStartEnd(start_st, start_x, start_y, end_st, end_x, end_y, ani) {
     'use strict';
 
-    // Entferne zuvor erstellen Path
+    // Entferne zuvor erstellten Path
     $(".grid-box").removeClass("start end waypoint path");
     $("#stairs").hide().html('<span class="glyphicon glyphicon-circle-arrow-up" aria-hidden="true"></span>');
     $("#building").hide().html('<span class="glyphicon glyphicon-circle-arrow-up" aria-hidden="true"></span>');
@@ -631,26 +676,13 @@ function initPathStartEnd(start_st, start_x, start_y, end_st, end_x, end_y, ani)
         //ist der Start-Stock = End-Stock -> Navigation durch das gleiche Stockwerk
         end = graph[end_st].grid[endY][endX];
         drawPath(end_st, start, end, false, false, ani);
-    } else if (((start_st === getHEG()) && (end_st === getHOG())) ||
-        ((start_st === getHOG()) && (end_st === getHEG())) ||
-        ((start_st === getSEG()) && (end_st === getSOG())) ||
-        ((start_st === getSOG()) && (end_st === getSEG())) ||
-        ((start_st === getLEG()) && (end_st === getLOG())) ||
-        ((start_st === getLOG()) && (end_st === getLEG()))) {
+    } else if (((start_st === getHEG()) && (end_st === getHOG())) || ((start_st === getHOG()) && (end_st === getHEG())) ||
+            ((start_st === getSEG()) && (end_st === getSOG())) || ((start_st === getSOG()) && (end_st === getSEG())) ||
+            ((start_st === getLEG()) && (end_st === getLOG())) || ((start_st === getLOG()) && (end_st === getLEG()))) {
         goToFloor(start_st, start_x, start_y, end_st, end_x, end_y, ani);
+    } else {
+        goToBuilding(start_st, start_x, start_y, end_st, end_x, end_y, ani);
     }
-
-
-    /*else if ((start_st !== thirdFloor()) && (end_st !== thirdFloor())) {
-        //wenn die Navigation im selben Gebäude ist, aber in unterschiedlichen Stockwerken!
-        goToFloor(start_st, start_x, start_y, end_st, end_x, end_y, ani);
-    } else if ((start_st !== thirdFloor()) && (end_st === thirdFloor())) {
-        //wenn die Navigation von Hauptgebäude zu TechLab geht!
-        goToTL(start_st, start_x, start_y, end_st, end_x, end_y, ani);
-    } else if ((start_st === thirdFloor()) && ((end_st === groundFloor()) || (end_st === firstFloor()) || (end_st === secondFloor()))) {
-        //wenn die Navigation von Techlab zu Hauptgebäude geht!
-        goToHG(start_st, start_x, start_y, end_st, end_x, end_y, ani);
-    }*/
 }
 
 function searchEndpoint() {
@@ -693,12 +725,6 @@ $.urlParam = function (name) {
         return results[1] || 0;
     }
 };
-
-/*$(document).ready(function () {
-    'use strict';
-
-    //searchEndpoint();
-});*/
 
 // Übermittelter Wert aus URL wird an die function initPath übergeben
 $.urlParam = function (name) {

@@ -594,12 +594,6 @@ $.urlParam = function (name) {
     }
 };
 
-/*$(document).ready(function () {
-    'use strict';
-
-    //searchEndpoint();
-});*/
-
 // Übermittelter Wert aus URL wird an die function initPath übergeben
 $.urlParam = function (name) {
     'use strict';
