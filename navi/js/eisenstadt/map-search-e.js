@@ -89,25 +89,25 @@ function thirdFloor() {
     return '3';
 }
 
-function gfMap() {
+function eGFMap() {
     'use strict';
 
     return '#eg0Map';
 }
 
-function ffMap() {
+function eFFMap() {
     'use strict';
 
     return '#og1Map';
 }
 
-function sfMap() {
+function eSFMap() {
     'use strict';
 
     return '#og2Map';
 }
 
-function tfMap() {
+function eTFMap() {
     'use strict';
 
     return '#tb3Map';
@@ -267,25 +267,25 @@ function initMaps(start_st) {
     $(showBuilding()).hide();
 
     if (start_st === groundFloor()) {
-        $(gfMap()).show();
-        $(ffMap()).hide();
-        $(sfMap()).hide();
-        $(tfMap()).hide();
+        $(eGFMap()).show();
+        $(eFFMap()).hide();
+        $(eSFMap()).hide();
+        $(eTFMap()).hide();
     } else if (start_st === firstFloor()) {
-        $(gfMap()).hide();
-        $(ffMap()).show();
-        $(sfMap()).hide();
-        $(tfMap()).hide();
+        $(eGFMap()).hide();
+        $(eFFMap()).show();
+        $(eSFMap()).hide();
+        $(eTFMap()).hide();
     } else if (start_st === secondFloor()) {
-        $(gfMap()).hide();
-        $(ffMap()).hide();
-        $(sfMap()).show();
-        $(tfMap()).hide();
+        $(eGFMap()).hide();
+        $(eFFMap()).hide();
+        $(eSFMap()).show();
+        $(eTFMap()).hide();
     } else if (start_st === thirdFloor()) {
-        $(gfMap()).hide();
-        $(ffMap()).hide();
-        $(sfMap()).hide();
-        $(tfMap()).show();
+        $(eGFMap()).hide();
+        $(eFFMap()).hide();
+        $(eFFMap()).hide();
+        $(eTFMap()).show();
     }
 }
 
@@ -573,11 +573,11 @@ function searchEndpoint() {
 $(document).ready(function () {
     'use strict';
     var url = window.location.href;
-    
-    if (url.indexOf('?') != -1)
+
+    if (url.indexOf('?') !== -1) {
         searchEndpoint();
-    else {
-        alert("funzt");
+    } else {
+        initMaps(groundFloor());
     }
 });
 
@@ -593,12 +593,6 @@ $.urlParam = function (name) {
         return results[1] || 0;
     }
 };
-
-$(document).ready(function () {
-    'use strict';
-
-    searchEndpoint();
-});
 
 // Übermittelter Wert aus URL wird an die function initPath übergeben
 $.urlParam = function (name) {

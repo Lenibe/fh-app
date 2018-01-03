@@ -1,82 +1,82 @@
-ï»¿Haupteingang;4;7;7;
-T2.0.02;4;3;10;Erste Hilfe
-T2.0.03;4;3;12;Haustechnik
-T2.0.07;4;5;11;Buffet/Aufenthalt
-T2.0.08;4;4;10;WC-D
-T2.0.09;4;5;10;WC-H
-T3.0.02;4;6;10;Empfang
-T3.0.03;4;6;12;Bibliothek I
-T3.0.05;4;9;13;Abstellraum
-T3.0.06;4;12;12;EDV 1
-T3.0.07;4;15;12;Sem. 1
-T3.0.08;4;16;10;WC-H
-T3.0.09;4;17;10;WC-D
-T3.0.10;4;18;10;WC-B
-T3.0.11;4;19;10;
-T4.0.01;4;21;10;HS2
-T4.0.02;4;24;10;HS1
-T4.0.04;4;25;9;Lager
-T4.0.05;4;27;8;
-T2.2.03;5;2;12;Aufenthaltsbereich 
-T2.2.04;5;3;14;EDV 2
-T2.2.05;5;3;13;Studierendenvertretung
-Eingang ;6;2;14;
-ST.2.01;6;4;17;Bespr. 3
-ST.2.04;6;7;5;Lektorenzimmer
-ST.2.05;6;9;5;BÃ¼ro
-ST.2.06/06a;6;17;5;BÃ¼ro
-ST.2.07;6;25;5;Sem. 5
-ST.2.08;6;27;5;Sem. 6
-ST.2.09;6;27;6;Sem. 7
-ST.2.10;6;24;6;Sem. 8
-ST.2.11;6;16;6;Sem. 9
-ST.2.12;6;10;6;WC-H
-ST.2.13;6;9;6;WC-D
-ST.2.15;6;7;6;Lager
-ST.3.01;7;4;17;Forschungskolleg
-ST.3.04;7;6;5;Lager
-ST.3.05;7;10;5;Sem. 10
-ST.3.06;7;13;5;Sem. 11
-ST.3.07;7;17;5;Sem. 12
-ST.3.08;7;20;5;Sem. 13
-ST.3.09;7;24;5;Sem. 14
-ST.3.10;7;27;5;Sem. 15
-ST.3.11;7;27;6;Sem. 16
-ST.3.12;7;24;6;Sem. 17
-ST.3.13;7;19;6;Sem. 18
-ST.3.14;7;16;6;Sem. 19
-ST.3.15;7;12;6;Sem. 20
-ST.3.17;7;10;6;WC-H
-ST.3.18;7;9;6;WC-D
-ST.3.20;7;7;6;Lager
-Eingang Labor;8;13;5;
-L1.0.02;8;28;4;Hausl. Labor
-L1.0.03;8;23;6;Werkstatt
-L1.0.04;8;24;7;Lager 1
-L1.0.05;8;24;8;Lager 2
-L1.0.08;8;20;7;WC-H
-L1.0.09;8;19;7;WC-D
-L1.0.11;8;16;6;Lager 3
-L1.0.12;8;16;8;Lager 4
-L1.0.13;8;17;8;Laborhalle 1
-L1.0.14;8;24;11;Technikbereich
-L2.0.01;8;7;9;Verfahrenstechnik
-L2.0.02;8;4;9;Analytik
-L2.0.03;8;2;9;Akustik
-L2.0.05;8;0;9;Arbeitsraum
-L2.0.06;8;13;13;Laborhalle 2
-L2.0.07;8;10;13;Lager 5
-L1.1.01;9;13;10;Bespr. 3
-L1.1.02;9;10;10;BÃ¼ro
-L1.1.04;9;8;9;Schaltw.
-L1.1.05;9;6;8;E-Labor
-L1.1.07;9;12;11;WC-D
-L1.1.08;9;13;11;WC-H
-L1.1.09;9;11;14;Sozialraum
-L1.1.10;9;11;15;Wasserlabor
-VT.1.02;9;16;11;BÃ¼ro 1
-VT.1.03;9;19;11;BÃ¼ro 2
-VT.1.04;9;22;11;BÃ¼ro 3
-VT.1.05;9;26;11;BÃ¼ro 4
-VT.1.06;9;26;8;BÃ¼ro 5
-VT.1.09;9;25;11;Haustechnik
+Haupteingang;0;9;7;;
+T2.0.02;0;10;3;Erste Hilfe;
+T2.0.03;0;12;3;Haustechnik;
+T2.0.07;0;11;5;Buffet/Aufenthalt;
+T2.0.08;0;10;4;WC-D;
+T2.0.09;0;10;5;WC-H;
+T3.0.02;0;10;6;Empfang;
+T3.0.03;0;12;6;Bibliothek I;
+T3.0.05;0;13;9;Abstellraum;
+T3.0.06;0;12;12;EDV 1;
+T3.0.07;0;12;15;Sem. 1;
+T3.0.08;0;10;16;WC-H;
+T3.0.09;0;10;17;WC-D;
+T3.0.10;0;10;18;WC-B;
+T3.0.11;0;10;19;;
+T4.0.01;0;10;22;HS2;
+T4.0.02;0;10;24;HS1;
+T4.0.04;0;9;25;Lager;
+T4.0.05;0;8;27;;
+T2.2.03;1;12;2;Aufenthaltsbereich ;
+T2.2.04;1;14;3;EDV 2;
+T2.2.05;1;13;3;Studierendenvertretung;
+Eingang ;2;14;2;;
+ST.2.01;2;17;4;Bespr. 3;
+ST.2.04;2;5;7;Lektorenzimmer;
+ST.2.05;2;5;9;Büro;
+ST.2.06/06a;2;5;17;Büro;
+ST.2.07;2;5;25;Sem. 5;
+ST.2.08;2;5;27;Sem. 6;
+ST.2.09;2;6;27;Sem. 7;
+ST.2.10;2;6;24;Sem. 8;
+ST.2.11;2;6;16;Sem. 9;
+ST.2.12;2;6;10;WC-H;
+ST.2.13;2;6;9;WC-D;
+ST.2.15;2;6;7;Lager;
+ST.3.01;3;17;4;Forschungskolleg;
+ST.3.04;3;5;6;Lager;
+ST.3.05;3;5;10;Sem. 10;
+ST.3.06;3;5;13;Sem. 11;
+ST.3.07;3;5;17;Sem. 12;
+ST.3.08;3;5;20;Sem. 13;
+ST.3.09;3;5;24;Sem. 14;
+ST.3.10;3;5;27;Sem. 15;
+ST.3.11;3;6;27;Sem. 16;
+ST.3.12;3;6;24;Sem. 17;
+ST.3.13;3;6;19;Sem. 18;
+ST.3.14;3;6;16;Sem. 19;
+ST.3.15;3;6;12;Sem. 20;
+ST.3.17;3;6;10;WC-H;
+ST.3.18;3;6;9;WC-D;
+ST.3.20;3;6;7;Lager;
+Eingang Labor;4;5;13;;
+L1.0.02;4;4;28;Hausl. Labor;
+L1.0.03;4;6;23;Werkstatt;
+L1.0.04;4;7;24;Lager 1;
+L1.0.05;4;8;24;Lager 2;
+L1.0.08;4;7;20;WC-H;
+L1.0.09;4;7;19;WC-D;
+L1.0.11;4;6;16;Lager 3;
+L1.0.12;4;8;16;Lager 4;
+L1.0.13;4;8;17;Laborhalle 1;
+L1.0.14;4;11;24;Technikbereich;
+L2.0.01;4;9;7;Verfahrenstechnik;
+L2.0.02;4;9;4;Analytik;
+L2.0.03;4;9;2;Akustik;
+L2.0.05;4;9;0;Arbeitsraum;
+L2.0.06;4;13;13;Laborhalle 2;
+L2.0.07;4;13;11;Lager 5;
+L1.1.01;5;10;13;Bespr. 3;
+L1.1.02;5;10;10;Büro;
+L1.1.04;5;9;8;Schaltw.;
+L1.1.05;5;8;6;E-Labor;
+L1.1.07;5;11;13;WC-D;
+L1.1.08;5;11;12;WC-H;
+L1.1.09;5;14;11;Sozialraum;
+L1.1.10;5;15;11;Wasserlabor;
+VT.1.02;5;11;16;Büro 1;
+VT.1.03;5;11;19;Büro 2;
+VT.1.04;5;11;22;Büro 3;
+VT.1.05;5;11;26;Büro 4;
+VT.1.06;5;8;26;Büro 5;
+VT.1.09;5;11;25;Haustechnik;

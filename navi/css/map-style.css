@@ -13,7 +13,7 @@
 .map .waypoint.start:after {background-color:orange;} /*Startpunkt*/
 .map .waypoint.end:after {background-color:#97b314;} /*Endpunkt*/
 
-.grid-box {width:3.33333%;position:absolute;background-color:transparent;z-index:100;}
+.grid-box {width:3.33333%;position:absolute;background-color:transparent;z-index:100;} /*test = outline: 1 px solid red */
 .grid-box:before {content:"";display:block;padding-top:100%;}
 
 #stairs {display:none;width:190px;background-color:rgba(150,181,34,0.9);color:white;padding:5px;font-size:1.2em;z-index:100;position:absolute;top:50%;left:50%;-webkit-transform:translate(-50%,-50%);-moz-transform:translate(-50%,-50%);transform:translate(-50%, -50%);cursor:pointer;text-align:left;}

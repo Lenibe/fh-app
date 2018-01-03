@@ -1,41 +1,92 @@
 /*global $, document, window, alert*/
 /*eslint-disable no-unused-vars*/
+function initSearchFields() {
+    'use strict';
+
+    var startSelect,
+        startRes,
+        endSelect,
+        endRes,
+        optStart,
+        optEnd,
+        i,
+        j,
+        startID,
+        endID;
+
+    startID = "room-list-start-p";
+    endID = "room-list-end-p";
+
+    startSelect = document.getElementById(startID);
+    startRes = $.urlParam("start");
+
+    for (i = 0; i < startSelect.options.length; i = i + 1) {
+        optStart = startSelect.options[i];
+
+        if (optStart.value === startRes) {
+            optStart.selected = true;
+        } else {
+            optStart.selected = false;
+        }
+    }
+
+    endSelect = document.getElementById(endID);
+    endRes = $.urlParam("end");
+
+    for (j = 0; j < endSelect.options.length; j = j + 1) {
+        optEnd = endSelect.options[j];
+
+        if (optEnd.value === endRes) {
+            optEnd.selected = true;
+        } else {
+            optEnd.selected = false;
+        }
+    }
+}
 
 function processData(data) {
     'use strict';
 
     var allRows = data.split(/\r?\n|\r/),
+        dataListStart,
+        dataListEnd,
         table = '',
         caption1 = '',
         caption2 = '',
         caption3 = '',
         caption4 = '',
+        caption5 = '',
+        caption6 = '',
         first = true,
         singleRow = 0,
         rowCells,
-        dataListStart,
-        dataListEnd,
-        level = '';
+        level = '',
+        url;
 
-    //datalist.innerHTML += '<optgroup label="Erdgeschoß">';
-    //datalist.innerHTML += '<select name="rooms">';
+    dataListStart = document.getElementById("room-list-start-p");
+    dataListEnd = document.getElementById("room-list-end-p");
+
     for (singleRow = 0; singleRow < allRows.length; singleRow += 1) {
         rowCells = allRows[singleRow].split(';');
-        dataListStart = document.getElementById('room-list-start');
-        dataListEnd = document.getElementById('room-list-end');
 
         if (rowCells[1] === '0' && caption1 === '') {
-            level = 'Erdgeschoß';
+            level = 'Hauptgebäude EG';
             caption1 = 'full';
         } else if (rowCells[1] === '1' && caption2 === '') {
-            level = '1. Obergeschoß';
+            level = 'Hautgebäude DG';
             caption2 = 'full';
         } else if (rowCells[1] === '2' && caption3 === '') {
-            level = '2. Obergeschoß';
+            level = 'Seminartrakt EG';
             caption3 = 'full';
         } else if (rowCells[1] === '3' && caption4 === '') {
-            level = 'TechLab';
+            level = 'Seminartrakt 1. OG';
             caption4 = 'full';
+        } else if (rowCells[1] === '4' && caption5 === '') {
+            level = 'Labortrakt EG';
+            caption5 = 'full';
+        } else if (rowCells[1] === '5' && caption6 === '') {
+            level = 'Labortrakt 1. OG';
+            caption6 = 'full';
         }
 
         if (level !== null) {
@@ -53,27 +104,15 @@ function processData(data) {
 
         dataListStart.innerHTML += '<option value=' + rowCells[1] + "," + rowCells[3] + "," + rowCells[2] + '>' + rowCells[0] + '</option>';
         dataListEnd.innerHTML += '<option value=' + rowCells[1] + "," + rowCells[3] + "," + rowCells[2] + '>' + rowCells[0] + '</option>';
-
-        table += '<li class="list-caption">' + level + '</li>';
-        table += '<li><a href="indoornavi-map.html?room=';
-        table += '<li><a href="navi.html?room=';
-        table += rowCells[1];
-        table += ',';
-        table += rowCells[2];
-        table += ',';
-        table += rowCells[3];
-        table += '">';
-        table += rowCells[0];
-
-        if (rowCells[4] !== "") {
-            table += ' – ';
-            table += rowCells[4];
-        }
-
-        table += '</a></li>';
     }
 
-    $('#raumliste').append(table);
+    //prüfen, ob es im Parameter ?-> gibt!
+    //dann loop über alle einträge UND die selektierten setzen
+    url = window.location.href;
+
+    if (url.indexOf('?') !== -1) {
+        initSearchFields();
+    }
 }
 
 $(document).ready(function () {
@@ -82,34 +121,22 @@ $(document).ready(function () {
     // Lädt Räume aus der CSV
     $.ajax({
         type: "GET",
-        url: "raumliste-eisenstadt.csv",
-        dataType: "text",
+        url: "raumliste-pinkafeld.csv",
         success: function (data) {
             processData(data);
         }
     });
-
-    // Suchfunktion
-    $('#search').hideseek({
-        highlight: true,
-        navigation: true,
-        headers: '.list-caption'
-    });
 });
 
-function checkStartAndEnd(bool_eisenstadt) {
+function checkStartAndEnd() {
     'use strict';
-    var startPoint, endPoint, animation, strUndefined = "undefined,undefined,undefined";
+    var startPoint, endPoint, animation, strUndefined = "undefined,undefined,undefined", strHTML;
 
-    if (bool_eisenstadt === true) {
-        startPoint = document.getElementById("room-list-start").value,
-        endPoint = document.getElementById("room-list-end").value,
-        animation = document.getElementById("animation");
-    } else {
-        startPoint = document.getElementById("room-list-start-p").value,
-        endPoint = document.getElementById("room-list-end-p").value,
-        animation = document.getElementById("animation-p");
-    }
+    startPoint = document.getElementById("room-list-start-p").value;
+    endPoint = document.getElementById("room-list-end-p").value;
+    animation = document.getElementById("animation-p");
+    strHTML = "pnavi.html?start=";
+    
     if (startPoint === strUndefined && endPoint === strUndefined) {
         alert("ACHTUNG! Du hast weder den Startraum noch den Zielraum ausgewählt!");
     } else if (startPoint === strUndefined) {
@@ -120,6 +147,6 @@ function checkStartAndEnd(bool_eisenstadt) {
         alert("Der Start- und Zielraum sind ident! Bitte zwei unterschiedliche Räume wählen!");
     } else {
         //window.location.href = "indoornavi-map.html?start=" + startPoint + "&end=" + endPoint + "&ani=" + animation.checked;
-        window.location.href = "navi.html?start=" + startPoint + "&end=" + endPoint + "&ani=" + animation.checked;
+        window.location.href = strHTML + startPoint + "&end=" + endPoint + "&ani=" + animation.checked;
     }
 }
