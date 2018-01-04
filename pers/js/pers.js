@@ -145,6 +145,7 @@ function processPersonData(data) {
         pAPersonMailNode = document.createElement('a');
         
         pAPersonMailNode.setAttribute('href', 'mailto:' + resMail);
+        pAPersonMailNode.setAttribute('data-rel', 'external');
         pAPersonMailTextNode = document.createTextNode(rowCells[5]);
         
         pAPersonMailNode.appendChild(pAPersonMailTextNode);
