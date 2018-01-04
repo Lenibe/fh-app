@@ -63,12 +63,6 @@ function processData(data) {
         level = '',
         url;
     
-    url = window.location.href;
-
-    if (url.indexOf('?') === -1) {
-        initMaps(getHEG());
-    }
-    
     dataListStart = document.getElementById("room-list-start-p");
     dataListEnd = document.getElementById("room-list-end-p");
 
@@ -138,7 +132,7 @@ function checkStartAndEnd() {
 
     startPoint = document.getElementById("room-list-start-p").value;
     endPoint = document.getElementById("room-list-end-p").value;
-    animation = document.getElementById("animation-p");
+    //animation = document.getElementById("animation-p");
     strHTML = "pnavi.html?start=";
     
     if (startPoint === strUndefined && endPoint === strUndefined) {
@@ -151,6 +145,6 @@ function checkStartAndEnd() {
         alert("Der Start- und Zielraum sind ident! Bitte zwei unterschiedliche Räume wählen!");
     } else {
         //window.location.href = "indoornavi-map.html?start=" + startPoint + "&end=" + endPoint + "&ani=" + animation.checked;
-        window.location.href = strHTML + startPoint + "&end=" + endPoint + "&ani=" + animation.checked;
+        window.location.href = strHTML + startPoint + "&end=" + endPoint + "&ani=true";// + animation.checked;
     }
 }
