@@ -146,6 +146,8 @@ function processPersonData(data) {
         
         pAPersonMailNode.setAttribute('href', 'mailto:' + resMail);
         pAPersonMailNode.setAttribute('data-rel', 'external');
+        pAPersonMailNode.setAttribute('target','_blank');
+        pAPersonMailNode.setAttribute('data-role', 'touch');
         pAPersonMailTextNode = document.createTextNode(rowCells[5]);
         
         pAPersonMailNode.appendChild(pAPersonMailTextNode);
