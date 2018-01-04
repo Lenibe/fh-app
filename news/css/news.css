@@ -31,3 +31,13 @@ tr {
 #p {
     text-align: left;
 }
+
+.btn-primary {
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #337ab7;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 100%;
+}
+
