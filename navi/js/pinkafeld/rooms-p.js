@@ -62,7 +62,13 @@ function processData(data) {
         rowCells,
         level = '',
         url;
+    
+    url = window.location.href;
 
+    if (url.indexOf('?') === -1) {
+        initMaps(getHEG());
+    }
+    
     dataListStart = document.getElementById("room-list-start-p");
     dataListEnd = document.getElementById("room-list-end-p");
 
@@ -108,8 +114,6 @@ function processData(data) {
 
     //prüfen, ob es im Parameter ?-> gibt!
     //dann loop über alle einträge UND die selektierten setzen
-    url = window.location.href;
-
     if (url.indexOf('?') !== -1) {
         initSearchFields();
     }
