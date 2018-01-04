@@ -26,3 +26,7 @@
     border: none;
     vertical-align: baseline;
 }
+
+#eg0Map, #og1Map, #og2Map, #tb3Map {
+    display: none;
+}

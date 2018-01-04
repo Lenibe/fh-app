@@ -58,6 +58,17 @@
                                     </div>
                                 </form>
                             </td>
+                            <!--<td>
+                                <form>
+                                    <div class="form-group" id="fg-animation">
+                                        <label for="lbl-animation">Animation (J/N):</label>
+                                        <input id="animation" type="checkbox" value="true" checked>
+                                    </div>
+                                </form>
+                            </td>-->
+                            <td colspan="2"><a id="my-search" href="javascript:checkStartAndEnd()" class="btn btn-default" role="button" type="button">Weg finden</a></td>
+                        </tr>
+                        <tr>
                             <td>
                                 <form>
                                     <div class="form-group" id="fg-search-end">
@@ -66,25 +77,16 @@
                                     </div>
                                 </form>
                             </td>
-                            <td>
-                                <form>
-                                    <div class="form-group" id="fg-animation">
-                                        <label for="lbl-animation">Animation (J/N):</label>
-                                        <input id="animation" type="checkbox" value="true" checked>
-                                    </div>
-                                </form>
-                            </td>
-                            <td><a id="my-search" href="javascript:checkStartAndEnd()" class="btn btn-default" role="button" type="button">Weg finden</a></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
             <div class="maps">
-                <div class="map" id="eg0Map"><img src="img/eisenstadt/0eg-plan.svg" alt="eg" display="none"></div>
-                <div class="map" id="og1Map"><img src="img/eisenstadt/1og-plan.svg" alt="1og" display="none"></div>
-                <div class="map" id="og2Map"><img src="img/eisenstadt/2og-plan.svg" alt="2og" display="none"></div>
-                <div class="map" id="tb3Map"><img src="img/eisenstadt/3tl-plan.svg" alt="techlab" display="none"></div>
+                <div class="map" id="eg0Map"><img id="heg" src="img/eisenstadt/0eg-plan.svg" alt="eg"></div>
+                <div class="map" id="og1Map"><img id="hog1" src="img/eisenstadt/1og-plan.svg" alt="1og"></div>
+                <div class="map" id="og2Map"><img id="hog2" src="img/eisenstadt/2og-plan.svg" alt="2og"></div>
+                <div class="map" id="tb3Map"><img id="teg" src="img/eisenstadt/3tl-plan.svg" alt="techlab"></div>
                 <div id="stairs"></div>
                 <div id="building"></div>
             </div>
