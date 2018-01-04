@@ -11,17 +11,18 @@
 }
 
 .container {
-    text-align: left;
+    text-align: center;
 }
 
 .person-content {
-    margin-left: calc(130px + 30px);
+    /*margin-left: calc(130px + 30px);*/
+    text-align: center;
 }
 
 .personList {
     list-style-type: none;
 }
 
-.pListRows {
+/*.pListRows {
     columns: 2;
-}
+}*/
