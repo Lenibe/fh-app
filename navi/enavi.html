@@ -47,7 +47,18 @@
     <section class="featurescreen">
         <div class="container">
             <div class="search-fields">
-                <table class="table table-borderless">
+                <form>
+                    <div class="form-group" id="fg-search-start">
+                        <label for="search-start">Startraum:</label>
+                        <select name="start-rooms" id="room-list-start-e"></select>
+                    </div>
+                    <div class="form-group" id="fg-search-end">
+                        <label for="search-end">Zielraum:</label>
+                        <select name="end-rooms" id="room-list-end-e"></select>
+                    </div>
+                </form>
+
+                <!--<table class="table table-borderless">
                     <tbody>
                         <tr>
                             <td>
@@ -66,7 +77,7 @@
                                     </div>
                                 </form>
                             </td>-->
-                            <td colspan="2"><a id="my-search" href="javascript:checkStartAndEnd()" class="btn btn-default" role="button" type="button">Weg finden</a></td>
+                            <!--<td colspan="2"><a id="my-search" href="javascript:checkStartAndEnd()" class="btn btn-default" role="button" type="button">Weg finden</a></td>
                         </tr>
                         <tr>
                             <td>
@@ -79,7 +90,8 @@
                             </td>
                         </tr>
                     </tbody>
-                </table>
+                </table>-->
+
             </div>
 
             <div class="maps">

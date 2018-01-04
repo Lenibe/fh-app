@@ -108,6 +108,8 @@ function processData(data) {
 
     //prüfen, ob es im Parameter ?-> gibt!
     //dann loop über alle einträge UND die selektierten setzen
+    url = window.location.href;
+    
     if (url.indexOf('?') !== -1) {
         initSearchFields();
     }
