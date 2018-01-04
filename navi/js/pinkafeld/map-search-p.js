@@ -629,8 +629,18 @@ function goToBuilding(start_st, start_x, start_y, end_st, end_x, end_y, ani) {
     } else if (checkGroundFloor(start_st)) {
         endDoorX = getDoorX(start_st.toString());
         endDoorY = getDoorY(start_st.toString());
+
+        if ((start_x === endDoorX.toString()) && (start_y === endDoorY.toString())) {
+            if (start_st === getHEG()) {
+                endDoorY = endDoorY - 1;
+            } else {
+                endDoorX = endDoorX - 1;
+            }
+        }
+
         end = graph[start_st].grid[endDoorY][endDoorX];
         drawPath(start_st, start, end, false, true, ani);
+
         $(showBuilding()).append(strMessage).off("click touch").on("click touch", function () {
             if (checkGroundFloor(end_st)) {
                 initMaps(end_st);
@@ -677,8 +687,8 @@ function initPathStartEnd(start_st, start_x, start_y, end_st, end_x, end_y, ani)
         end = graph[end_st].grid[endY][endX];
         drawPath(end_st, start, end, false, false, ani);
     } else if (((start_st === getHEG()) && (end_st === getHOG())) || ((start_st === getHOG()) && (end_st === getHEG())) ||
-            ((start_st === getSEG()) && (end_st === getSOG())) || ((start_st === getSOG()) && (end_st === getSEG())) ||
-            ((start_st === getLEG()) && (end_st === getLOG())) || ((start_st === getLOG()) && (end_st === getLEG()))) {
+        ((start_st === getSEG()) && (end_st === getSOG())) || ((start_st === getSOG()) && (end_st === getSEG())) ||
+        ((start_st === getLEG()) && (end_st === getLOG())) || ((start_st === getLOG()) && (end_st === getLEG()))) {
         goToFloor(start_st, start_x, start_y, end_st, end_x, end_y, ani);
     } else {
         goToBuilding(start_st, start_x, start_y, end_st, end_x, end_y, ani);
