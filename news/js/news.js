@@ -12,17 +12,4 @@
 
 
 
-var acc = document.getElementsByClassName("btn-sm");
-var i;
 
-for (i = 0; i < acc.length; i++) {
-  acc[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var p = this.nextElementSibling;
-    if (p.style.maxHeight){
-      p.style.maxHeight = null;
-    } else {
-      p.style.maxHeight = p.scrollHeight + "px";
-    } 
-  });
-}

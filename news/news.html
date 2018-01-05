@@ -42,7 +42,7 @@
                 <li><a data-toggle="pill" href="#oeffnungszeiten">Öffnungszeiten</a></li>
                 <li><a data-toggle="pill" href="#leitfaden">Leitfaden</a></li>
                 <li><a data-toggle="pill" href="#oeh">ÖH</a></li>
-                <li><a data-toggle="pill" href="#news">News</a></li>
+                <!--     <li><a data-toggle="pill" href="#news">News</a></li> -->
             </ul>
             <!-- End Horizontale Navigation -->
 
@@ -50,8 +50,15 @@
             <div class="tab-content">
                 <div id="aktuelles" class="tab-pane fade in active">
                     <h3>Aktuelles rund um die FH Burgenland</h3>
-                    <p>Alle aktuellen Neuigkeiten und Infos rund um Studium und Lehre an der FH Burgenland findest du hier.</p>
-                    <a href="../leitfaden/leitfaden.html">Leitfaden</a>
+                    <p>Aktuelle Neuigkeiten und Infos rund um Studium und Lehre an der FH Burgenland findest du hier.</p>
+
+
+                    <div id="fb-root"></div>
+                    <div class="fb-page" data-href="https://www.facebook.com/fhburgenland/" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true" data-width="500" data-height="600">
+                        <blockquote cite="https://www.facebook.com/fhburgenland/" class="fb-xfbml-parse-ignore">
+                            <a href="https://www.facebook.com/fhburgenland/">FH Burgenland</a>
+                        </blockquote>
+                    </div>
                 </div>
 
                 <!-- End Tab Aktuelles -->
@@ -159,7 +166,28 @@
                     <h3>Dein Leitfaden durchs Studium</h3>
                     <p>Diese Leitfäden stellen die verschiedenen Abläufe an der FH Burgenland visuell dar. Mit einem Klick auf die einzelnen Abschnitte erhältst du mehr Informationen.</p>
 
-                    <!-- <map> macht das Bild klickbar. Mit <area> werden die einzelnen klickbaren Quadrate definiert. -->
+                    <div class="dropdown">
+                        <button class="btn btn-primary">Schritt für Schritt</button>
+                        <div class="dropdown-content">
+                            <a href="../leitfaden/tag-1.html">Der 1. Tag</a>
+                            <a href="../leitfaden/ablauf-lv.html">Ablauf von LV</a>
+                            <a href="../leitfaden/benotung.html">Benotung</a>
+                            <a href="../leitfaden/lv-anrechnung.html">Anrechnung von LV</a>
+                            <a href="../leitfaden/studienabschluss.html">Studienabschluss</a>
+                            <a href="../leitfaden/alumni-botschaft.html">Alumni-Botschafter</a> 
+                        </div>
+                    </div>
+                    
+                    <table>
+                        <tr>
+                            <td>
+                                <img src="img/tag1.png" alt="FH Tag 1">
+                            </td>
+                            <td> <button class="btn btn-primary"><a href="../leitfaden/tag-1.html">Der 1. Tag</a></button></td>
+                        </tr>
+                    </table>
+<!-- 
+                   <map> macht das Bild klickbar. Mit <area> werden die einzelnen klickbaren Quadrate definiert. 
                     <img src="../leitfaden/img/uebersicht.jpg" id="map-image" style="width: 800px; max-width: 100%; height: auto;" alt="Leitfaden" usemap="#map">
                     <map name="map">
              <area shape="rect" coords="52, 349, 388, 486" alt="Tag 1" href="../leitfaden/tag-1.html"/>
@@ -170,7 +198,7 @@
              <area shape="rect" coords="422, 1472, 788, 1620" alt="Alumni-Botschaft" href="../leitfaden/alumni-botschaft.html"/>
          </map>
 
-                    <!-- imageMapResizer.min.js macht das Bild responsive -->
+                   imageMapResizer.min.js macht das Bild responsive 
                     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
                     <script src="../leitfaden/js/imageMapResizer.min.js"></script>
                     <script>
@@ -178,8 +206,9 @@
                             $("map").imageMapResize();
                         });
 
-                    </script>
+                    </script> -->
                 </div>
+                
                 <!-- End Tab Leitfaden -->
                 <!-- Tab ÖH -->
                 <div id="oeh" class="tab-pane fade">
@@ -292,23 +321,23 @@
                             </div>
                         </div>
                     </div>
-
-
-                    <!-- End Tab ÖH -->
-                    <!-- Tab News -->
-                    <div id="news" class="tab-pane fade">
-                        <div id="fb-root"></div>
-                        <div class="fb-page" data-href="https://www.facebook.com/fhburgenland/" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true" data-width="500" data-height="600">
-                            <blockquote cite="https://www.facebook.com/fhburgenland/" class="fb-xfbml-parse-ignore">
-                                <a href="https://www.facebook.com/fhburgenland/">FH Burgenland</a>
-                            </blockquote>
-                        </div>
-                    </div>
-                    <!-- End Tab ÖH -->
-
                 </div>
+
+                <!-- End Tab ÖH -->
+                <!-- Tab News 
+                <div id="news" class="tab-pane fade">
+                    <div id="fb-root"></div>
+                    <div class="fb-page" data-href="https://www.facebook.com/fhburgenland/" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true" data-width="500" data-height="600">
+                        <blockquote cite="https://www.facebook.com/fhburgenland/" class="fb-xfbml-parse-ignore">
+                            <a href="https://www.facebook.com/fhburgenland/">FH Burgenland</a>
+                        </blockquote>
+                    </div>
+                </div>
+                 End Tab ÖH -->
+
             </div>
-            <!-- <iframe src="https://cis.fh-burgenland.at/cis/private/lvplan/stpl_kalender.php?type=student&pers_uid=1610725018&ort_kurzbz=&stg_kz=725&sem=3&ver=G&grp=2&gruppe_kurzbz=&lva=&begin=1502143200&ende=1518649200&format=ical&version=2&target=ical" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe> -->
+        </div>
+        <!-- <iframe src="https://cis.fh-burgenland.at/cis/private/lvplan/stpl_kalender.php?type=student&pers_uid=1610725018&ort_kurzbz=&stg_kz=725&sem=3&ver=G&grp=2&gruppe_kurzbz=&lva=&begin=1502143200&ende=1518649200&format=ical&version=2&target=ical" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe> -->
     </section>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -316,6 +345,7 @@
      <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>-->
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/news.js"></script>
+    
 </body>
 
 </html>
