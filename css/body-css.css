@@ -2,7 +2,7 @@
     
     body {
         background: linear-gradient(to right, #90b323, #007c57);
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-family: "Segeo UI";
     }
     
     .smalllogo {
@@ -152,15 +152,16 @@
     .w3-sidebar {
         height: auto;
         width: 80%;
-        background-color: rgba(222, 222, 222, 0.8);
+        background-color: rgba(3, 82, 138, 1);
         position: fixed!important;
         z-index: 1;
         left: 0;
         margin-top: 64px;
         font-size: 125%;
         font-family: "Segoe UI";
-        /*font-weight: bold;*/
-        color: rgba(3, 82, 138, 1);
+        color: rgba(255, 255, 255, 1);
+        border-radius:0px 15px 15px 0px;
+        border-color: none;
     }
     
     @media (min-width: 993px) {
@@ -231,14 +232,16 @@
     }
     
     .w3-large {
-        font-size: 18px!important
+        font-size: 25px!important;
+        text-align: left;
+        margin-top: 10px;
     }
     
     .w3-button {
         border: none;
         display: inline-block;
         outline: 0;
-        padding: 15px 0px 15px 50px;
+        padding: 15px 0px 15px 20px;
         vertical-align: middle;
         overflow: hidden;
         text-decoration: none;
