@@ -16,32 +16,49 @@
 <body>
 
     <header>
-        <a href="../index.html"><img class="smalllogo" src="../images/fhapp-icon-weiss-transparent_klein.png" alt="FH Burgenland-Logo klein" style="width: 100%"></a>
+        <a href="../index.html"><img class="smalllogo" src="../images/fhapp-icon-weiss-transparent_klein.png" alt="FH Burgenland-Logo klein" style="width: 100%; margin-top: 8px; margin-left: 8px;"></a>
 
-        <!-- ALTER BURGER-BUTTON
-         <button class="burger" style="background-color: rgba(255, 255, 255, 0);">
-        <img src="images/burger-menu.png" alt="burger menu" style="height: 100%">
-        </button> -->
-        <div class="newButtons" style="margin-left: 150px;">
-            <button id="eisenstadt">Eisenstadt</button>
-            <button id="pinkafeld">Pinkafeld</button>
-        </div>
-        <div class="burger" onclick="myFunction(this)">
+        <button id="myBtn" class="burgerbutton"><div class="container, burger" onclick="myFunction(this); w3_open()" style="margin-top: 8px; margin-right: 8px;">
             <div class="bar1"></div>
             <div class="bar2"></div>
             <div class="bar3"></div>
-        </div>
+            </div></button>
+
+        <!-- Dieses Skript ist die Animation für das Burger-Menü -->
 
         <script>
             function myFunction(x) {
                 x.classList.toggle("change");
             }
-
         </script>
-        
-<div id="map"></div>
 
-        <a href="../index.html"><img src="../images/back.png" style="height: 45px; float:right; margin-top: 6px; margin-right: 15px;"></a>
+        <!-- Hier folgt das Sidebar-Menü -->
+
+        <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
+            <button onclick="w3_close()" class="w3-bar-item w3-large" style="background-color: rgba(3, 82, 138, 1);color: white; width: 100%"><b>Was suchst du?</b></button>
+            <a href="#" class="w3-bar-item w3-button">- SUCHE</a>
+            <a href="../navi/navi.html" class="w3-bar-item w3-button">- INDOOR NAVIGATION</a>
+            <a href="../pers/pers.html" class="w3-bar-item w3-button">- PERSONEN</a>
+            <a href="../info/info.html" class="w3-bar-item w3-button">- UMGEBUNGSPLAN</a>
+            <a href="../news/news.html" class="w3-bar-item w3-button">- INFO & NEWS</a>
+            <a href="#" class="w3-bar-item w3-button">- MENSA</a>
+            <a href="#" class="w3-bar-item w3-button">- ALUMNI</a>
+            <a href="../cal/cal.html" class="w3-bar-item w3-button">- STUNDENPLAN</a>
+            <a href="../cis/cis.html" class="w3-bar-item w3-button">- CIS</a>
+            <a href="../loading/loading.html" class="w3-bar-item w3-button">- LADE-ANIMATION</a>
+        </div>
+
+        <script>
+            function w3_open() {
+                document.getElementById("mySidebar").style.display = "block";
+            }
+
+            function w3_close() {
+                document.getElementById("mySidebar").style.display = "none";
+            }
+        </script>
+
+        <a href="../index.html"><img src="../images/back.png" style="height: 45px; float:right; margin-top: 15px; margin-right: 15px;"></a>
 
     </header>
 
@@ -51,43 +68,46 @@
 
         <!--<iframe src="https://www.google.com/maps/d/embed?mid=1_2gWNMwMhyRdSKU7K_V-GoCVCCE" style="width:100%; height:100%; border:none;"></iframe>-->
 
-    
 
- 
 
-        
+
+
+
         <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
 
-    <script>
-      // Note: This example requires that you consent to location sharing when
-      // prompted by your browser. If you see the error "The Geolocation service
-      // failed.", it means you probably did not give permission for the browser to
-      // locate you.
+        <script>
+            // Note: This example requires that you consent to location sharing when
+            // prompted by your browser. If you see the error "The Geolocation service
+            // failed.", it means you probably did not give permission for the browser to
+            // locate you.
 
-      function initMap() {
-        var map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -20.000, lng: 200.000},
-          zoom: 6
-        });
-          
+            function initMap() {
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    center: {
+                        lat: -20.000,
+                        lng: 200.000
+                    },
+                    zoom: 6
+                });
 
-        document.getElementById("eisenstadt").addEventListener("click", changeCenter("eisenstadt"));
-        document.getElementById("pinkafeld").addEventListener("click", changeCenter("pinkafeld"));
-      }
 
-          function changeCenter(arg){
-              pos= {};
-              if(arg === "eisenstadt"){
-                  pos= {
-                      lat: 47.829412,
-                      lng: 16.535053
-                  }
-              }
-              console.log(pos);
-              map.setCenter(pos);
-          }
-    </script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvIbTxxVoT1ch7_JfKuC8LNhDaV-UX6tU&callback=initMap"></script>
+                document.getElementById("eisenstadt").addEventListener("click", changeCenter("eisenstadt"));
+                document.getElementById("pinkafeld").addEventListener("click", changeCenter("pinkafeld"));
+            }
+
+            function changeCenter(arg) {
+                pos = {};
+                if (arg === "eisenstadt") {
+                    pos = {
+                        lat: 47.829412,
+                        lng: 16.535053
+                    }
+                }
+                console.log(pos);
+                map.setCenter(pos);
+            }
+        </script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvIbTxxVoT1ch7_JfKuC8LNhDaV-UX6tU&callback=initMap"></script>
 
 </body>
 
