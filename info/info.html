@@ -8,12 +8,30 @@
     <meta name="msapplication-tap-highlight" content="no" />
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
     <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-tabs.min.css">
     <link rel="stylesheet" type="text/css" href="../css/body-css.css">
     <title>Info/News</title>
 </head>
 
 <body>
+
+    <!--<header>
+        <a href="../index.html"><img class="smalllogo" src="../images/fhapp-icon-weiss-transparent_klein.png"
+                                 alt="FH Burgenland-Logo klein" style="width: 100%"></a>
+
+        <!-- ALTER BURGER-BUTTON
+     <button class="burger" style="background-color: rgba(255, 255, 255, 0);">
+    <img src="images/burger-menu.png" alt="burger menu" style="height: 100%">
+    </button> -->
+    <!--<div class="burger" onclick="myFunction(this)">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </div>
+        <a href="../index.html"><img src="../images/back.png"
+                                 style="height: 45px; float:right; margin-top: 6px; margin-right: 15px;"></a>
+    </header>-->
+    <!-- IN DIE SECTION KOMMEN DIE EINZELNEN FEATURES -->
 
     <header>
         <a href="../index.html"><img class="smalllogo" src="../images/fhapp-icon-weiss-transparent_klein.png" alt="FH Burgenland-Logo klein" style="width: 100%; margin-top: 8px; margin-left: 8px;"></a>
@@ -30,6 +48,7 @@
             function myFunction(x) {
                 x.classList.toggle("change");
             }
+
         </script>
 
         <!-- Hier folgt das Sidebar-Menü -->
@@ -56,6 +75,7 @@
             function w3_close() {
                 document.getElementById("mySidebar").style.display = "none";
             }
+
         </script>
 
         <a href="../index.html"><img src="../images/back.png" style="height: 45px; float:right; margin-top: 15px; margin-right: 15px;"></a>
@@ -68,50 +88,54 @@
 
         <!--<iframe src="https://www.google.com/maps/d/embed?mid=1_2gWNMwMhyRdSKU7K_V-GoCVCCE" style="width:100%; height:100%; border:none;"></iframe>-->
 
+        <ul class="nav nav-pills">
+            <li id="eisenstadt" class="active"><a data-toggle="pill" href="#eisenstadt">Eisenstadt</a></li>
+            <li id="pinkafeld" class=""><a data-toggle="pill" href="#pinkafeld">Pinkafeld</a></li>
+        </ul>
+        <div id="map" style="height: 100%"></div>
+        <!--<iframe src="https://www.google.com/maps/d/embed?mid=1_2gWNMwMhyRdSKU7K_V-GoCVCCE" style="width:100%; height:100%; border:none;"></iframe>-->
+    </section>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/info.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvIbTxxVoT1ch7_JfKuC8LNhDaV-UX6tU&callback=initMap&libraries=places"></script>
+
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+
+    <!--<script>
+        // Note: This example requires that you consent to location sharing when
+        // prompted by your browser. If you see the error "The Geolocation service
+        // failed.", it means you probably did not give permission for the browser to
+        // locate you.
+
+        function initMap() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: {
+                    lat: -20.000,
+                    lng: 200.000
+                },
+                zoom: 6
+            });
 
 
+            document.getElementById("eisenstadt").addEventListener("click", changeCenter("eisenstadt"));
+            document.getElementById("pinkafeld").addEventListener("click", changeCenter("pinkafeld"));
+        }
 
-
-
-        <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-
-        <script>
-            // Note: This example requires that you consent to location sharing when
-            // prompted by your browser. If you see the error "The Geolocation service
-            // failed.", it means you probably did not give permission for the browser to
-            // locate you.
-
-            function initMap() {
-                var map = new google.maps.Map(document.getElementById('map'), {
-                    center: {
-                        lat: -20.000,
-                        lng: 200.000
-                    },
-                    zoom: 6
-                });
-
-
-                document.getElementById("eisenstadt").addEventListener("click", changeCenter("eisenstadt"));
-                document.getElementById("pinkafeld").addEventListener("click", changeCenter("pinkafeld"));
-            }
-
-            function changeCenter(arg) {
-                pos = {};
-                if (arg === "eisenstadt") {
-                    pos = {
-                        lat: 47.829412,
-                        lng: 16.535053
-                    }
+        function changeCenter(arg) {
+            pos = {};
+            if (arg === "eisenstadt") {
+                pos = {
+                    lat: 47.829412,
+                    lng: 16.535053
                 }
-                console.log(pos);
-                map.setCenter(pos);
             }
-        </script>
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvIbTxxVoT1ch7_JfKuC8LNhDaV-UX6tU&callback=initMap"></script>
+            console.log(pos);
+            map.setCenter(pos);
+        }
 
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvIbTxxVoT1ch7_JfKuC8LNhDaV-UX6tU&callback=initMap"></script>-->
 </body>
 
 </html>
-
-            
-            
