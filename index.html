@@ -11,7 +11,6 @@
 
 <body>
     <header>
-        <img class="smalllogo" src="images/fhapp-icon-weiss-transparent_klein.png" alt="FH Burgenland-Logo klein" style="width: 100%">
 
         <button id="myBtn" class="burgerbutton"><div class="container, burger" onclick="myFunction(this); w3_open()">
             <div class="bar1"></div>
@@ -19,19 +18,27 @@
             <div class="bar3"></div>
             </div></button>
 
-        <!-- Dieses Skript ist die Animation für das Burger-Menü -->
+
+        <!-- Dieses Skript ist die Animation für das Burger-Menü und das PopUp-Menü-->
 
         <script>
             function myFunction(x) {
                 x.classList.toggle("change");
             }
+
         </script>
 
         <!-- Hier folgt das Sidebar-Menü -->
 
         <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
-            <button onclick="w3_close()" class="w3-bar-item w3-large" style="background-color: rgba(3, 82, 138, 1);color: white; width: 100%"><b>Was suchst du?</b></button>
-            <a href="#" class="w3-bar-item w3-button">- SUCHE</a>
+            <button onclick="w3_close()" class="w3-bar-item w3-large" style="background-color: lightgrey;color: rgba(3, 82, 138, 1); width: 100%"><b>Was suchst du?</b></button>
+            <a href="#" class="w3-bar-item w3-button">
+
+                <!-- **Logo für Feature-Liste als Variante**
+            <img class="small-feature" src="images/feature-alumni.png">
+            -->
+
+                - SUCHE</a>
             <a href="navi/navi.html" class="w3-bar-item w3-button">- INDOOR NAVIGATION</a>
             <a href="pers/pers.html" class="w3-bar-item w3-button">- PERSONEN</a>
             <a href="info/info.html" class="w3-bar-item w3-button">- UMGEBUNGSPLAN</a>
@@ -43,7 +50,8 @@
             <a href="loading/loading.html" class="w3-bar-item w3-button">- LADE-ANIMATION</a>
         </div>
 
-        <script>
+
+           <script>
             function w3_open() {
                 document.getElementById("mySidebar").style.display = "block";
             }
@@ -53,7 +61,10 @@
             }
         </script>
 
+
         <!-- HIER ENDET DIE SIDEBAR-->
+
+        <img class="smalllogo" src="images/fhapp-icon-weiss-transparent_klein.png" alt="FH Burgenland-Logo" style="width: 100%">
 
     </header>
 
@@ -90,7 +101,7 @@
         <div class="feature-button" style="border-top: 1px solid; border-left: 1px solid; border-color: rgba(0, 0, 0, 0.1);">
             <a href="cis/cis.html" class="link-ohne-format"><img class="feature-image" src="images/feature-cis.png"><br>CIS</a>
         </div>
-        
+
     </section>
 
 

@@ -14,10 +14,10 @@
 </head>
 
 <body>
-        <header>
-        <a href="../index.html"><img class="smalllogo" src="../images/fhapp-icon-weiss-transparent_klein.png" alt="FH Burgenland-Logo klein" style="width: 100%; margin-top: 8px; margin-left: 8px;"></a>
+    <header>
+        <a href="../index.html"><img class="smalllogo" src="../images/fhapp-icon-weiss-transparent_klein.png" alt="FH Burgenland-Logo klein" style="width: 100%; margin-top: 8px; margin-right: 8px;"></a>
 
-        <button id="myBtn" class="burgerbutton"><div class="container, burger" onclick="myFunction(this); w3_open()" style="margin-top: 8px; margin-right: 8px;">
+        <button id="myBtn" class="burgerbutton"><div class="container, burger" onclick="myFunction(this); w3_open()" style="margin-top: 8px; margin-left: 8px;">
             <div class="bar1"></div>
             <div class="bar2"></div>
             <div class="bar3"></div>
@@ -29,12 +29,13 @@
             function myFunction(x) {
                 x.classList.toggle("change");
             }
+
         </script>
 
         <!-- Hier folgt das Sidebar-Menü -->
 
         <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
-            <button onclick="w3_close()" class="w3-bar-item w3-large" style="background-color: rgba(3, 82, 138, 1);color: white; width: 100%"><b>Was suchst du?</b></button>
+            <button onclick="w3_close()" class="w3-bar-item w3-large" style="background-color: lightgrey;color: rgba(3, 82, 138, 1); width: 100%"><b>Was suchst du?</b></button>
             <a href="#" class="w3-bar-item w3-button">- SUCHE</a>
             <a href="../navi/navi.html" class="w3-bar-item w3-button">- INDOOR NAVIGATION</a>
             <a href="../pers/pers.html" class="w3-bar-item w3-button">- PERSONEN</a>
@@ -55,6 +56,7 @@
             function w3_close() {
                 document.getElementById("mySidebar").style.display = "none";
             }
+
         </script>
 
         <a href="../index.html"><img src="../images/back.png" style="height: 45px; float:right; margin-top: 15px; margin-right: 15px;"></a>

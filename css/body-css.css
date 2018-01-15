@@ -6,11 +6,11 @@
     }
     
     .smalllogo {
-        float: left;
+        float: right;
         /*width: 30%;*/
         max-width: 100px;
         /* --> Höhe = 52.75px*/
-        position: absolute;
+        /*position: absolute;*/
     }
     
     .burger {
@@ -22,7 +22,7 @@
     .burgerbutton {
         display: inline-block;
         cursor: pointer;
-        float: right;
+        float: left;
         border: none;
         background-color: transparent;
     }
@@ -87,6 +87,10 @@
         cursor: pointer;
     }
 
+.small-feature {
+    height: 30px;
+}
+
     /* HAUTPSEITE */
     
     .feature-button {
@@ -135,8 +139,8 @@
     }
     
     .change .bar1 {
-        -webkit-transform: rotate(-45deg) translate(-13.5px, 9px);
-        transform: rotate(-45deg) translate(-13.5px, 9px);
+        -webkit-transform: rotate(-45deg) translate(-13.5.5px, 9px);
+        transform: rotate(-45deg) translate(-13px, 8px);
     }
     
     .change .bar2 {
@@ -145,21 +149,25 @@
     
     .change .bar3 {
         -webkit-transform: rotate(45deg) translate(-13.5px, -9px);
-        transform: rotate(45deg) translate(-13.5px, -9px);
+        transform: rotate(45deg) translate(-15.5px, -9px);
     }
     /* -------------------SIDEBAR--------------------- */
     
+.show {
+    display:block;
+}
+
     .w3-sidebar {
         height: auto;
         width: 80%;
-        background-color: rgba(3, 82, 138, 1);
+        background-color: lightgrey;
         position: fixed!important;
         z-index: 1;
         left: 0;
         margin-top: 90px;
         font-size: 100%;
         font-family: "Segoe UI";
-        color: rgba(255, 255, 255, 1);
+        color: rgba(3, 82, 138, 1);
         border-radius:0px 15px 15px 0px;
         border-color: none;
     }
