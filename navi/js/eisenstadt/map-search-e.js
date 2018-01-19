@@ -572,6 +572,7 @@ function searchEndpoint() {
 
 $(document).ready(function () {
     'use strict';
+    
     var url = window.location.href;
 
     if (url.indexOf('?') !== -1) {

@@ -1,14 +1,22 @@
-    /* ALLE SEITEN */
+/* FARBEN
+
+BLAU = rgba(3, 82, 138, 1)
+GRÜN = rgba(144, 179, 35, 1)
+
+*/
+
+
+/* ALLE SEITEN */
     
     body {
         background: linear-gradient(to right, #90b323, #007c57);
         font-family: "Segeo UI";
     }
-header {
-    display: block;
-
     
-}
+    header {
+        display: block;
+    }
+    
     .smalllogo {
         float: right;
         /*width: 30%;*/
@@ -40,61 +48,11 @@ header {
         padding-top: 8px;
         padding-left: 8px;
         padding-right: 8px;
-        height: calc(100% - 80px);
+        height: calc(100% - 75px);
         width: 100%;
         background-color: rgba(255, 255, 255, 0.9);
         overflow-y: scroll;
     }
-    
-    .modal {
-        display: none;
-        /* Hidden by default */
-        position: fixed;
-        /* Stay in place */
-        z-index: 1;
-        /* Sit on top */
-        left: 0;
-        top: 0;
-        width: 100%;
-        /* Full width */
-        height: 100%;
-        /* Full height */
-        overflow: auto;
-        /* Enable scroll if needed */
-        background-color: rgb(0, 0, 0);
-        /* Fallback color */
-        background-color: rgba(0, 0, 0, 0.4);
-        /* Black w/ opacity */
-    }
-    
-    .modal-content {
-        background-color: rgba(255, 255, 255, 0.9);
-        margin: 15% auto;
-        /* 15% from the top and centered */
-        padding: 20px;
-        border: 1px solid #888;
-        width: 90%;
-        height: 75%;
-    }
-    
-    .close {
-        color: #aaa;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-    }
-    
-    .close:hover,
-    .close:focus {
-        color: black;
-        text-decoration: none;
-        cursor: pointer;
-    }
-
-.small-feature {
-    height: 30px;
-}
-
     /* HAUTPSEITE */
     
     .feature-button {
@@ -115,15 +73,13 @@ header {
         width: 60%;
         height: auto;
     }
-
-.link-ohne-format {
-    text-decoration: none;
-    color: rgba(3, 82, 138, 1);
-    font-weight: 500;
-    font-family: "Segoe UI";
-}
-
-
+    
+    .link-ohne-format {
+        text-decoration: none;
+        color: rgba(3, 82, 138, 1);
+        font-weight: 500;
+        font-family: "Segoe UI";
+    }
     /* -------------------Burger Menu--------------------- */
     
     .container {
@@ -141,156 +97,61 @@ header {
         transition: 0.5s;
         border-radius: 5px;
     }
-    
-    .change .bar1 {
-        -webkit-transform: rotate(-45deg) translate(-13.5.5px, 9px);
-        transform: rotate(-45deg) translate(-13px, 8px);
-    }
-    
-    .change .bar2 {
-        opacity: 0;
-    }
-    
-    .change .bar3 {
-        -webkit-transform: rotate(45deg) translate(-13.5px, -9px);
-        transform: rotate(45deg) translate(-15.5px, -9px);
-    }
     /* -------------------SIDEBAR--------------------- */
     
-.show {
-    display:block;
-}
-
-    .w3-sidebar {
-        height: auto;
-        width: 80%;
-        background-color: lightgrey;
-        position: fixed!important;
+    .sidenav {
+        height: 100%;
+        /* 100% Full-height */
+        width: 0;
+        /* 0 width - change this with JavaScript */
+        position: fixed;
+        /* Stay in place */
         z-index: 1;
+        /* Stay on top */
+        top: 0;
+        /* Stay at the top */
         left: 0;
-        margin-top: 90px;
-        font-size: 100%;
-        font-family: "Segoe UI";
-        color: rgba(3, 82, 138, 1);
-        border-radius:0px 15px 15px 0px;
-        border-color: none;
+        background-color: lightgrey;
+        /* Black*/
+        overflow-x: hidden;
+        /* Disable horizontal scroll */
+        padding-top: 60px;
+        /* Place content 60px from the top */
+        transition: 0.5s;
+        /* 0.5 second transition effect to slide in the sidenav */
     }
+    /* The navigation menu links */
     
-    @media (min-width: 993px) {
-        .w3-modal-content {
-            width: 900px
-        }
-        .w3-hide-large {
-            display: none!important
-        }
-        .w3-sidebar.w3-collapse {
-            display: block!important
-        }
-    }
-    
-    @media (max-width:992px) {
-        .w3-sidebar.w3-collapse {
-            display: none
-        }
-        .w3-main {
-            margin-left: 0!important;
-            margin-right: 0!important
-        }
-    }
-    
-    .w3-bar-block .w3-dropdown-hover,
-    .w3-bar-block .w3-dropdown-click {
-        width: 100%
-    }
-    
-    .w3-bar-block .w3-dropdown-hover .w3-dropdown-content,
-    .w3-bar-block .w3-dropdown-click .w3-dropdown-content {
-        min-width: 100%
-    }
-    
-    .w3-bar-block .w3-dropdown-hover .w3-button,
-    .w3-bar-block .w3-dropdown-click .w3-button {
-        width: 100%;
-        text-align: center;
-    }
-    
-    .w3-bar-block .w3-bar-item {
-        width: calc(100% - 50px);
-        display: block;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        border: none;
-        outline: none;
-        white-space: normal;
-        float: none;
-    }
-    
-    .w3-bar-block.w3-center .w3-bar-item {
-        text-align: center
-    }
-    
-    .w3-border-right {
-        border-right: 1px solid #ccc!important
-    }
-    
-    .w3-bar-block.w3-center .w3-bar-item {
-        text-align: center
-    }
-    
-    .w3-bar-item.w3-mobile,
-    .w3-dropdown-hover.w3-mobile,
-    .w3-dropdown-click.w3-mobile {
-        text-align: center
-    }
-    
-    .w3-large {
-        font-size: 125%!important;
-        text-align: left;
-        margin-top: 10px;
-    }
-    
-    .w3-button {
-        border: none;
-        display: inline-block;
-        outline: 0;
-        padding: 15px 0px 15px 20px;
-        vertical-align: middle;
-        overflow: hidden;
+    .sidenav a {
+        padding: 8px 8px 20px 32px;
         text-decoration: none;
-        color: inherit;
-        background-color: inherit;
-        text-align: left;
-        cursor: pointer;
-        white-space: nowrap
+        font-size: 170%;
+        font-family: "Segeo UI";
+        color: rgba(3, 82, 138, 1);
+        display: block;
+        transition: 0.3s;
     }
+    /* Position and style the close button (top right corner) */
     
-    .w3-button {
-        -webkit-touch-callout: none;
-        -webkit-user-select: none;
-        -khtml-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none
+    .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 50px;
+        margin-left: 50px;
     }
+    /* Style page content - use this if you want to push the page content to the right when you open the side navigation 
+#main {
+    transition: margin-left .5s;
+    padding: 20px;
+}*/
+    /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
     
-    .w3-button:disabled {
-        cursor: not-allowed;
-        opacity: 0.3
-    }
-    
-    .w3-dropdown-hover:hover>.w3-button:first-child,
-    .w3-dropdown-click:hover>.w3-button:first-child {
-        background-color: #ccc;
-        color: #000
-    }
-    
-    .w3-bar-block .w3-dropdown-hover .w3-button,
-    .w3-bar-block .w3-dropdown-click .w3-button {
-        width: 100%;
-        text-align: left;
-        padding: 8px 16px
-    }
-    
-    .w3-bar .w3-button {
-        white-space: normal
+    @media screen and (max-height: 450px) {
+        .sidenav {
+            padding-top: 15px;
+        }
+        .sidenav a {
+            font-size: 18px;
+        }
     }

@@ -1,181 +1,135 @@
-/*global document, window, navigator, alert*/
+/*global $, document, google */
 
-function getCurrentLocation() {
+var map,
+    infowindow;
+
+
+function createMarker(place) {
     'use strict';
 
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function (position) {
-            currentPos = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-            };
-            //console.log('Jetzt ist position bekannt');
+    var icon,
+        marker;
+
+    if (place.types.indexOf("restaurant") > -1) {
+        icon = 'img/markers/brown_MarkerR.png';
+    } else if (place.types.indexOf("bank") > -1) {
+        icon = 'img/markers/yellow_MarkerB.png';
+    } else if (place.types.indexOf("supermarket") > -1) {
+        icon = 'img/markers/blue_MarkerS.png';
+    } else if (place.types.indexOf("shopping_mall") > -1) {
+        icon = 'img/markers/blue_MarkerS.png';
+    } else if (place.types.indexOf("gas_station") > -1) {
+        icon = 'img/markers/green_MarkerT.png';
+    }
+
+    marker = new google.maps.Marker({
+        map: map,
+        position: place.geometry.location,
+        icon: icon
+    });
+
+    google.maps.event.addListener(marker, 'click', function () {
+        infowindow.setContent(place.name);
+        infowindow.open(map, this);
+    });
+}
+
+function callback(results, status) {
+    'use strict';
+
+    var i;
+
+    if (status === google.maps.places.PlacesServiceStatus.OK) {
+        for (i = 0; i < results.length; i += 1) {
+            createMarker(results[i]);
+        }
+    }
+}
+
+function findPlaces(lat, lng) {
+    'use strict';
+
+    var service = new google.maps.places.PlacesService(map);
+
+    infowindow = new google.maps.InfoWindow();
+
+    service.nearbySearch({
+        location: new google.maps.LatLng(lat, lng),
+        radius: 1000,
+        type: ["restaurant"]
+    }, callback);
+
+    service.nearbySearch({
+        location: new google.maps.LatLng(lat, lng),
+        radius: 1000,
+        type: ["bank"]
+    }, callback);
+
+    service.nearbySearch({
+        location: new google.maps.LatLng(lat, lng),
+        radius: 1000,
+        type: ["supermarket"]
+    }, callback);
+
+    service.nearbySearch({
+        location: new google.maps.LatLng(lat, lng),
+        radius: 1000,
+        type: ["shopping_mall"]
+    }, callback);
+    
+    service.nearbySearch({
+        location: new google.maps.LatLng(lat, lng),
+        radius: 1000,
+        type: ["gas_station"]
+    }, callback);
+}
+
+function initMap(location) {
+    'use strict';
+
+    var mapProp,
+        lat,
+        lng,
+        marker,
+        zoom;
+
+    if (location !== "") {
+        if (location === "eisenstadt") {
+            lat = 47.829412;
+            lng = 16.535053;
+            zoom = 15;
+
+        } else if (location === "pinkafeld") {
+            lat = 47.362505;
+            lng = 16.126811;
+            zoom = 17;
+        }
+
+        mapProp = {
+            center: new google.maps.LatLng(lat, lng),
+            zoom: zoom
+        };
+
+        map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+
+        marker = new google.maps.Marker({
+            position: new google.maps.LatLng(lat, lng),
+            map: map
         });
-    } else {
-        alert("GEHT IN DEM BROWSER NICHT")
+
+        findPlaces(lat, lng);
     }
 }
 
-var currentPos = false; //User Position
-getCurrentLocation();
-
-function initMap() {
+$(document).ready(function () {
     'use strict';
 
-    //Funktion zum initialisieren der Map
-    //Packages für Routenplaner
-    var directionsService = new google.maps.DirectionsService;
-    var directionsDisplay = new google.maps.DirectionsRenderer;
+    var tabEisenstadt = document.getElementById("eisenstadt"),
+        tabPinkafeld = document.getElementById("pinkafeld");
 
-    //Karte initialisieren
-    var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 16, //zoom für Karte
-        center: {
-            lat: 47.829412,
-            lng: 16.535053
-        } //Karten Mittelpunkt
-    });
-    //zeige Karte
-    directionsDisplay.setMap(map);
-
-    // setze marker auf Karte
-    var markerFH = new google.maps.Marker({
-        position: {
-            lat: 47.829235,
-            lng: 16.535220
-        },
-        map: map,
-        title: 'Fachhochschulstudiengänge'
-    });
-    //Bereite info window vor für click
-    var infoWindowFH = new google.maps.InfoWindow({
-        content: 'Fachhochschulstudiengänge'
-    });
-    //lege click event auf marker
-    markerFH.addListener('click', function () {
-        //Zeige info window an auf map über Marker
-        infoWindowFH.open(map, markerFH);
-        //Zeige Route an wenn userPosition bekannt ist!
-        if (currentPos) {
-            calculateAndDisplayRoute(directionsService, directionsDisplay, {
-                lat: 47.829235,
-                lng: 16.535220
-            })
-        }
-    });
-
-    // setze marker auf Karte
-    var markerMC = new google.maps.Marker({
-        position: {
-            lat: 47.828495,
-            lng: 16.531519
-        },
-        map: map,
-        title: 'McDonald\'s Eisenstadt'
-    });
-    //Bereite info window vor für click
-    var infoWindowMC = new google.maps.InfoWindow({
-        content: 'McDonald\'s Eisenstadt'
-    });
-    //lege click event auf marker
-    markerMC.addListener('click', function () {
-        //Zeige info window an auf map über Marker
-        infoWindowMC.open(map, markerMC);
-        //Zeige Route an wenn userPosition bekannt ist!
-        if (currentPos) {
-            calculateAndDisplayRoute(directionsService, directionsDisplay, {
-                lat: 47.828495,
-                lng: 16.531519
-            })
-        }
-    });
-
-
-    var markerBistro = new google.maps.Marker({
-        position: {
-            lat: 47.830372,
-            lng: 16.532066
-        },
-        map: map,
-        title: 'Stefan\'s Eisenstadt'
-    });
-    //Bereite info window vor für click
-    var infoWindowBistro = new google.maps.InfoWindow({
-        content: 'Stefan\'s Bistro Eisenstadt'
-    });
-    //lege click event auf marker
-    markerBistro.addListener('click', function () {
-        //Zeige info window an auf map über Marker
-        infoWindowBistro.open(map, markerBistro);
-        //Zeige Route an wenn userPosition bekannt ist!
-        if (currentPos) {
-            calculateAndDisplayRoute(directionsService, directionsDisplay, {
-                lat: 47.830372,
-                lng: 16.532066
-            })
-        }
-    });
-
-    var markerRestaurantZapfel = new google.maps.Marker({
-        position: {
-            lat: 47.362337,
-            lng: 16.125756
-        },
-        map: map,
-        title: 'Restaurant Zapfel Pinkafeldt'
-    });
-    //Bereite info window vor für click
-    var infoWindowRestaurantZapfel = new google.maps.InfoWindow({
-        content: 'Restaurant Zapfel Pinkafeld'
-    });
-    //lege click event auf marker
-    markerRestaurantZapfel.addListener('click', function () {
-        //Zeige info window an auf map über Marker
-        infoWindowRestaurantZapfel.open(map, markerRestaurantZapfel);
-        //Zeige Route an wenn userPosition bekannt ist!
-        if (currentPos) {
-            calculateAndDisplayRoute(directionsService, directionsDisplay, {
-                lat: 47.362337,
-                lng: 16.125756
-            })
-        }
-    });
-
-
-    //Clickhandler um nach Eisenstadt zu springen
-    var clickHandlerEisenstadt = function (arg) {
-        pos = {
-            lat: 47.829412,
-            lng: 16.535053
-        };
-        map.setCenter(pos);
+    if (tabEisenstadt.getAttribute("class") === "active") {
+        initMap("eisenstadt");
+    } else if (tabPinkafeld.getAttribute("class") === "active") {
+        initMap("pinkafeld");
     }
-
-    //Clickhandler um nach Pinkafeld zu springen
-    var clickHandlerPinkafeld = function (arg) {
-        pos = {
-            lat: 47.373866,
-            lng: 16.125270
-        };
-        map.setCenter(pos);
-    }
-
-    //Binde Clickhandler an Buttons
-    document.getElementById('eisenstadt').addEventListener('click', clickHandlerEisenstadt);
-    document.getElementById('pinkafeld').addEventListener('click', clickHandlerPinkafeld);
-}
-
-function calculateAndDisplayRoute(directionsService, directionsDisplay, destination) {
-    console.log(currentPos);
-    directionsService.route({
-        origin: currentPos,
-        destination: destination,
-        travelMode: 'WALKING'
-    }, function (response, status) {
-        if (status === 'OK') {
-            directionsDisplay.setDirections(response);
-        } else {
-            window.alert('Directions request failed due to ' + status);
-        }
-    });
-}
+});
