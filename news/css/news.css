@@ -4,6 +4,7 @@
 
 .nav-pills {
 	width: 100%;
+    font-size: 12px;
 }
 
 .h4-main {
@@ -41,7 +42,7 @@ tr {
     max-width: 90%;
     min-width: 90%;
 }
-
+/*
 .dropdown {
     position: relative;
     display: inline-block;
@@ -73,4 +74,23 @@ tr {
 
 .dropdown:hover .dropbtn {
     background-color: #3e8e41;
+}
+*/
+
+.btn-primary-leitfaden {
+    width: 30%;
+    max-width: 30%;
+    min-width: 30%;
+    font-size: 12px;
+    height: 45px;
+    margin-bottom: 5px;
+    
+}
+
+.fit {
+    max-width: 99%;
+}
+
+.h4, h4 {
+    font-size:14px;
 }
