@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap-tabs.min.css">
     <!-- Hier wird eine andere Bootstrap-Version verwendet, weil es so in der w3-school vorgegeben wird, wenn nav pills gebaut werden -->
     <link rel="stylesheet" href="css/news.css">
-    <title>Kalender</title>
+    <title>Infos & News</title>
 </head>
 
 <body>
@@ -28,7 +28,6 @@
             function myFunction(x) {
                 x.classList.toggle("change");
             }
-
         </script>
 
         <!-- Hier folgt das Sidebar-Menü -->
@@ -55,7 +54,6 @@
             function w3_close() {
                 document.getElementById("mySidebar").style.display = "none";
             }
-
         </script>
 
         <a href="../index.html"><img src="../images/back.png" style="height: 45px; float:right; margin-top: 15px; margin-right: 15px;"></a>
@@ -67,9 +65,9 @@
 
             <!-- Horizontale Navigation -->
             <ul class="nav nav-pills">
-                <li class="active"><a data-toggle="pill" href="#aktuelles">Aktuelles</a></li>
+                <li class="active"><a data-toggle="pill" href="#aktuelles">News</a></li>
                 <li><a data-toggle="pill" href="#oeffnungszeiten">Öffnungszeiten</a></li>
-                <li><a data-toggle="pill" href="#leitfaden">Leitfaden</a></li>
+                <li><a data-toggle="pill" href="#leitfaden">Leitfäden</a></li>
                 <li><a data-toggle="pill" href="#oeh">ÖH</a></li>
                 <!--     <li><a data-toggle="pill" href="#news">News</a></li> -->
             </ul>
@@ -93,149 +91,59 @@
                 <!-- End Tab Aktuelles -->
 
                 <!-- Tab Öffnungszeiten -->
+                <!-- #Öffnungszeiten -->
                 <div id="oeffnungszeiten" class="tab-pane fade">
-                    <h4 class="h4-main">Service- und Öffnungszeiten <br>Eisenstadt</h4>
-                    <table style="width:100%">
-                        <tr>
-                            <th></th>
-                            <th>Helpdesk</th>
-                            <th>Service Center</th>
-
-                        </tr>
-                        <tr>
-                            <td id="table-day">MO</td>
-                            <td>08:00 - 14:00</td>
-                            <td>08:00 - 16:30</td>
-
-                        </tr>
-                        <tr>
-                            <td id="table-day">DI</td>
-                            <td>08:00 - 14:00</td>
-                            <td>08:00 - 16:30</td>
-                        </tr>
-                        <tr>
-                            <td id="table-day">MI</td>
-                            <td>08:00 - 14:00</td>
-                            <td>08:00 - 16:30</td>
-                        </tr>
-                        <tr>
-                            <td id="table-day">DO</td>
-                            <td>08:00 - 14:00</td>
-                            <td>08:00 - 16:30</td>
-                        </tr>
-                        <tr>
-                            <td id="table-day">FR</td>
-                            <td>08:00 - 14:00</td>
-                            <td>08:00 - 16:30</td>
-                        </tr>
-                        <tr>
-                            <td id="table-day"></td>
-                            <td>08:00 - 16:00*</td>
-                            <td>08:00 - 16:30*</td>
-                        </tr>
-                        <tr>
-                            <td id="table-day">SA</td>
-                            <td>08:00 - 14:00*</td>
-                            <td>08:00 - 14:00*</td>
-                        </tr>
-                    </table>
-                    <p id="p">*Präsenzwochenende</p>
+                    <h3 >Service- und Öffnungszeiten <br>Eisenstadt</h3>
+                    <table id="EHD" align="center"> </table>
                     <br>
-                    <h4 class="h4-main">Service- und Öffnungszeiten <br>Pinkafeld</h4>
-                    <table style="width:100%">
-                        <tr>
-                            <th></th>
-                            <th>Helpdesk</th>
-                            <th>Service Center</th>
-
-                        </tr>
-                        <tr>
-                            <td id="table-day">MO</td>
-                            <td>08:00 - 14:00</td>
-                            <td>08:00 - 16:30</td>
-
-                        </tr>
-                        <tr>
-                            <td id="table-day">DI</td>
-                            <td>08:00 - 14:00</td>
-                            <td>08:00 - 16:30</td>
-                        </tr>
-                        <tr>
-                            <td id="table-day">MI</td>
-                            <td>08:00 - 14:00</td>
-                            <td>08:00 - 16:30</td>
-                        </tr>
-                        <tr>
-                            <td id="table-day">DO</td>
-                            <td>08:00 - 14:00</td>
-                            <td>08:00 - 16:30</td>
-                        </tr>
-                        <tr>
-                            <td id="table-day">FR</td>
-                            <td>08:00 - 14:00</td>
-                            <td>08:00 - 16:30</td>
-                        </tr>
-                        <tr>
-                            <td id="table-day"></td>
-                            <td>08:00 - 18:00*</td>
-                            <td>08:00 - 16:30*</td>
-                        </tr>
-                        <tr>
-                            <td id="table-day">SA</td>
-                            <td>08:00 - 14:00*</td>
-                            <td>08:00 - 14:00*</td>
-                        </tr>
-                    </table>
-                    <p id="p">*Präsenzwochenende</p>
+                    <table id="ESC" align="center"> </table>
+                    <br>
+                    <h3>Service- und Öffnungszeiten <br>Pinkafeld</h3>
+                    <table id="PHD" align="center"> </table>
+                    <br>
+                    <table id="PSC" align="center"> </table>
+                    <br>
                 </div>
                 <!-- End Tab Öffnungszeiten -->
 
                 <!-- Tab Leitfaden -->
                 <div id="leitfaden" class="tab-pane fade">
-                    <h3>Dein Leitfaden durchs Studium</h3>
+                    <h3>Dein Weg durchs Studium</h3>
                     <p>Diese Leitfäden stellen die verschiedenen Abläufe an der FH Burgenland visuell dar. Mit einem Klick auf die einzelnen Abschnitte erhältst du mehr Informationen.</p>
 
-                    <div class="dropdown">
-                        <button class="btn btn-primary">Schritt für Schritt</button>
-                        <div class="dropdown-content">
-                            <a href="../leitfaden/tag-1.html">Der 1. Tag</a>
-                            <a href="../leitfaden/ablauf-lv.html">Ablauf von LV</a>
-                            <a href="../leitfaden/benotung.html">Benotung</a>
-                            <a href="../leitfaden/lv-anrechnung.html">Anrechnung von LV</a>
-                            <a href="../leitfaden/studienabschluss.html">Studienabschluss</a>
-                            <a href="../leitfaden/alumni-botschaft.html">Alumni-Botschafter</a>
+                    <!-- <div class="dropdown"> -->
+                    <div>
+                        <button class="btn btn-primary btn-primary-leitfaden" onclick="changeImage(0)">Tag 1</button>
+                        <button class="btn btn-primary btn-primary-leitfaden" onclick="changeImage(1)">LV Ablauf</button>
+                        <button class="btn btn-primary btn-primary-leitfaden" onclick="changeImage(2)">Benotung</button>
+                        <button class="btn btn-primary btn-primary-leitfaden" onclick="changeImage(3)">LV <br>Anrechnung</button>
+                        <button class="btn btn-primary btn-primary-leitfaden" onclick="changeImage(4)">Studien-<br>Abschluss</button>
+                        <button class="btn btn-primary btn-primary-leitfaden" onclick="changeImage(5)">Alumni <br>Botschafter</button>
+                        <br>
+                        <br>
+                      <!--  
+                    </div>
+                    <div class="images"> --> 
+                        <div class="image img-size" id="Bild0">
+                            <img src="img/0.jpg" width="97%">
+                        </div>
+                        <div class="image" id="Bild1">
+                            <img src="img/1.jpg" width="97%">
+                        </div>
+                        <div class="image" id="Bild2">
+                            <img src="img/2.jpg" width="97%">
+                        </div>
+                        <div class="image" id="Bild3">
+                            <img src="img/3.jpg" width="97%">
+                        </div>
+                        <div class="image" id="Bild4">
+                            <img src="img/4.jpg" width="97%">
+                        </div>
+                        <div class="image" id="Bild5">
+                            <img src="img/5.jpg" width="97%">
                         </div>
                     </div>
 
-                    <table>
-                        <tr>
-                            <td>
-                                <img src="img/tag1.png" alt="FH Tag 1">
-                            </td>
-                            <td> <button class="btn btn-primary"><a href="../leitfaden/tag-1.html">Der 1. Tag</a></button></td>
-                        </tr>
-                    </table>
-                    <!-- 
-                   <map> macht das Bild klickbar. Mit <area> werden die einzelnen klickbaren Quadrate definiert. 
-                    <img src="../leitfaden/img/uebersicht.jpg" id="map-image" style="width: 800px; max-width: 100%; height: auto;" alt="Leitfaden" usemap="#map">
-                    <map name="map">
-             <area shape="rect" coords="52, 349, 388, 486" alt="Tag 1" href="../leitfaden/tag-1.html"/>
-             <area shape="rect" coords="438, 586, 765, 734" alt="LV-Ablauf" href="../leitfaden/ablauf-lv.html"/>
-             <area shape="rect" coords="60, 798, 384, 953" alt="Benotung" href="../leitfaden/benotung.html"/>
-             <area shape="rect" coords="418, 1019, 788, 1175" alt="LV-Anrechnung" href="../leitfaden/lv-anrechnung.html"/>
-             <area shape="rect" coords="57, 1244, 382, 1392" alt="Studienabschluss" href="../leitfaden/studienabschluss.html"/>
-             <area shape="rect" coords="422, 1472, 788, 1620" alt="Alumni-Botschaft" href="../leitfaden/alumni-botschaft.html"/>
-         </map>
-
-                   imageMapResizer.min.js macht das Bild responsive 
-                    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-                    <script src="../leitfaden/js/imageMapResizer.min.js"></script>
-                    <script>
-                        $(document).ready(function(e) {
-                            $("map").imageMapResize();
-                        });
-
-                    </script> -->
                 </div>
 
                 <!-- End Tab Leitfaden -->
@@ -243,10 +151,10 @@
                 <div id="oeh" class="tab-pane fade">
                     <h3>ÖH FH Burgenland</h3>
                     <p>Die ÖH der FH Burgenland besteht seit 2008 und setzt sich für eure Anliegen ein. Die Österreichische HochschülerInnenschaft ist die gesetzliche Interessensvertretung der Studierenden und hat regional und studiengangsbezogen jeweils ihre Vertreter, die euch vor Ort unterstützen. </p> <br>
-                    
+
                     <br>
                     <div class="row">
-                       <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample" aria-expanded="false" aria-controls="multiCollapseExample">
+                        <button class="btn btn-primary btn-primary-oeh" type="button" data-toggle="collapse" data-target="#multiCollapseExample" aria-expanded="false" aria-controls="multiCollapseExample">
                         <h4>Deine Hochschulvertretung</h4>
                     </button>
                         <div class="col">
@@ -375,6 +283,7 @@
      <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>-->
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/news.js"></script>
+    <script type="text/javascript" src="js/opentime.js"></script>
 
 </body>
 
