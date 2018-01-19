@@ -1,6 +1,5 @@
 /*global document, $*/
 /*eslint-disable no-unused-vars*/
-
 function readOpenTime(data, tableName) {
     'use strict';
     

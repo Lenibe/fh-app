@@ -10,56 +10,42 @@
     <link rel="stylesheet" type="text/css" href="css/pers.css">
     <link rel="stylesheet" type="text/css" href="../css/body-css.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <script language="javascript" type="text/javascript" src="../js/index.js"></script>
     <title>Personenverzeichnis</title>
 </head>
 
 <body>
     <header>
-        <a href="../index.html"><img class="smalllogo" src="../images/fhapp-icon-weiss-transparent_klein.png" alt="FH Burgenland-Logo klein" style="width: 100%; margin-top: 8px; margin-right: 8px;"></a>
-
-        <button id="myBtn" class="burgerbutton"><div class="container, burger" onclick="myFunction(this); w3_open()" style="margin-top: 8px; margin-left: 8px;">
-            <div class="bar1"></div>
-            <div class="bar2"></div>
-            <div class="bar3"></div>
-            </div></button>
-
-        <!-- Dieses Skript ist die Animation für das Burger-Menü -->
-
-        <script>
-            function myFunction(x) {
-                x.classList.toggle("change");
-            }
-
-        </script>
-
-        <!-- Hier folgt das Sidebar-Menü -->
-
-        <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
-            <button onclick="w3_close()" class="w3-bar-item w3-large" style="background-color: lightgrey;color: rgba(3, 82, 138, 1); width: 100%"><b>Was suchst du?</b></button>
-            <a href="#" class="w3-bar-item w3-button">- Suche</a>
-            <a href="navi/navi.html" class="w3-bar-item w3-button">- Indoor Navigation</a>
-            <a href="pers/pers.html" class="w3-bar-item w3-button">- Personen</a>
-            <a href="info/info.html" class="w3-bar-item w3-button">- Umgebungsplan</a>
-            <a href="news/news.html" class="w3-bar-item w3-button">- Infos & News</a>
-            <a href="#" class="w3-bar-item w3-button">- Mensa</a>
-            <a href="#" class="w3-bar-item w3-button">- Alumni</a>
-            <a href="cal/cal.html" class="w3-bar-item w3-button">- Stundenplan</a>
-            <a href="cis/cis.html" class="w3-bar-item w3-button">- CIS</a>
-            <a href="loading/loading.html" class="w3-bar-item w3-button">- Lade-Animation</a>
+        <div id="mySidenav" class="sidenav" style="z-index: 2">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav(); closeNavBG()"><b>&times;</b></a>
+            <a href="../navi/navi.html" class="underline" style="padding-top: 25px">Indoornavigation</a>
+            <a href="../pers/pers.html" class="underline">Personen</a>
+            <a href="../news/news.html" class="underline">Infos & News</a>
+            <a href="../info/info.html" class="underline">Umgebungsplan</a>
+            <a href="#" class="underline">Alumni</a>
+            <a href="#" class="underline">Mensa</a>
+            <a href="../cal/cal.html" class="underline">Stundenplan</a>
+            <a href="../cis/cis.html" class="underline">CIS</a>
         </div>
 
-        <script>
-            function w3_open() {
-                document.getElementById("mySidebar").style.display = "block";
-            }
+        <div id="mySidenavBG" class="sidenav sidenavBG">
+        </div>
 
-            function w3_close() {
-                document.getElementById("mySidebar").style.display = "none";
-            }
+               <!-- Use any element to open the sidenav -->
+        <span onclick="openNav(); openNavBG()">
+            <button id="myBtn" class="burgerbutton" style="margin: 8px 0px 0px 8px">
+                <div class="container, burger">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
+            </button>            
+        </span>
 
-        </script>
+        <a href="../index.html"><img class="smalllogo" src="../images/fhapp-icon-weiss-transparent_klein.png" alt="FH Burgenland-Logo klein" style="width: 100%; margin-top: 8px; margin-right: 8px;"></a>
 
     </header>
+
     <section class="featurescreen">
         <div class="container">
             <div id="site" class="container-fluid subpage" department="">
