@@ -87,10 +87,13 @@
         <!--<iframe src="https://www.google.com/maps/d/embed?mid=1_2gWNMwMhyRdSKU7K_V-GoCVCCE" style="width:100%; height:100%; border:none;"></iframe>-->
 
         <ul class="nav nav-pills">
-            <li id="eisenstadt" class="active"><a data-toggle="pill" href="#eisenstadt">Eisenstadt</a></li>
-            <li id="pinkafeld" class=""><a data-toggle="pill" href="#pinkafeld">Pinkafeld</a></li>
+            <li id="eisenstadt" class="active"><a data-toggle="pill" href="#eisenstadt" onclick="initMap('eisenstadt')">Eisenstadt</a></li>
+            <li id="pinkafeld" class=""><a data-toggle="pill" href="#pinkafeld" onclick="initMap('pinkafeld')">Pinkafeld</a></li>
         </ul>
-        <div id="map" style="height: 100%"></div>
+        
+        <div id="googleMap" style="width:100%;height:100%;"></div>
+        
+        <!--<div id="map" style="height: 100%"></div>-->
         <!--<iframe src="https://www.google.com/maps/d/embed?mid=1_2gWNMwMhyRdSKU7K_V-GoCVCCE" style="width:100%; height:100%; border:none;"></iframe>-->
     </section>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
