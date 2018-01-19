@@ -250,6 +250,7 @@ header {
     }
     
     .w3-button {
+        font-size: 120%;
         border: none;
         display: inline-block;
         outline: 0;
