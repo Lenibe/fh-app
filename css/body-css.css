@@ -4,7 +4,11 @@
         background: linear-gradient(to right, #90b323, #007c57);
         font-family: "Segeo UI";
     }
+header {
+    display: block;
+
     
+}
     .smalllogo {
         float: right;
         /*width: 30%;*/
@@ -123,7 +127,7 @@
     /* -------------------Burger Menu--------------------- */
     
     .container {
-        display: inline-block;
+        display: block;
         cursor: pointer;
     }
     

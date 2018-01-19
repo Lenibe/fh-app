@@ -37,9 +37,9 @@ tr {
     background-color: #337ab7;
     border-color: #337ab7;
     margin-bottom: 20px;
-    width: 100%;
-    max-width: 100%;
-    min-width: 100%;
+    width: 90%;
+    max-width: 90%;
+    min-width: 90%;
 }
 
 .dropdown {
