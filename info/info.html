@@ -9,6 +9,7 @@
     <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
     <link rel="stylesheet" type="text/css" href="css/bootstrap-tabs.min.css">
     <link rel="stylesheet" type="text/css" href="../css/body-css.css">
+    <link rel="stylesheet" type="text/css" href="css/info.css">
     <script language="javascript" type="text/javascript" src="../js/index.js"></script>
     <title>Info/News</title>
 </head>
@@ -31,65 +32,28 @@
     <!-- IN DIE SECTION KOMMEN DIE EINZELNEN FEATURES -->
     <section class="featurescreen" style="padding: 0%;">
         <div class="container">
-            <!--<iframe src="https://www.google.com/maps/d/embed?mid=1_2gWNMwMhyRdSKU7K_V-GoCVCCE" style="width:100%; height:100%; border:none;"></iframe>-->
             <ul class="nav nav-pills">
-                <li id="eisenstadt" class="active"><a data-toggle="pill" href="#eisenstadt" onclick="initMap('eisenstadt')">Eisenstadt</a></li>
-                <li id="pinkafeld"><a data-toggle="pill" href="#pinkafeld" onclick="initMap('pinkafeld')">Pinkafeld</a></li>
+                <li id="eisenstadt" class="active"><a data-toggle="pill" href="#tabeisenstadt" onclick="initMap('eisenstadt')">Eisenstadt</a></li>
+                <li id="pinkafeld"><a data-toggle="pill" href="#tabpinkafeld" onclick="initMap('pinkafeld')">Pinkafeld</a></li>
             </ul>
             <div class="tab-content">
-                <div id="eisenstadt" class="tab-pane fade in active">
+                <div id="tabeisenstadt" class="tab-pane fade in active">
                     <h3>Willkommen in Eisenstadt</h3>
-                    <p>In diesem Plan sind umliegende Restaurants, Bankomaten und weitere nützliche Infos zur Umgebung der FH in Eisenstadt verzeichnet.</p>
+                    <p>In diesem Plan sind Restaurants <img src="img/markers/brown_MarkerR.png">, Bankomaten <img src="img/markers/yellow_MarkerB.png">, Tankstellen <img src="img/markers/green_MarkerT.png"> und Shoppingmöglichkeiten <img src="img/markers/blue_MarkerS.png"> in der Umgebung der FH in Eisenstadt verzeichnet.</p>
                 </div>
-                <div id="pinkafeld" class="tab-pane fade">
+                <div id="tabpinkafeld" class="tab-pane fade">
                     <h3>Willkommen in Pinkafeld</h3>
-                    <p>In diesem Plan sind umliegende Restaurants <img src="img/markers/brown_MarkerR.png">, Bankomaten und weitere nützliche Infos zur Umgebung der FH in Pinkafeld verzeichnet.</p>
+                    <p>In diesem Plan sind Restaurants <img src="img/markers/brown_MarkerR.png">, Bankomaten <img src="img/markers/yellow_MarkerB.png">, Tankstellen <img src="img/markers/green_MarkerT.png"> und Shoppingmöglichkeiten <img src="img/markers/blue_MarkerS.png"> in der Umgebung der FH in Pinkafeld verzeichnet.</p>
                 </div>
             </div>
         </div>
-        <div id="googleMap" style="width:100%;height:100%;"></div>
-        <!--<div id="map" style="height: 100%"></div>-->
-        <!--<iframe src="https://www.google.com/maps/d/embed?mid=1_2gWNMwMhyRdSKU7K_V-GoCVCCE" style="width:100%; height:100%; border:none;"></iframe>-->
+        <div id="googleMap"></div>
     </section>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/info.js"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvIbTxxVoT1ch7_JfKuC8LNhDaV-UX6tU&callback=initMap&libraries=places"></script>
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-    <!--<script>
-        // Note: This example requires that you consent to location sharing when
-        // prompted by your browser. If you see the error "The Geolocation service
-        // failed.", it means you probably did not give permission for the browser to
-        // locate you.
-
-        function initMap() {
-            var map = new google.maps.Map(document.getElementById('map'), {
-                center: {
-                    lat: -20.000,
-                    lng: 200.000
-                },
-                zoom: 6
-            });
-
-
-            document.getElementById("eisenstadt").addEventListener("click", changeCenter("eisenstadt"));
-            document.getElementById("pinkafeld").addEventListener("click", changeCenter("pinkafeld"));
-        }
-
-        function changeCenter(arg) {
-            pos = {};
-            if (arg === "eisenstadt") {
-                pos = {
-                    lat: 47.829412,
-                    lng: 16.535053
-                }
-            }
-            console.log(pos);
-            map.setCenter(pos);
-        }
-
-    </script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvIbTxxVoT1ch7_JfKuC8LNhDaV-UX6tU&callback=initMap"></script>-->
 </body>
 
 </html>
