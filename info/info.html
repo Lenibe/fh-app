@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html>
 
 <head>
@@ -16,23 +15,9 @@
 
 <body>
     <header>
-        <div id="mySidenav" class="sidenav" style="z-index: 2">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav(); closeNavBG()"><b>&times;</b></a>
-            <a href="../navi/navi.html" class="underline" style="padding-top: 25px">Indoornavigation</a>
-            <a href="../pers/pers.html" class="underline">Personen</a>
-            <a href="../news/news.html" class="underline">Infos & News</a>
-            <a href="../info/info.html" class="underline">Umgebungsplan</a>
-            <a href="#" class="underline">Alumni</a>
-            <a href="#" class="underline">Mensa</a>
-            <a href="../cal/cal.html" class="underline">Stundenplan</a>
-            <a href="../cis/cis.html" class="underline">CIS</a>
-        </div>
-
-        <div id="mySidenavBG" class="sidenav sidenavBG">
-        </div>
-
-               <!-- Use any element to open the sidenav -->
-        <span onclick="openNav(); openNavBG()">
+        <div id="mySidenav" class="sidenav" style="z-index: 2"> <a href="javascript:void(0)" class="closebtn" onclick="closeNav(); closeNavBG()"><b>&times;</b></a> <a href="../navi/navi.html" class="underline" style="padding-top: 25px">Indoornavigation</a> <a href="../pers/pers.html" class="underline">Personen</a> <a href="../news/news.html" class="underline">Infos & News</a> <a href="../info/info.html" class="underline">Umgebungsplan</a> <a href="#" class="underline">Alumni</a> <a href="#" class="underline">Mensa</a> <a href="../cal/cal.html" class="underline">Stundenplan</a> <a href="../cis/cis.html" class="underline">CIS</a> </div>
+        <div id="mySidenavBG" class="sidenav sidenavBG"> </div>
+        <!-- Use any element to open the sidenav --><span onclick="openNav(); openNavBG()">
             <button id="myBtn" class="burgerbutton" style="margin: 8px 0px 0px 8px">
                 <div class="container, burger">
                     <div class="bar1"></div>
@@ -41,24 +26,28 @@
                 </div>
             </button>            
         </span>
-
         <a href="../index.html"><img class="smalllogo" src="../images/fhapp-icon-weiss-transparent_klein.png" alt="FH Burgenland-Logo klein" style="width: 100%; margin-top: 8px; margin-right: 8px;"></a>
-
     </header>
-
     <!-- IN DIE SECTION KOMMEN DIE EINZELNEN FEATURES -->
-
     <section class="featurescreen" style="padding: 0%;">
-
-        <!--<iframe src="https://www.google.com/maps/d/embed?mid=1_2gWNMwMhyRdSKU7K_V-GoCVCCE" style="width:100%; height:100%; border:none;"></iframe>-->
-
-        <ul class="nav nav-pills">
-            <li id="eisenstadt" class="active"><a data-toggle="pill" href="#eisenstadt" onclick="initMap('eisenstadt')">Eisenstadt</a></li>
-            <li id="pinkafeld" class=""><a data-toggle="pill" href="#pinkafeld" onclick="initMap('pinkafeld')">Pinkafeld</a></li>
-        </ul>
-
+        <div class="container">
+            <!--<iframe src="https://www.google.com/maps/d/embed?mid=1_2gWNMwMhyRdSKU7K_V-GoCVCCE" style="width:100%; height:100%; border:none;"></iframe>-->
+            <ul class="nav nav-pills">
+                <li id="eisenstadt" class="active"><a data-toggle="pill" href="#eisenstadt" onclick="initMap('eisenstadt')">Eisenstadt</a></li>
+                <li id="pinkafeld"><a data-toggle="pill" href="#pinkafeld" onclick="initMap('pinkafeld')">Pinkafeld</a></li>
+            </ul>
+            <div class="tab-content">
+                <div id="eisenstadt" class="tab-pane fade in active">
+                    <h3>Willkommen in Eisenstadt</h3>
+                    <p>In diesem Plan sind umliegende Restaurants, Bankomaten und weitere nützliche Infos zur Umgebung der FH in Eisenstadt verzeichnet.</p>
+                </div>
+                <div id="pinkafeld" class="tab-pane fade">
+                    <h3>Willkommen in Pinkafeld</h3>
+                    <p>In diesem Plan sind umliegende Restaurants <img src="img/markers/brown_MarkerR.png">, Bankomaten und weitere nützliche Infos zur Umgebung der FH in Pinkafeld verzeichnet.</p>
+                </div>
+            </div>
+        </div>
         <div id="googleMap" style="width:100%;height:100%;"></div>
-
         <!--<div id="map" style="height: 100%"></div>-->
         <!--<iframe src="https://www.google.com/maps/d/embed?mid=1_2gWNMwMhyRdSKU7K_V-GoCVCCE" style="width:100%; height:100%; border:none;"></iframe>-->
     </section>
@@ -66,9 +55,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/info.js"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvIbTxxVoT1ch7_JfKuC8LNhDaV-UX6tU&callback=initMap&libraries=places"></script>
-
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-
     <!--<script>
         // Note: This example requires that you consent to location sharing when
         // prompted by your browser. If you see the error "The Geolocation service
