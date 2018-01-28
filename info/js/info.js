@@ -1,5 +1,4 @@
-/*global $, document, google */
-
+/* global google, map, infowindow */
 var map,
     infowindow;
 
@@ -76,12 +75,24 @@ function findPlaces(lat, lng) {
         radius: 1000,
         type: ["shopping_mall"]
     }, callback);
-    
+
     service.nearbySearch({
         location: new google.maps.LatLng(lat, lng),
         radius: 1000,
         type: ["gas_station"]
     }, callback);
+}
+
+function initEMap() {
+    'use strict';
+    
+    initMap("eisenstadt");
+}
+
+function initPMap() {
+    'use strict';
+    
+    initMap("pinkafeld");
 }
 
 function initMap(location) {
@@ -120,16 +131,3 @@ function initMap(location) {
         findPlaces(lat, lng);
     }
 }
-
-$(document).ready(function () {
-    'use strict';
-
-    var tabEisenstadt = document.getElementById("eisenstadt"),
-        tabPinkafeld = document.getElementById("pinkafeld");
-
-    if (tabEisenstadt.getAttribute("class") === "active") {
-        initMap("eisenstadt");
-    } else if (tabPinkafeld.getAttribute("class") === "active") {
-        initMap("pinkafeld");
-    }
-});
