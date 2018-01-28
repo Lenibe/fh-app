@@ -1,4 +1,4 @@
-/*global document*/
+/*global $, document*/
 /*eslint-disable no-unused-vars*/
 
     (function (d, s, id) {

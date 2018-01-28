@@ -38,9 +38,4 @@ $(document).ready(function () {
     });
     
     $('#calendar').fullCalendar('option', 'height', get_height());
-    
-    /*$('.fc-toolbar').find('.fc-button-group').addClass('btn btn-primary btn-block');*/
-    $('.fc-toolbar').find('.ui-button').addClass('btn btn-primary btn-block');
-    /*$('.fc-toolbar').find('.fc-prev-button').html($('<span />').attr('class', 'btn btn-primary btn-block'));
-    $('.fc-toolbar').find('.fc-next-button').html($('<span />').attr('class', 'btn btn-primary btn-block'));*/
 });
