@@ -16,7 +16,7 @@ $(document).ready(function () {
 		y = date.getFullYear();
     
     $('#calendar').fullCalendar({
-        header: {left: 'prev,next today', center: 'title', right: 'month,agendaWeek,agendaDay,listWeek'},   
+        header: {left: 'agendaDay,agendaWeek,month,listWeek', center: 'title', right: 'prev,today,next'},
         defaultDate: new Date(y, m, d),
         //hiddenDays: [ 0 ],
         navLinks: true, // can click day/week names to navigate views
@@ -37,7 +37,10 @@ $(document).ready(function () {
                 timeFormat: 'H(:mm)'
     });
     
-    
-    
     $('#calendar').fullCalendar('option', 'height', get_height());
+    
+    /*$('.fc-toolbar').find('.fc-button-group').addClass('btn btn-primary btn-block');*/
+    $('.fc-toolbar').find('.ui-button').addClass('btn btn-primary btn-block');
+    /*$('.fc-toolbar').find('.fc-prev-button').html($('<span />').attr('class', 'btn btn-primary btn-block'));
+    $('.fc-toolbar').find('.fc-next-button').html($('<span />').attr('class', 'btn btn-primary btn-block'));*/
 });
