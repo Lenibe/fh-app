@@ -1,6 +1,6 @@
 /*global $, document*/
 /*eslint-disable no-unused-vars*/
-
+/*
     (function (d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
@@ -9,7 +9,7 @@
         js.src = 'https://connect.facebook.net/de_DE/sdk.js#xfbml=1&version=v2.11';
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
-
+*/
 
 
 function changeImage(imgName) {
