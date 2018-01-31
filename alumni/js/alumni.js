@@ -1,3 +1,7 @@
+/* global window */
+
 function navigate(target) {
-var ref = window.open(encodeURI( target), '_system',        'transitionstyle=fliphorizontal');
+    'use strict';
+    
+    var ref = window.open(target, '_system');
 }
