@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap3/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/body-css.css">
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap3/bootstrap-tabs.min.css">
+    <!-- Hier wird eine andere Bootstrap-Version verwendet, weil es so in der w3-school vorgegeben wird, wenn nav pills gebaut werden -->
+    <link rel="stylesheet" href="css/news.css">
+
+    <script language="javascript" type="text/javascript" src="../js/index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/news.js"></script>
+    <script type="text/javascript" src="js/opentime.js"></script>
+    <script type="text/javascript" src="js/openOEH.js"></script>
+
+    <title>Infos & News</title>
+</head>
+
+<body>
+    <header>
+        <div id="mySidenav" class="sidenav" style="z-index: 2">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav(); closeNavBG()"><b>&times;</b></a>
+            <a href="../navi/navi.html" class="underline" style="padding-top: 25px">Indoornavigation</a>
+            <a href="../pers/pers.html" class="underline">Personen</a>
+            <a href="../news/news.html" class="underline">Infos & News</a>
+            <a href="../info/info.html" class="underline">Umgebungsplan</a>
+            <a href="#" class="underline">Alumni</a>
+            <a href="#" class="underline">Mensa</a>
+            <a href="../cal/cal.html" class="underline">Stundenplan</a>
+            <a href="../cis/cis.html" class="underline">CIS</a>
+        </div>
+
+        <div id="mySidenavBG" class="sidenav sidenavBG">
+        </div>
+
+        <!-- Use any element to open the sidenav -->
+        <span onclick="openNav(); openNavBG()">
+            <button id="myBtn" class="burgerbutton" style="margin: 8px 0px 0px 8px">
+                <div class="container, burger">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
+            </button>            
+        </span>
+
+        <a href="../index.html"><img class="smalllogo" src="../images/fhapp-icon-weiss-transparent_klein.png" alt="FH Burgenland-Logo klein" style="width: 100%; margin-top: 8px; margin-right: 8px;"></a>
+
+    </header>
+    <!-- IN DIE SECTION KOMMEN DIE EINZELNEN FEATURES -->
+    <section class="featurescreen">
+        <div class="container">
+
+            <!-- Horizontale Navigation -->
+            <ul class="nav nav-pills">
+                <li class="active"><a data-toggle="pill" href="#aktuelles">News</a></li>
+                <li><a data-toggle="pill" href="#oeffnungszeiten">Öffnungszeiten</a></li>
+                <li><a data-toggle="pill" href="#leitfaden">Leitfäden</a></li>
+                <li><a data-toggle="pill" href="#oeh">ÖH</a></li>
+                <!--     <li><a data-toggle="pill" href="#news">News</a></li> -->
+            </ul>
+            <!-- End Horizontale Navigation -->
+
+            <!-- Tab Aktuelles -->
+            <div class="tab-content">
+                <div id="aktuelles" class="tab-pane fade in active">
+                    <h3>Aktuelles rund um die FH Burgenland</h3>
+                    <p>Aktuelle Neuigkeiten und Infos rund um Studium und Lehre an der FH Burgenland findest du hier.</p>
+
+
+                    <!--<div id="fb-root"></div>
+                    <div class="fb-page" data-href="https://www.facebook.com/fhburgenland/" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true" data-width="500" data-height="600">
+                        <blockquote cite="https://www.facebook.com/fhburgenland/" class="fb-xfbml-parse-ignore">
+                            <a href="https://www.facebook.com/fhburgenland/">FH Burgenland</a>
+                        </blockquote>
+                    </div>-->
+                    <div class="fb-page">
+                        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ffhburgenland&tabs=timeline&width=320&height=500&small_header=true&adapt_container_width=true&hide_cover=true&show_facepile=true&appId" width="320" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+                    </div>
+                </div>
+
+                <!-- End Tab Aktuelles -->
+
+                <!-- Tab Öffnungszeiten -->
+                <!-- #Öffnungszeiten -->
+                <div id="oeffnungszeiten" class="tab-pane fade">
+                    <h3>Service- und Öffnungszeiten <br>Eisenstadt</h3>
+                    <table id="EHD" align="center"> </table>
+                    <br>
+                    <table id="ESC" align="center"> </table>
+                    <br>
+                    <h3>Service- und Öffnungszeiten <br>Pinkafeld</h3>
+                    <table id="PHD" align="center"> </table>
+                    <br>
+                    <table id="PSC" align="center"> </table>
+                    <br>
+                </div>
+                <!-- End Tab Öffnungszeiten -->
+
+                <!-- Tab Leitfaden -->
+                <div id="leitfaden" class="tab-pane fade">
+                    <h3>Dein Weg durchs Studium</h3>
+                    <p>Diese Leitfäden stellen die verschiedenen Abläufe an der FH Burgenland visuell dar. Mit einem Klick auf die einzelnen Abschnitte erhältst du mehr Informationen.</p>
+
+                    <!-- <div class="dropdown"> -->
+                    <div>
+                        <button class="btn btn-primary btn-primary-leitfaden" onclick="changeImage(0)">Tag 1</button>
+                        <button class="btn btn-primary btn-primary-leitfaden" onclick="changeImage(1)">LV Ablauf</button>
+                        <button class="btn btn-primary btn-primary-leitfaden" onclick="changeImage(2)">Benotung</button>
+                        <button class="btn btn-primary btn-primary-leitfaden" onclick="changeImage(3)">LV <br>Anrechnung</button>
+                        <button class="btn btn-primary btn-primary-leitfaden" onclick="changeImage(4)">Studien-<br>Abschluss</button>
+                        <button class="btn btn-primary btn-primary-leitfaden" onclick="changeImage(5)">Alumni <br>Botschafter</button>
+                        <br>
+                        <br>
+                        <!--  
+                    </div>
+                    <div class="images"> -->
+                        <div class="image img-size" id="Bild0">
+                            <img src="img/0.jpg" width="97%">
+                        </div>
+                        <div class="image" id="Bild1">
+                            <img src="img/1.jpg" width="97%">
+                        </div>
+                        <div class="image" id="Bild2">
+                            <img src="img/2.jpg" width="97%">
+                        </div>
+                        <div class="image" id="Bild3">
+                            <img src="img/3.jpg" width="97%">
+                        </div>
+                        <div class="image" id="Bild4">
+                            <img src="img/4.jpg" width="97%">
+                        </div>
+                        <div class="image" id="Bild5">
+                            <img src="img/5.jpg" width="97%">
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- End Tab Leitfaden -->
+                <!-- Tab ÖH -->
+                <div id="oeh" class="tab-pane fade">
+                    <h3>ÖH FH Burgenland</h3>
+                    <p>Die ÖH der FH Burgenland besteht seit 2008 und setzt sich für eure Anliegen ein. Die Österreichische HochschülerInnenschaft ist die gesetzliche Interessensvertretung der Studierenden und hat regional und studiengangsbezogen jeweils ihre Vertreter, die euch vor Ort unterstützen. </p> <br>
+
+                    <br>
+                    <div class="row">
+                        <button class="btn btn-primary btn-primary-oeh" type="button" data-toggle="collapse" data-target="#multiCollapseExample" aria-expanded="false" aria-controls="multiCollapseExample">
+                        <h4>Deine Hochschulvertretung</h4>
+                    </button>
+                        <div class="col">
+                            <div class="collapse multi-collapse" id="multiCollapseExample">
+                                <div class="card card-body" id="tabHV"></div>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample1" aria-expanded="false" aria-controls="multiCollapseExample1">
+    <h4>Deine Studienvertretung</h4></button><br>
+                        <div class="col">
+                            <div class="collapse multi-collapse" id="multiCollapseExample1">
+                                <div class="card card-body" id="tabSV"></div>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">
+
+    <h4>Deine Jahrgangsvertretung 2017/18</h4></button><br>
+                        <div class="col">
+                            <div class="collapse multi-collapse" id="multiCollapseExample2">
+                                <div class="card card-body" id="tabJV"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>

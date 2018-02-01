@@ -1,0 +1,32 @@
+.h1 {
+    margin-top: 20%;
+    padding-bottom: 40px;
+}
+
+.btn-group-vertical {
+    margin-top: 50%;
+    width: 100%;
+}
+
+/*.form-group {
+    width: 50%;
+}*/
+
+.form-control {
+    width: 70%; 
+    margin: auto;
+}
+
+.table-borderless > tbody > tr > td,
+.table-borderless > tbody > tr > th,
+.table-borderless > tfoot > tr > td,
+.table-borderless > tfoot > tr > th,
+.table-borderless > thead > tr > td,
+.table-borderless > thead > tr > th {
+    border: none;
+    vertical-align: baseline;
+}
+
+#eg0Map, #og1Map, #og2Map, #tb3Map, #heg0Map, #hog1Map, #seg0Map, #sog1Map, #leg0Map, #log1Map {
+    display: none;
+}

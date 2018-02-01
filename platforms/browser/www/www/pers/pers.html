@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=yes" />
+    
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+    <link rel="stylesheet" type="text/css" href="css/pers.css">
+    <link rel="stylesheet" type="text/css" href="../css/body-css.css">
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap3/bootstrap.min.css">
+    
+    <script language="javascript" type="text/javascript" src="../js/index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/pers.js"></script>
+    
+    <title>Personenverzeichnis</title>
+</head>
+
+<body>
+    <header>
+        <div id="mySidenav" class="sidenav" style="z-index: 2">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav(); closeNavBG()"><b>&times;</b></a>
+            <a href="../navi/navi.html" class="underline" style="padding-top: 25px">Indoornavigation</a>
+            <a href="../pers/pers.html" class="underline">Personen</a>
+            <a href="../news/news.html" class="underline">Infos & News</a>
+            <a href="../info/info.html" class="underline">Umgebungsplan</a>
+            <a href="#" class="underline">Alumni</a>
+            <a href="#" class="underline">Mensa</a>
+            <a href="../cal/cal.html" class="underline">Stundenplan</a>
+            <a href="../cis/cis.html" class="underline">CIS</a>
+        </div>
+
+        <div id="mySidenavBG" class="sidenav sidenavBG">
+        </div>
+
+               <!-- Use any element to open the sidenav -->
+        <span onclick="openNav(); openNavBG()">
+            <button id="myBtn" class="burgerbutton" style="margin: 8px 0px 0px 8px">
+                <div class="container, burger">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
+            </button>            
+        </span>
+
+        <a href="../index.html"><img class="smalllogo" src="../images/fhapp-icon-weiss-transparent_klein.png" alt="FH Burgenland-Logo klein" style="width: 100%; margin-top: 8px; margin-right: 8px;"></a>
+
+    </header>
+
+    <section class="featurescreen">
+        <div class="container">
+            <div id="site" class="container-fluid subpage" department="">
+                <div class="max1280 clearfix">
+                    <main id="content">
+                        <div class="tx-staff-directory-list">
+                            <input type="text" id="searchPerson" onkeyup="searchPerson()" placeholder="nach Namen suchen..." title="Tippen, um Namen zu suchen">
+                            <div id="pList">
+                                <ul class="personList" id="personList"></ul>
+                            </div>
+                        </div>
+                    </main>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        function sendMail() {
+            window.location.href="mailto:igor.ivkic@outlook.com";
+        }
+    </script>
+</body>
+
+</html>

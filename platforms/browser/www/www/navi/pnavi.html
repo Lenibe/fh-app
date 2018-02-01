@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>Navigation</title>
+    
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap3/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap3/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/body-css.css">
+    <link rel="stylesheet" type="text/css" href="css/navi.css">
+    <link rel="stylesheet" href="css/map-style.css">
+    
+    <script language="javascript" type="text/javascript" src="../js/index.js"></script>
+</head>
+
+<body>
+    <header>
+        <div id="mySidenav" class="sidenav" style="z-index: 2">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav(); closeNavBG()"><b>&times;</b></a>
+            <a href="../navi/navi.html" class="underline" style="padding-top: 25px">Indoornavigation</a>
+            <a href="../pers/pers.html" class="underline">Personen</a>
+            <a href="../news/news.html" class="underline">Infos & News</a>
+            <a href="../info/info.html" class="underline">Umgebungsplan</a>
+            <a href="#" class="underline">Alumni</a>
+            <a href="#" class="underline">Mensa</a>
+            <a href="../cal/cal.html" class="underline">Stundenplan</a>
+            <a href="../cis/cis.html" class="underline">CIS</a>
+        </div>
+
+        <div id="mySidenavBG" class="sidenav sidenavBG">
+        </div>
+
+               <!-- Use any element to open the sidenav -->
+        <span onclick="openNav(); openNavBG()">
+            <button id="myBtn" class="burgerbutton" style="margin: 8px 0px 0px 8px">
+                <div class="container, burger">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
+            </button>            
+        </span>
+
+        <a href="../index.html"><img class="smalllogo" src="../images/fhapp-icon-weiss-transparent_klein.png" alt="FH Burgenland-Logo klein" style="width: 100%; margin-top: 8px; margin-right: 8px;"></a>
+
+    </header>
+
+    <!-- IN DIE SECTION KOMMEN DIE EINZELNEN FEATURES -->
+
+    <section class="featurescreen">
+        <div class="container">
+            <div class="search-fields">
+                <form>
+                    <div class="form-group" id="fg-search-start-p">
+                        <label for="search-start-p">Startraum:</label>
+                        <select class="form-control" name="start-rooms-p" id="room-list-start-p"></select>
+                    </div>
+                    <div class="form-group" id="fg-search-end-p">
+                        <label for="search-end-p">Zielraum:</label>
+                        <select class="form-control" name="end-rooms-p" id="room-list-end-p"></select>
+                    </div>
+                    <a id="my-search-p" href="javascript:checkStartAndEnd()" class="btn btn-default" role="button" type="button">Weg finden</a>
+                </form>
+            </div>
+            <br/><br/><br/>
+            <div class="maps">
+               <div id="building"></div>
+                <div class="map" id="heg0Map"><img src="img/pinkafeld/pk_hauptg_eg.svg" alt="HG-EG"></div>
+                <div class="map" id="hog1Map"><img src="img/pinkafeld/pk_hauptg_og.svg" alt="HG-DG"></div>
+                <div class="map" id="seg0Map"><img src="img/pinkafeld/pk_sem_eg.svg" alt="ST-EG"></div>
+                <div class="map" id="sog1Map"><img src="img/pinkafeld/pk_sem_og.svg" alt="ST-OG"></div>
+                <div class="map" id="leg0Map"><img src="img/pinkafeld/pk_lab_eg.svg" alt="LT-EG"></div>
+                <div class="map" id="log1Map"><img src="img/pinkafeld/pk_lab_og.svg" alt="LT-OG"></div>
+                <div id="stairs"></div>
+            </div>
+        </div>
+    </section>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="../js/bootstrap3/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/pinkafeld/rooms-p.js"></script>
+    <script type="text/javascript" src="js/astar.js"></script>
+    <script type="text/javascript" src="js/stockwerke.js"></script>
+    <script type="text/javascript" src="js/pinkafeld/map-search-p.js"></script>
+</body>
+
+</html>
