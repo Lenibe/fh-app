@@ -6,7 +6,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title>Navigation</title>
-    
     <link rel="stylesheet" type="text/css" href="../css/bootstrap3/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../css/bootstrap3/bootstrap-theme.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -25,7 +24,7 @@
             <a href="../pers/pers.html" class="underline">Personen</a>
             <a href="../news/news.html" class="underline">Infos & News</a>
             <a href="../info/info.html" class="underline">Umgebungsplan</a>
-            <a href="#" class="underline">Alumni</a>
+            <a href="../alumni/alumni.html" class="underline">Alumni</a>
             <a href="#" class="underline">Mensa</a>
             <a href="../cal/cal.html" class="underline">Stundenplan</a>
             <a href="../cis/cis.html" class="underline">CIS</a>
@@ -55,27 +54,26 @@
         <div class="container">
             <div class="search-fields">
                 <form>
-                    <div class="form-group" id="fg-search-start-p">
-                        <label for="search-start-p">Startraum:</label>
-                        <select class="form-control" name="start-rooms-p" id="room-list-start-p"></select>
+                    <div class="form-group" id="fg-search-start">
+                        <label for="search-start-e">Startraum:</label>
+                        <select class="form-control" name="start-rooms" id="room-list-start-e"></select>
                     </div>
-                    <div class="form-group" id="fg-search-end-p">
-                        <label for="search-end-p">Zielraum:</label>
-                        <select class="form-control" name="end-rooms-p" id="room-list-end-p"></select>
+                    <div class="form-group" id="fg-search-end">
+                        <label for="search-end-e">Zielraum:</label>
+                        <select class="form-control" name="end-rooms" id="room-list-end-e"></select>
                     </div>
-                    <a id="my-search-p" href="javascript:checkStartAndEnd()" class="btn btn-default" role="button" type="button">Weg finden</a>
+                    <a id="my-search" href="javascript:checkStartAndEnd()" class="btn btn-default" role="button" type="button">Weg finden</a>
                 </form>
             </div>
             <br/><br/><br/>
             <div class="maps">
-               <div id="building"></div>
-                <div class="map" id="heg0Map"><img src="img/pinkafeld/pk_hauptg_eg.svg" alt="HG-EG"></div>
-                <div class="map" id="hog1Map"><img src="img/pinkafeld/pk_hauptg_og.svg" alt="HG-DG"></div>
-                <div class="map" id="seg0Map"><img src="img/pinkafeld/pk_sem_eg.svg" alt="ST-EG"></div>
-                <div class="map" id="sog1Map"><img src="img/pinkafeld/pk_sem_og.svg" alt="ST-OG"></div>
-                <div class="map" id="leg0Map"><img src="img/pinkafeld/pk_lab_eg.svg" alt="LT-EG"></div>
-                <div class="map" id="log1Map"><img src="img/pinkafeld/pk_lab_og.svg" alt="LT-OG"></div>
+                <div id="building"></div>
+                <div class="map" id="eg0Map"><img id="heg" src="img/eisenstadt/0eg-plan.svg" alt="eg"></div>
+                <div class="map" id="og1Map"><img id="hog1" src="img/eisenstadt/1og-plan.svg" alt="1og"></div>
+                <div class="map" id="og2Map"><img id="hog2" src="img/eisenstadt/2og-plan.svg" alt="2og"></div>
+                <div class="map" id="tb3Map"><img id="teg" src="img/eisenstadt/3tl-plan.svg" alt="techlab"></div>
                 <div id="stairs"></div>
+                
             </div>
         </div>
     </section>
@@ -86,10 +84,10 @@
     <script type="text/javascript" src="../js/bootstrap3/bootstrap.min.js"></script>
 
     <script type="text/javascript" src="js/main.js"></script>
-    <script type="text/javascript" src="js/pinkafeld/rooms-p.js"></script>
+    <script type="text/javascript" src="js/eisenstadt/rooms-e.js"></script>
     <script type="text/javascript" src="js/astar.js"></script>
     <script type="text/javascript" src="js/stockwerke.js"></script>
-    <script type="text/javascript" src="js/pinkafeld/map-search-p.js"></script>
+    <script type="text/javascript" src="js/eisenstadt/map-search-e.js"></script>
 </body>
 
 </html>
